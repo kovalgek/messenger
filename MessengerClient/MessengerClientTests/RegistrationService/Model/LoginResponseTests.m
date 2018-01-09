@@ -1,5 +1,5 @@
 //
-//  MessengerClientTests.m
+//  LoginResponseTests.m
 //  MessengerClientTests
 //
 //  Created by Anton Kovalchuk on 26.12.17.
@@ -8,11 +8,11 @@
 
 #import <XCTest/XCTest.h>
 
-@interface MessengerClientTests : XCTestCase
+@interface LoginResponseTests : XCTestCase
 
 @end
 
-@implementation MessengerClientTests
+@implementation LoginResponseTests
 
 - (void)setUp {
     [super setUp];
