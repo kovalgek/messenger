@@ -12,7 +12,6 @@
 @interface RegistrationResponseTests : XCTestCase
 {
     RegistrationResponse *registrationResponse;
-    NSError *error;
 }
 @end
 
@@ -21,14 +20,12 @@
 - (void)setUp
 {
     [super setUp];
-    error = [NSError errorWithDomain:@"Test domain" code:0 userInfo:nil];
-    registrationResponse = [[RegistrationResponse alloc] initWithError:error];
+    registrationResponse = [[RegistrationResponse alloc] initWithStatus:@"200"];
 }
 
 - (void)tearDown
 {
     registrationResponse = nil;
-    error = nil;
     [super tearDown];
 }
 
@@ -37,9 +34,9 @@
     XCTAssertNotNil(registrationResponse, @"Should be able to create RegistrationResponse instance");
 }
 
-- (void)testThatRegistrationResponseHasError
+- (void)testThatRegistrationResponseHasAStatus
 {
-    XCTAssertEqualObjects(registrationResponse.error, error, @"RegistrationResponse should has an error attribute");
+    XCTAssertEqualObjects(registrationResponse.status, @"200", @"RegistrationResponse should has a status attribute");
 }
 
 @end

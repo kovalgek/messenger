@@ -7,6 +7,7 @@
 //
 
 #import <XCTest/XCTest.h>
+#import "RegistrationRequest.h"
 #import "RegistrationResponse.h"
 #import "RegistrationServiceType.h"
 #import "RegistrationService.h"
@@ -89,7 +90,8 @@
 
 - (void)testRegistrationPassesDataToEncoder
 {
-    [service registrateUserWithPhoneNumber:@"+3123309201"];
+    RegistrationRequest *registrationRequest = [[RegistrationRequest alloc] initWithPhoneNumber:@"+3123309201"];
+    [service registrateUserWithRegistrationRequest:registrationRequest];
     XCTAssertEqual(encoder.phoneNumber, @"+3123309201", @"Registration service should pass data to encoder");
 }
 
@@ -121,7 +123,7 @@
 
 - (void)testDelegateNotToldAboutErrorWhenBufferReceived
 {
-    decoder.dataToReturn = [[RegistrationResponse alloc] initWithError:nil];
+    decoder.dataToReturn = [[RegistrationResponse alloc] initWithStatus:@""];
     [service receivedBuffer: @"fake buffer"];
     XCTAssertNil([delegate fetchError], @"No error should be received on success");
 }

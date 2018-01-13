@@ -7,7 +7,18 @@
 //
 
 #import "RegistrationEncoder.h"
+#import "RegistrationRequest.h"
+
+static const NSString *DELIMITER = @" ";
+static const NSString *MAGIC = @"registration";
 
 @implementation RegistrationEncoder
+
+- (NSString *) encodeRegistrationRequest:(RegistrationRequest *)registrationRequest
+                                   error:(NSError **)error
+{
+    NSParameterAssert(registrationRequest != nil);
+    return [NSString stringWithFormat:@"%@%@%@",MAGIC, DELIMITER, registrationRequest.phoneNumber];
+}
 
 @end

@@ -19,7 +19,7 @@
 
 @property (nonatomic, weak) id <RegistrationServiceDelegate> delegate;
 
-- (void) registrateUserWithPhoneNumber:(NSString *)phoneNumber;
+- (void) registrateUserWithRegistrationRequest:(RegistrationRequest *)registrationRequest;
 - (void) registrateUserWithPhoneNumberFailedWithError:(NSError *)error;
 
 @end

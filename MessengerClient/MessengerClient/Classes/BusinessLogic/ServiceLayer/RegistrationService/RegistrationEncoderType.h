@@ -7,10 +7,12 @@
 //
 #import <Foundation/Foundation.h>
 
+@class RegistrationRequest;
+
 @protocol RegistrationEncoderType
 
-- (NSString *) encodePhoneNumber:(NSString *)phoneNumber
-                           error:(NSError **)error;
+- (NSString *) encodeRegistrationRequest:(RegistrationRequest *)registrationRequest
+                                   error:(NSError **)error;
 
 @end
 

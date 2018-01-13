@@ -9,6 +9,12 @@
 #import <Foundation/Foundation.h>
 #import "RegistrationDecoderType.h"
 
+enum {
+    RegistrationDecoderInvalidBufferError,
+    RegistrationDecoderCantParseBuffer,
+    RegistrationDecoderStatusIsEmpty,
+};
+
 @interface RegistrationDecoder : NSObject <RegistrationDecoderType>
 
 @end

@@ -36,10 +36,10 @@ static NSString *RegistrationServiceFailedError = @"RegistrationServiceFailedErr
     _delegate = delegate;
 }
 
-- (void) registrateUserWithPhoneNumber:(NSString *)phoneNumber
+- (void) registrateUserWithRegistrationRequest:(RegistrationRequest *)registrationRequest
 {
     NSError *error = nil;
-    NSString *buffer = [self.encoder encodePhoneNumber:phoneNumber error:&error];
+    NSString *buffer = [self.encoder encodeRegistrationRequest:registrationRequest error:&error];
     
     if (error)
     {

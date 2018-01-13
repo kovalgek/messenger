@@ -10,11 +10,11 @@
 
 @implementation RegistrationResponse
 
-- (instancetype) initWithError:(NSError *)error
+- (instancetype) initWithStatus:(NSString *)status
 {
     self = [super init];
     
-    _error = error;
+    _status = status;
     
     return self;
 }

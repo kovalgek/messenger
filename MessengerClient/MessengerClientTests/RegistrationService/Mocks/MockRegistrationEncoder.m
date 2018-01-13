@@ -7,12 +7,14 @@
 //
 
 #import "MockRegistrationEncoder.h"
+#import "RegistrationRequest.h"
 
 @implementation MockRegistrationEncoder
 
-- (NSString *) encodePhoneNumber:(NSString *)phoneNumber error:(NSError **)error
+- (NSString *) encodeRegistrationRequest:(RegistrationRequest *)registrationRequest
+                                   error:(NSError **)error
 {
-    self.phoneNumber = phoneNumber;
+    self.phoneNumber = registrationRequest.phoneNumber;
     return @"";
 }
 

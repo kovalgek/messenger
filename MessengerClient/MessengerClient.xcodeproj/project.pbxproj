@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		721AB2951FFC37E6004F8B24 /* ServicesManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 721AB2941FFC37E6004F8B24 /* ServicesManager.m */; };
+		721AB299200557D4004F8B24 /* RegistrationEncoderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 721AB298200557D4004F8B24 /* RegistrationEncoderTests.m */; };
+		721AB29B200557E1004F8B24 /* RegistrationDecoderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 721AB29A200557E1004F8B24 /* RegistrationDecoderTests.m */; };
 		72530F831FF2FC74009500BD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 72530F821FF2FC74009500BD /* AppDelegate.m */; };
 		72530F861FF2FC74009500BD /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72530F851FF2FC74009500BD /* ViewController.m */; };
 		72530F891FF2FC74009500BD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 72530F871FF2FC74009500BD /* Main.storyboard */; };
@@ -55,8 +57,9 @@
 /* Begin PBXFileReference section */
 		721AB2931FFC37E6004F8B24 /* ServicesManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ServicesManager.h; sourceTree = "<group>"; };
 		721AB2941FFC37E6004F8B24 /* ServicesManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ServicesManager.m; sourceTree = "<group>"; };
-		721AB29620042609004F8B24 /* ServiceType.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ServiceType.h; sourceTree = "<group>"; };
 		721AB29720042E22004F8B24 /* FramerType.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FramerType.h; sourceTree = "<group>"; };
+		721AB298200557D4004F8B24 /* RegistrationEncoderTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RegistrationEncoderTests.m; sourceTree = "<group>"; };
+		721AB29A200557E1004F8B24 /* RegistrationDecoderTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RegistrationDecoderTests.m; sourceTree = "<group>"; };
 		72530F7E1FF2FC74009500BD /* MessengerClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MessengerClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		72530F811FF2FC74009500BD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		72530F821FF2FC74009500BD /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -105,6 +108,7 @@
 		7255C41C1FF3C78F00EFF48F /* MockRegistrationTransportWithData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MockRegistrationTransportWithData.m; sourceTree = "<group>"; };
 		7255C41E1FF810AB00EFF48F /* MockRegistrationEncoderWithError.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MockRegistrationEncoderWithError.h; sourceTree = "<group>"; };
 		7255C41F1FF810AB00EFF48F /* MockRegistrationEncoderWithError.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MockRegistrationEncoderWithError.m; sourceTree = "<group>"; };
+		725DD85D200A076700F5004D /* ServiceType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServiceType.h; sourceTree = "<group>"; };
 		727D345F1FFC2A2100C1E5B0 /* RegistrationServiceDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RegistrationServiceDelegate.h; sourceTree = "<group>"; };
 		727D34601FFC2B3000C1E5B0 /* MockRegistrationServiceDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MockRegistrationServiceDelegate.h; sourceTree = "<group>"; };
 		727D34611FFC2B3000C1E5B0 /* MockRegistrationServiceDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MockRegistrationServiceDelegate.m; sourceTree = "<group>"; };
@@ -221,8 +225,8 @@
 		72530FD41FF2FEE9009500BD /* ServiceLayer */ = {
 			isa = PBXGroup;
 			children = (
+				725DD85D200A076700F5004D /* ServiceType.h */,
 				721AB29720042E22004F8B24 /* FramerType.h */,
-				721AB29620042609004F8B24 /* ServiceType.h */,
 				721AB2931FFC37E6004F8B24 /* ServicesManager.h */,
 				721AB2941FFC37E6004F8B24 /* ServicesManager.m */,
 				72530FE01FF3AF5A009500BD /* MessageService */,
@@ -281,6 +285,8 @@
 			isa = PBXGroup;
 			children = (
 				72530FDC1FF3AF1A009500BD /* RegistrationServiceTests.m */,
+				721AB298200557D4004F8B24 /* RegistrationEncoderTests.m */,
+				721AB29A200557E1004F8B24 /* RegistrationDecoderTests.m */,
 				7255C40E1FF3C72300EFF48F /* Mocks */,
 				72530FCA1FF2FCF6009500BD /* Model */,
 			);
@@ -465,9 +471,11 @@
 				72530FC91FF2FCEB009500BD /* RegistrationResponseTests.m in Sources */,
 				7255C4141FF3C75800EFF48F /* MockRegistrationDecoder.m in Sources */,
 				7255C4111FF3C74C00EFF48F /* MockRegistrationEncoder.m in Sources */,
+				721AB29B200557E1004F8B24 /* RegistrationDecoderTests.m in Sources */,
 				7255C41A1FF3C78400EFF48F /* MockRegistrationTransportWithError.m in Sources */,
 				72530FCE1FF2FDD8009500BD /* LoginResponseTests.m in Sources */,
 				7255C4201FF810AB00EFF48F /* MockRegistrationEncoderWithError.m in Sources */,
+				721AB299200557D4004F8B24 /* RegistrationEncoderTests.m in Sources */,
 				72530FCC1FF2FDCB009500BD /* LoginRequestTests.m in Sources */,
 				727D34621FFC2B3000C1E5B0 /* MockRegistrationServiceDelegate.m in Sources */,
 			);

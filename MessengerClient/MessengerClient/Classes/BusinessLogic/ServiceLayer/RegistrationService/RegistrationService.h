@@ -11,6 +11,7 @@
 #import "RegistrationEncoderType.h"
 #import "RegistrationDecoderType.h"
 #import "RegistrationTransportType.h"
+//#import "ServiceType.h"
 #import "ServiceType.h"
 
 NS_ASSUME_NONNULL_BEGIN
