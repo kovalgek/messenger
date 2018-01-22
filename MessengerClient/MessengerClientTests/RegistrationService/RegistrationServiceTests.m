@@ -14,9 +14,6 @@
 #import "MockRegistrationDecoder.h"
 #import "MockRegistrationEncoderWithError.h"
 #import "MockRegistrationEncoder.h"
-#import "MockRegistrationTransport.h"
-#import "MockRegistrationTransportWithData.h"
-#import "MockRegistrationTransportWithError.h"
 #import "MockRegistrationServiceDelegate.h"
 
 @interface RegistrationServiceTests : XCTestCase
@@ -25,9 +22,6 @@
     MockRegistrationEncoder *encoder;
     MockRegistrationEncoderWithError *encoderWithError;
     MockRegistrationDecoder *decoder;
-    MockRegistrationTransport *transport;
-    MockRegistrationTransportWithData *transportWithData;
-    MockRegistrationTransportWithError *transportWithError;
     NSError *underlyingError;
     MockRegistrationServiceDelegate *delegate;
 }
@@ -43,18 +37,13 @@
     
     encoder = [[MockRegistrationEncoder alloc] init];
     decoder = [[MockRegistrationDecoder alloc] init];
-    transport = [[MockRegistrationTransport alloc] init];
-    transportWithData = [[MockRegistrationTransportWithData alloc] init];
-    transportWithError = [[MockRegistrationTransportWithError alloc] init];
     underlyingError = [NSError errorWithDomain:@"Test domain" code:0 userInfo:nil];
-    transportWithError.error = underlyingError;
     
     encoderWithError = [[MockRegistrationEncoderWithError alloc] init];
     encoderWithError.error = underlyingError;
     
     service = [[RegistrationService alloc] initWithEncoder:encoder
-                                                   decoder:decoder
-                                                 transport:transport];
+                                                   decoder:decoder];
     service.delegate = delegate;
     
 }
@@ -64,10 +53,7 @@
     service = nil;
     encoder = nil;
     decoder = nil;
-    transport = nil;
     underlyingError = nil;
-    transportWithError = nil;
-    transportWithData = nil;
     encoderWithError = nil;
     delegate = nil;
     [super tearDown];

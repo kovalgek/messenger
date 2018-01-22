@@ -8,17 +8,32 @@
 
 #import <Foundation/Foundation.h>
 #import "FramerType.h"
-#import "ServiceType.h"
+#import "MessageReceiverType.h"
+#import "MessageSenderType.h"
 
-@interface ServicesManager : NSObject
+NS_ASSUME_NONNULL_BEGIN
 
-@property (nonatomic, assign) NSUInteger socket;
-@property (nonatomic, strong) id<FramerType> framer;
-@property (nonatomic, strong) NSMutableArray <id<ServiceType>> *services;
+@interface ServicesManager : NSObject <MessageSenderType>
+{
+    NSMutableArray <id<MessageReceiverType>> *services;
+}
 
-- (void) addService:(id<ServiceType>)service;
-- (void) removeService:(id<ServiceType>)service;
+@property (nonatomic, strong, readonly) NSMutableArray <id<MessageReceiverType>> *services;
+
+- (instancetype) init NS_UNAVAILABLE;
+- (instancetype) new NS_UNAVAILABLE;
+
+- (instancetype) initWithFramer:(id<FramerType>)framer NS_DESIGNATED_INITIALIZER;
+
+- (void) setupTCPClientSocketWithHost:(NSString *)host
+                                 port:(NSString *)port;
 
 - (void) runMessagesLoop;
 
+- (void) addService:(id<MessageReceiverType>)service;
+- (void) removeService:(id<MessageReceiverType>)service;
+
 @end
+
+
+NS_ASSUME_NONNULL_END

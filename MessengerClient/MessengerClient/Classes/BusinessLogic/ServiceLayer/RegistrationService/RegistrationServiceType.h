@@ -8,14 +8,12 @@
 #import <Foundation/Foundation.h>
 #import "RegistrationEncoderType.h"
 #import "RegistrationDecoderType.h"
-#import "RegistrationTransportType.h"
 #import "RegistrationServiceDelegate.h"
 
 @protocol RegistrationServiceType
 
 @property (nonatomic, strong) id <RegistrationEncoderType> encoder;
 @property (nonatomic, strong) id <RegistrationDecoderType> decoder;
-@property (nonatomic, strong) id <RegistrationTransportType> transport;
 
 @property (nonatomic, weak) id <RegistrationServiceDelegate> delegate;
 

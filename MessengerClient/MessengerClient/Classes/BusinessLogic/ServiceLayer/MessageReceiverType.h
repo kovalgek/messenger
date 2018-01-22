@@ -7,9 +7,7 @@
 //
 #import <Foundation/Foundation.h>
 
-@protocol ServiceType <NSObject>
-
+@protocol MessageReceiverType <NSObject>
 - (void) receivedBuffer:(NSString *)buffer;
-
 @end
 

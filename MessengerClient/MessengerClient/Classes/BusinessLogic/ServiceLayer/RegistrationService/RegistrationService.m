@@ -14,13 +14,11 @@ static NSString *RegistrationServiceFailedError = @"RegistrationServiceFailedErr
 
 - (instancetype) initWithEncoder:(id <RegistrationEncoderType>)encoder
                          decoder:(id <RegistrationDecoderType>)decoder
-                       transport:(id <RegistrationTransportType>)transport
 {
     self = [super init];
     
     _encoder = encoder;
     _decoder = decoder;
-    _transport = transport;
     
     return self;
 }
@@ -47,7 +45,7 @@ static NSString *RegistrationServiceFailedError = @"RegistrationServiceFailedErr
         return;
     }
     
-    [self.transport registrateUserWithBuffer:buffer];
+    [self.senderDelegate sendMessage:buffer];
 }
 
 - (void) receivedBuffer:(NSString *)buffer
