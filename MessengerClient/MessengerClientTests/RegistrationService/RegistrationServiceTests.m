@@ -9,7 +9,6 @@
 #import <XCTest/XCTest.h>
 #import "RegistrationRequest.h"
 #import "RegistrationResponse.h"
-#import "RegistrationServiceType.h"
 #import "RegistrationService.h"
 #import "MockRegistrationDecoder.h"
 #import "MockRegistrationEncoderWithError.h"

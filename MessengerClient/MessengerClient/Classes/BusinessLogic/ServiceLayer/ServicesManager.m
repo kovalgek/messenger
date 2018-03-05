@@ -14,17 +14,18 @@ static const size_t MAX_WIRE_SIZE = 4096;
 @interface ServicesManager()
 @property (nonatomic, assign) int socket;
 @property (nonatomic, strong) id<FramerType> framer;
+@property (nonatomic, strong, readwrite) NSMutableArray <id<MessageReceiverType>> *services;
 @end
 
 @implementation ServicesManager
-@synthesize services;
+
 
 - (instancetype) initWithFramer:(id<FramerType>)framer
 {
     self = [super init];
     
     _framer = framer;
-    services = [[NSMutableArray alloc] init];
+    _services = [[NSMutableArray alloc] init];
     
     return self;
 }
@@ -47,7 +48,9 @@ static const size_t MAX_WIRE_SIZE = 4096;
     int rtnVal = getaddrinfo(cHost, cPort, &addrCriteria, &servAddr);
     if (rtnVal != 0)
     {
-        //dieWithUserMessage("getaddrinfo() failed", gai_strerror(rtnVal));
+        NSString *rtnValStr = [NSString stringWithCString:(char *)gai_strerror(rtnVal) encoding:NSUTF8StringEncoding];
+        [self dieWithUserMessage:@"getaddrinfo() failed"
+                          detail: rtnValStr];
     }
     
     self.socket = -1;
@@ -92,14 +95,14 @@ static const size_t MAX_WIRE_SIZE = 4096;
     FILE *channel = fdopen(self.socket, "r+");
     if (channel == NULL)
     {
-        //dieWithSystemMessage("fdopen() failed");
+        [self dieWithSystemMessage: @"fdopen() failed"];
     }
     
     // Receive and print response
     while ((mSize = [self.framer getNextMesageFromSocketStream:channel buffer:inbuf bufferSize:MAX_WIRE_SIZE]) > 0)
     {
         NSString *receivedBuffer = [NSString stringWithCString:(char *)inbuf encoding:NSUTF8StringEncoding];
-        
+        NSLog(@"receivedBuffer=%@",receivedBuffer);
         for(id<MessageReceiverType> service in self.services)
         {
             [service receivedBuffer:receivedBuffer];
@@ -112,12 +115,25 @@ static const size_t MAX_WIRE_SIZE = 4096;
     FILE *channel = fdopen(self.socket, "r+");
     if (channel == NULL)
     {
-        //dieWithSystemMessage("fdopen() failed");
+        [self dieWithSystemMessage: @"fdopen() failed"];
     }
     
     const char *buffer = [message UTF8String];
     
     [self.framer putMessageToSocketStream:channel buffer:(UInt8 *)buffer bufferSize:MAX_WIRE_SIZE];
+}
+
+- (void) dieWithUserMessage:(NSString *)message
+                     detail:(NSString *)detail
+{
+    NSLog(@"%@: %@\n",message, detail);
+    exit(1);
+}
+
+- (void) dieWithSystemMessage:(NSString *)message
+{
+    perror([message UTF8String]);
+    exit(1);
 }
 
 @end

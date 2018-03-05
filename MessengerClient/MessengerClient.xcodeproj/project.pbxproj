@@ -85,7 +85,6 @@
 		72530FD91FF3039D009500BD /* RegistrationResponse.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RegistrationResponse.h; sourceTree = "<group>"; };
 		72530FDA1FF3039D009500BD /* RegistrationResponse.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RegistrationResponse.m; sourceTree = "<group>"; };
 		72530FDC1FF3AF1A009500BD /* RegistrationServiceTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RegistrationServiceTests.m; sourceTree = "<group>"; };
-		72530FE11FF3C029009500BD /* RegistrationServiceType.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RegistrationServiceType.h; sourceTree = "<group>"; };
 		72530FE21FF3C03A009500BD /* RegistrationService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RegistrationService.h; sourceTree = "<group>"; };
 		72530FE31FF3C03A009500BD /* RegistrationService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RegistrationService.m; sourceTree = "<group>"; };
 		72530FE51FF3C0EA009500BD /* RegistrationEncoderType.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RegistrationEncoderType.h; sourceTree = "<group>"; };
@@ -181,8 +180,8 @@
 		72530F991FF2FC74009500BD /* MessengerClientTests */ = {
 			isa = PBXGroup;
 			children = (
-				72D9489D201670FB007D89F9 /* Mocks */,
 				72D9489B20167084007D89F9 /* ServicesManagerTests.m */,
+				72D9489D201670FB007D89F9 /* Mocks */,
 				7255C40D1FF3C70600EFF48F /* RegistrationService */,
 				72530F9C1FF2FC74009500BD /* Info.plist */,
 			);
@@ -258,7 +257,6 @@
 			isa = PBXGroup;
 			children = (
 				727D345F1FFC2A2100C1E5B0 /* RegistrationServiceDelegate.h */,
-				72530FE11FF3C029009500BD /* RegistrationServiceType.h */,
 				72530FE21FF3C03A009500BD /* RegistrationService.h */,
 				72530FE31FF3C03A009500BD /* RegistrationService.m */,
 				72530FE51FF3C0EA009500BD /* RegistrationEncoderType.h */,

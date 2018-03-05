@@ -14,9 +14,6 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface ServicesManager : NSObject <MessageSenderType>
-{
-    NSMutableArray <id<MessageReceiverType>> *services;
-}
 
 @property (nonatomic, strong, readonly) NSMutableArray <id<MessageReceiverType>> *services;
 

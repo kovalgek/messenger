@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "RegistrationServiceType.h"
+#import "RegistrationServiceDelegate.h"
 #import "RegistrationEncoderType.h"
 #import "RegistrationDecoderType.h"
 #import "MessageReceiverType.h"
@@ -19,7 +19,7 @@ typedef NS_ENUM(NSUInteger, RegistrationServiceError) {
     RegistrationCode,
 };
 
-@interface RegistrationService : NSObject <RegistrationServiceType, MessageReceiverType>
+@interface RegistrationService : NSObject <MessageReceiverType>
 
 @property (nonatomic, strong) id <RegistrationEncoderType> encoder;
 @property (nonatomic, strong) id <RegistrationDecoderType> decoder;
@@ -32,6 +32,9 @@ typedef NS_ENUM(NSUInteger, RegistrationServiceError) {
 
 - (instancetype) initWithEncoder:(id <RegistrationEncoderType>)encoder
                          decoder:(id <RegistrationDecoderType>)decoder NS_DESIGNATED_INITIALIZER;
+
+- (void) registrateUserWithRegistrationRequest:(RegistrationRequest *)registrationRequest;
+- (void) registrateUserWithPhoneNumberFailedWithError:(NSError *)error;
 
 @end
 
