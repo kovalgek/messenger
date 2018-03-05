@@ -8,6 +8,6 @@
 #import <Foundation/Foundation.h>
 
 @protocol MessageReceiverType <NSObject>
-- (void) receivedBuffer:(NSString *)buffer;
+- (void) receivedBuffer:(NSString *)buffer forSocket:(NSInteger)socket;
 @end
 

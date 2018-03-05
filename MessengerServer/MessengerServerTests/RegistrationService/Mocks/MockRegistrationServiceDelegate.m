@@ -7,18 +7,18 @@
 //
 
 #import "MockRegistrationServiceDelegate.h"
+#import "RegistrationResponse.h"
 
 @implementation MockRegistrationServiceDelegate
 
-- (void) registrateUserWithPhoneNumber:(NSString *)phoneNumber
-                       failedWithError:(NSError *)error
-{
-    self.fetchError = error;
-}
-
-- (void)didReceiveRegistration:(RegistrationResponse *)registrationResponse
+- (void)didReceiveRequest:(RegistrationRequest *)registrationRequest
 {
     
+}
+
+- (void)didReceiveError:(NSError *)error
+{
+    self.fetchError = error;
 }
 
 @end

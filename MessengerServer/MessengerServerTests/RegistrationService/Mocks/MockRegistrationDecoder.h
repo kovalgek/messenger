@@ -13,6 +13,6 @@
 
 @property (nonatomic, copy) NSString *buffer;
 @property (nonatomic, copy) NSError *errorToSet;
-@property (nonatomic, strong) RegistrationResponse *dataToReturn;
+@property (nonatomic, strong) RegistrationRequest *dataToReturn;
 
 @end

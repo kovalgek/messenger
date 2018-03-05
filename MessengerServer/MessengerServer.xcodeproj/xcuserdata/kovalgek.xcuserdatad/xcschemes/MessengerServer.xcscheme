@@ -29,6 +29,16 @@
       language = ""
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "72D948AC2017EC25007D89F9"
+               BuildableName = "MessengerServerTests.xctest"
+               BlueprintName = "MessengerServerTests"
+               ReferencedContainer = "container:MessengerServer.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference

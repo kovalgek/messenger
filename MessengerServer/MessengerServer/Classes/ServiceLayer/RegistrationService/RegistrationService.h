@@ -21,20 +21,16 @@ typedef NS_ENUM(NSUInteger, RegistrationServiceError) {
 
 @interface RegistrationService : NSObject <MessageReceiverType>
 
-@property (nonatomic, strong) id <RegistrationEncoderType> encoder;
-@property (nonatomic, strong) id <RegistrationDecoderType> decoder;
-
-@property (nonatomic, weak) id <RegistrationServiceDelegate> delegate;
+@property (nonatomic, weak) id <RegistrationServiceDelegate> serviceDelegate;
 @property (nonatomic, weak) id <MessageSenderType> senderDelegate;
 
 - (instancetype) init NS_UNAVAILABLE;
 - (instancetype) new NS_UNAVAILABLE;
-
 - (instancetype) initWithEncoder:(id <RegistrationEncoderType>)encoder
                          decoder:(id <RegistrationDecoderType>)decoder NS_DESIGNATED_INITIALIZER;
 
-- (void) registrateUserWithRegistrationRequest:(RegistrationRequest *)registrationRequest;
-- (void) registrateUserWithPhoneNumberFailedWithError:(NSError *)error;
+- (void) sendRegistrationResponseBackToUser:(RegistrationResponse *)registrationResponse;
+- (void) sendRegistrationResponseBackToUserFailedWithError:(NSError *)error;
 
 @end
 

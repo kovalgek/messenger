@@ -11,6 +11,6 @@
 
 @interface MockRegistrationEncoder : NSObject <RegistrationEncoderType>
 
-@property (nonatomic, copy) NSString *phoneNumber;
+@property (nonatomic, copy) NSString *status;
 
 @end

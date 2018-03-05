@@ -7,7 +7,7 @@
 //
 
 #import <XCTest/XCTest.h>
-#import "RegistrationRequest.h"
+#import "RegistrationResponse.h"
 #import "RegistrationEncoder.h"
 
 @interface RegistrationEncoderTests : XCTestCase
@@ -32,21 +32,21 @@
 
 - (void) testThatNilIsNotAnAcceptableParameter
 {
-    XCTAssertThrows([encoder encodeRegistrationRequest:nil error:NULL], @"Lack of data should have been handled elsewhere");
+    XCTAssertThrows([encoder encodeRegistrationResponse:nil error:NULL], @"Lack of data should have been handled elsewhere");
 }
 
 - (void)testPassingNullErrorDoesNotCauseCrash
 {
-    RegistrationRequest *registrationRequest = [[RegistrationRequest alloc] initWithPhoneNumber:@"something"];
-    XCTAssertNoThrow([encoder encodeRegistrationRequest:registrationRequest error:NULL], @"Using a NULL error parameter should not be a problem");
+    RegistrationResponse *registrationResponse = [[RegistrationResponse alloc] initWithStatus:@"200"];
+    XCTAssertNoThrow([encoder encodeRegistrationResponse:registrationResponse error:NULL], @"Using a NULL error parameter should not be a problem");
 }
 
 - (void)testEncoderEncodeInputAsExcpected
 {
     NSError *error;
-    RegistrationRequest *registrationRequest = [[RegistrationRequest alloc] initWithPhoneNumber:@"anton"];
-    NSString *result = [encoder encodeRegistrationRequest:registrationRequest error:&error];
-    XCTAssertEqualObjects(result, @"registration anton", @"Encoder should create string with magic word and info separated by delimiter");
+    RegistrationResponse *registrationResponse = [[RegistrationResponse alloc] initWithStatus:@"200"];
+    NSString *result = [encoder encodeRegistrationResponse:registrationResponse error:&error];
+    XCTAssertEqualObjects(result, @"registration 200", @"Encoder should create string with magic word and info separated by delimiter");
 }
 
 @end

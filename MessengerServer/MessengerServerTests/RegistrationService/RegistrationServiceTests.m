@@ -22,7 +22,7 @@
     MockRegistrationEncoderWithError *encoderWithError;
     MockRegistrationDecoder *decoder;
     NSError *underlyingError;
-    MockRegistrationServiceDelegate *delegate;
+    MockRegistrationServiceDelegate *serviceDelegate;
 }
 @end
 
@@ -32,7 +32,7 @@
 {
     [super setUp];
     
-    delegate = [[MockRegistrationServiceDelegate alloc] init];
+    serviceDelegate = [[MockRegistrationServiceDelegate alloc] init];
     
     encoder = [[MockRegistrationEncoder alloc] init];
     decoder = [[MockRegistrationDecoder alloc] init];
@@ -43,8 +43,7 @@
     
     service = [[RegistrationService alloc] initWithEncoder:encoder
                                                    decoder:decoder];
-    service.delegate = delegate;
-    
+    service.serviceDelegate = serviceDelegate;
 }
 
 - (void)tearDown
@@ -54,42 +53,42 @@
     decoder = nil;
     underlyingError = nil;
     encoderWithError = nil;
-    delegate = nil;
+    serviceDelegate = nil;
     [super tearDown];
 }
 
 - (void)testNonConformingObjectCannotBeDelegate
 {
-    XCTAssertThrows(service.delegate = (id<RegistrationServiceDelegate>)[NSNull null], @"NSNull doesn't conform to the delegate protocol");
+    XCTAssertThrows(service.serviceDelegate = (id<RegistrationServiceDelegate>)[NSNull null], @"NSNull doesn't conform to the delegate protocol");
 }
 
 - (void)testConformingObjectCanBeDelegate
 {
-    XCTAssertNoThrow(service.delegate = delegate, @"Object conforming to the delegate protocol can be delegate");
+    XCTAssertNoThrow(service.serviceDelegate = serviceDelegate, @"Object conforming to the delegate protocol can be delegate");
 }
 
 - (void)testManagerAcceptsNilAsADelegate
 {
-    XCTAssertNoThrow(service.delegate = nil, @"It should be acceptable to use nil as an object's delegate");
+    XCTAssertNoThrow(service.serviceDelegate = nil, @"It should be acceptable to use nil as an object's delegate");
 }
 
 - (void)testRegistrationPassesDataToEncoder
 {
-    RegistrationRequest *registrationRequest = [[RegistrationRequest alloc] initWithPhoneNumber:@"+3123309201"];
-    [service registrateUserWithRegistrationRequest:registrationRequest];
-    XCTAssertEqual(encoder.phoneNumber, @"+3123309201", @"Registration service should pass data to encoder");
+    RegistrationResponse *registrationResponse = [[RegistrationResponse alloc] initWithStatus:@"200"];
+    [service sendRegistrationResponseBackToUser:registrationResponse];
+    XCTAssertEqual(encoder.status, @"200", @"Registration service should pass data to encoder");
 }
 
 - (void) testErrorReturnedToDelegateIsNotErrorNotifiedByCommunicator
 {
-    [service registrateUserWithPhoneNumberFailedWithError: underlyingError];
-    XCTAssertFalse(underlyingError == [delegate fetchError], @"Error should be at the correct level of abstraction");
+    [service sendRegistrationResponseBackToUserFailedWithError: underlyingError];
+    XCTAssertFalse(underlyingError == [serviceDelegate fetchError], @"Error should be at the correct level of abstraction");
 }
 
 - (void) testErrorReturnedToDelegateDocumentsUnderlyingError
 {
-    [service registrateUserWithPhoneNumberFailedWithError: underlyingError];
-    XCTAssertEqualObjects([[[delegate fetchError] userInfo] objectForKey: NSUnderlyingErrorKey], underlyingError, @"The underlying error should be available to client code");
+    [service sendRegistrationResponseBackToUserFailedWithError: underlyingError];
+    XCTAssertEqualObjects([[[serviceDelegate fetchError] userInfo] objectForKey: NSUnderlyingErrorKey], underlyingError, @"The underlying error should be available to client code");
 }
 
 - (void)testRegistrationBufferIsPassedToDecoder
@@ -103,14 +102,14 @@
     decoder.dataToReturn = nil;
     decoder.errorToSet = underlyingError;
     [service receivedBuffer: @"fake buffer"];
-    XCTAssertNotNil([[[delegate fetchError] userInfo] objectForKey: NSUnderlyingErrorKey], @"The delegate should have found out about the error");
+    XCTAssertNotNil([[[serviceDelegate fetchError] userInfo] objectForKey: NSUnderlyingErrorKey], @"The delegate should have found out about the error");
 }
 
 - (void)testDelegateNotToldAboutErrorWhenBufferReceived
 {
-    decoder.dataToReturn = [[RegistrationResponse alloc] initWithStatus:@""];
+    decoder.dataToReturn = [[RegistrationRequest alloc] initWithPhoneNumber:@"123"];
     [service receivedBuffer: @"fake buffer"];
-    XCTAssertNil([delegate fetchError], @"No error should be received on success");
+    XCTAssertNil([serviceDelegate fetchError], @"No error should be received on success");
 }
 
 @end

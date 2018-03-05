@@ -8,8 +8,17 @@
 
 #import "RegistrationService.h"
 #import "RegistrationResponse.h"
+#import "UserStorage.h"
+#import "RegistrationRequest.h"
+#import "User.h"
 
 static NSString *RegistrationServiceFailedError = @"RegistrationServiceFailedError";
+
+@interface RegistrationService()
+@property (nonatomic, strong) id <RegistrationEncoderType> encoder;
+@property (nonatomic, strong) id <RegistrationDecoderType> decoder;
+@property (nonatomic, strong) UserStorage *userStorage;
+@end
 
 @implementation RegistrationService
 
@@ -21,18 +30,20 @@ static NSString *RegistrationServiceFailedError = @"RegistrationServiceFailedErr
     _encoder = encoder;
     _decoder = decoder;
     
+    _userStorage = [[UserStorage alloc] init];
+    
     return self;
 }
 
-- (void)setDelegate:(id<RegistrationServiceDelegate>)delegate
+- (void)setServiceDelegate:(id<RegistrationServiceDelegate>)serviceDelegate
 {
-    if (delegate && ![delegate conformsToProtocol: @protocol(RegistrationServiceDelegate)])
+    if (serviceDelegate && ![serviceDelegate conformsToProtocol: @protocol(RegistrationServiceDelegate)])
     {
         [[NSException exceptionWithName: NSInvalidArgumentException
                                  reason: @"Delegate object does not conform to the delegate protocol"
                                userInfo: nil] raise];
     }
-    _delegate = delegate;
+    _serviceDelegate = serviceDelegate;
 }
 
 - (void) sendRegistrationResponseBackToUser:(RegistrationResponse *)registrationResponse
@@ -49,7 +60,7 @@ static NSString *RegistrationServiceFailedError = @"RegistrationServiceFailedErr
     [self.senderDelegate sendMessage:buffer];
 }
 
-- (void) receivedBuffer:(NSString *)buffer
+- (void) receivedBuffer:(NSString *)buffer forSocket:(NSInteger)socket
 {
     NSError *error = nil;
     RegistrationRequest *registrationRequest = [self.decoder decodeRegistrationRequestFromBuffer:buffer error:&error];
@@ -65,7 +76,7 @@ static NSString *RegistrationServiceFailedError = @"RegistrationServiceFailedErr
     // if no -> create record in DB and send success status to client
     // in both cases status -(decoder)-> buffer, send back to client
     NSString *status;
-    if ([self checkPhoneNumberAndSendSmsToIt])
+    if ([self checkPhoneNumber:registrationRequest.phoneNumber forSocket:socket])
     {
         status = @"200";
     }
@@ -75,15 +86,25 @@ static NSString *RegistrationServiceFailedError = @"RegistrationServiceFailedErr
     }
     RegistrationResponse *registrationResponse = [[RegistrationResponse alloc] initWithStatus:status];
     [self sendRegistrationResponseBackToUser:registrationResponse];
-    [self.delegate didReceiveRequest:registrationRequest];
+    [self.serviceDelegate didReceiveRequest:registrationRequest];
 }
 
-- (BOOL) checkPhoneNumberAndSendSmsToIt
+- (BOOL) checkPhoneNumber:(NSString *)phoneNumber forSocket:(NSInteger)socket
 {
+    if ([self.userStorage findUserWithPhoneNumber:phoneNumber])
+    {
+        return NO;
+    }
+    User *user = [[User alloc] initWithPhoneNumber:phoneNumber];
+    user.socket = socket;
+    [self.userStorage addUser:user];
+    
+    NSArray *temp = [self.userStorage allUsers];
+    NSLog(@"temp=%@",[temp description]);
     return YES;
 }
 
-- (void) registrateUserWithPhoneNumberFailedWithError:(NSError *)error
+- (void) sendRegistrationResponseBackToUserFailedWithError:(NSError *)error
 {
     [self tellDelegateAboutRegistratipnError:error];
 }
@@ -100,7 +121,7 @@ static NSString *RegistrationServiceFailedError = @"RegistrationServiceFailedErr
                                                    code: 0
                                                userInfo: errorInfo];
     
-    [self.delegate registrateUserWithPhoneNumber:nil failedWithError:reportableError];
+    [self.serviceDelegate didReceiveError:reportableError];
 }
 
 @end

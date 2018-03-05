@@ -8,15 +8,17 @@
 
 #import "ServicesManager.h"
 #include <netdb.h>
+#import "AddressUtility.h"
+#import "ErrorHelper.h"
 
 static const size_t MAX_WIRE_SIZE = 4096;
 static const int MAXPENDING = 5; // Maximum outstanding connection requests
-static const int BUFSIZE = 1024;
+//static const int BUFSIZE = 1024;
 
 @interface ServicesManager()
 @property (nonatomic, assign) int serverSocket;
+@property (nonatomic, assign) int clientSocket;
 @property (nonatomic, strong) id<FramerType> framer;
-@property (nonatomic, strong) NSMutableArray <id<MessageReceiverType>> *services;
 @end
 
 @implementation ServicesManager
@@ -26,12 +28,12 @@ static const int BUFSIZE = 1024;
     self = [super init];
     
     _framer = framer;
-    _services = [[NSMutableArray alloc] init];
+    services = [[NSMutableArray alloc] init];
     
     return self;
 }
 
-- (void) setupTCPServerSocket:(NSString *)service
+- (void) setupTCPServerSocketWithService:(NSString *)service
 {
     // Construct the server address structure
     struct addrinfo addrCriteria; // Criteria for address match
@@ -47,8 +49,7 @@ static const int BUFSIZE = 1024;
     if (rtnVal != 0)
     {
         NSString *rtnValStr = [NSString stringWithCString:(char *)gai_strerror(rtnVal) encoding:NSUTF8StringEncoding];
-        [self dieWithUserMessage:@"getaddrinfo() failed"
-                          detail: rtnValStr];
+        [ErrorHelper dieWithUserMessage:@"getaddrinfo() failed" detail: rtnValStr];
     }
     self.serverSocket = -1;
     for (struct addrinfo *addr = servAddr; addr != NULL; addr = addr->ai_next)
@@ -68,10 +69,10 @@ static const int BUFSIZE = 1024;
             socklen_t addrSize = sizeof(localAddr);
             if (getsockname(self.serverSocket, (struct sockaddr *) &localAddr, &addrSize) < 0)
             {
-                [self dieWithSystemMessage:@"getaddrinfo() failed"];
+                [ErrorHelper dieWithSystemMessage:@"getaddrinfo() failed"];
             }
             fputs("Binding to ", stdout);
-            printSocketAddress((struct sockaddr *) &localAddr, stdout);
+            [AddressUtility printSocketAddress:(struct sockaddr *)&localAddr stream: stdout];
             fputc('\n', stdout);
             break; // Bind and list successful
         }
@@ -94,28 +95,26 @@ static const int BUFSIZE = 1024;
     int clntSock = accept(serverSocket, (struct sockaddr *) &clntAddr, &clntAddrLen);
     if (clntSock < 0)
     {
-        [self dieWithSystemMessage: @"accept() failed"];
+        [ErrorHelper dieWithSystemMessage: @"accept() failed"];
     }
     
     // clntSock is connected to a client!
     fputs("Handling client ", stdout);
-    printSocketAddress((struct sockaddr *) &clntAddr, stdout);
+    [AddressUtility printSocketAddress:(struct sockaddr *)&clntAddr stream: stdout];
     fputc('\n', stdout);
     
     return clntSock;
 }
 
-
 - (void) addService:(id<MessageReceiverType>)service
 {
-    [self.services addObject:service];
+    [services addObject:service];
 }
 
 - (void) removeService:(id<MessageReceiverType>)service
 {
-    [self.services removeObject:service];
+    [services removeObject:service];
 }
-
 
 - (void) runMessagesLoop
 {
@@ -123,7 +122,7 @@ static const int BUFSIZE = 1024;
     {
         // Wait for a client to connect
         int clientSocket = [self acceptTCPConnectionForSocket: self.serverSocket];
-        
+        self.clientSocket = clientSocket;
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
             [self handleTCPClient: clientSocket];
         });
@@ -136,15 +135,8 @@ static const int BUFSIZE = 1024;
     FILE *channel = fdopen(clientSocket, "r+");
     if (channel == NULL)
     {
-        [self dieWithSystemMessage: @"fdopen() failed"];
+        [ErrorHelper dieWithSystemMessage: @"fdopen() failed"];
     }
-    
-    // save socket to list
-//    User *newUser = addUserWithSocket(clntSocket, "", "");
-//    if (!newUser)
-//    {
-//        dieWithSystemMessage("can't save socket to list");
-//    }
     
     // Receive messages until connection closes
     size_t mSize;
@@ -154,134 +146,28 @@ static const int BUFSIZE = 1024;
     {
         NSString *receivedBuffer = [NSString stringWithCString:(char *)inbuf encoding:NSUTF8StringEncoding];
         
-        for(id<MessageReceiverType> service in self.services)
+        for(id<MessageReceiverType> service in services)
         {
-            [service receivedBuffer:receivedBuffer];
+            [service receivedBuffer:receivedBuffer forSocket:clientSocket];
         }
     }
-    
-//    Login login;
-//    ClientMessage clientMessage;
-//
-//    while ((mSize = getNextMesage(channel, inBuf, MAX_WIRE_SIZE)) > 0)
-//    {
-//        memset(&login, 0, sizeof(Login));
-//        memset(&clientMessage, 0, sizeof(ClientMessage));
-//
-//        printf("Received message (%zu bytes)\n", mSize);
-//
-//        if (decodeLogin(inBuf, mSize, &login))
-//        {
-//            printf("login: %s\n", login.value);
-//
-//            uuid_t uuid;
-//            uuid_generate_time(uuid);
-//            char uuid_str[37];
-//            uuid_unparse_lower(uuid, uuid_str);
-//            printf("generate uuid=%s\n", uuid_str);
-//
-//            // save logged-in user to struct
-//            strcpy(newUser->name, login.value);
-//            strcpy(newUser->token, uuid_str);
-//
-//            printUsers();
-//
-//            Token token;
-//            memset(&token, 0, sizeof(Token));
-//            strcpy(token.value, uuid_str);
-//
-//            uint8_t outBuf[MAX_WIRE_SIZE];
-//            mSize = encodeToken(&token, outBuf, MAX_WIRE_SIZE);
-//            if (putMessage(outBuf, mSize, channel) < 0)
-//            {
-//                fputs("Error framing/outputting message\n", stderr);
-//                break;
-//            }
-//            else
-//            {
-//                printf("Processed login:%s token:%s\n", login.value, token.value);
-//            }
-//            //fflush(channel);
-//        }
-//        else if (decodeClientMessage(inBuf, mSize, &clientMessage))
-//        {
-//            User *user = findByToken(clientMessage.token);
-//            if (!user)
-//            {
-//                continue;
-//            }
-//
-//            ServerMessage serverMessage;
-//            memset(&serverMessage, 0, sizeof(ServerMessage));
-//            strcpy(serverMessage.name, user->name);
-//            strcpy(serverMessage.text, clientMessage.text);
-//
-//
-//            uint8_t outBuf[MAX_WIRE_SIZE];
-//            mSize = encodeServerMessage(&serverMessage, outBuf, MAX_WIRE_SIZE);
-//
-//            User *currentUser = getUserHead();
-//
-//            while (currentUser)
-//            {
-//                FILE *currentUserChannel = fdopen(currentUser->socket, "r+");
-//                if (currentUserChannel == NULL)
-//                {
-//                    dieWithSystemMessage("fdopen() failed");
-//                }
-//
-//                if (putMessage(outBuf, mSize, currentUserChannel) < 0)
-//                {
-//                    fputs("Error framing/outputting message\n", stderr);
-//                    break;
-//                }
-//                else
-//                {
-//                    printf("Processed clientMessage name:%s text:%s\n", serverMessage.name, serverMessage.text);
-//                }
-//
-//                currentUser = currentUser->next;
-//            }
-//        }
-//        else
-//        {
-//            fputs("Parse error, closing connection.\n", stderr);
-//            break;
-//        }
-//        memset(&inBuf, 0, MAX_WIRE_SIZE);
-//    }
-//    puts("Client finished");
 }
 
 - (void)sendMessage:(NSString *)message
 {
-    FILE *channel = fdopen(self.serverSocket, "r+");
+    FILE *channel = fdopen(self.clientSocket, "r+");
     if (channel == NULL)
     {
-        [self dieWithSystemMessage: @"fdopen() failed"];
+        [ErrorHelper dieWithSystemMessage: @"fdopen() failed"];
     }
     
     const char *buffer = [message UTF8String];
-    
     [self.framer putMessageToSocketStream:channel buffer:(UInt8 *)buffer bufferSize:MAX_WIRE_SIZE];
 }
 
 - (void)sendMessageToAllUsers:(NSString *)message
 {
     
-}
-
-- (void) dieWithUserMessage:(NSString *)message
-                     detail:(NSString *)detail
-{
-    NSLog(@"%@: %@\n",message, detail);
-    exit(1);
-}
-
-- (void) dieWithSystemMessage:(NSString *)message
-{
-    perror([message UTF8String]);
-    exit(1);
 }
 
 @end

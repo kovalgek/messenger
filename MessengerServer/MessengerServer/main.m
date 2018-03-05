@@ -7,11 +7,27 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "ServicesManager.h"
+#import "DelimiterFramer.h"
+#import "RegistrationService.h"
+#import "RegistrationDecoder.h"
+#import "RegistrationEncoder.h"
 
-int main(int argc, const char * argv[]) {
+int main(int argc, const char * argv[])
+{
     @autoreleasepool {
-        // insert code here...
         NSLog(@"Hello, World!");
+        
+        RegistrationDecoder *decoder = [[RegistrationDecoder alloc] init];
+        RegistrationEncoder *encoder = [[RegistrationEncoder alloc] init];
+        
+        RegistrationService *registrationService = [[RegistrationService alloc] initWithEncoder:encoder decoder:decoder];
+        DelimiterFramer *delimiterFramer = [[DelimiterFramer alloc] init];
+        ServicesManager *servicesManager = [[ServicesManager alloc] initWithFramer:delimiterFramer];
+        [servicesManager setupTCPServerSocketWithService:@"5000"];
+        [servicesManager addService:registrationService];
+        registrationService.senderDelegate = servicesManager;
+        [servicesManager runMessagesLoop];
     }
     return 0;
 }

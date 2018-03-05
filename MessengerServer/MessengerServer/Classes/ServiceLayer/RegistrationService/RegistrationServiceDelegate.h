@@ -11,9 +11,7 @@
 
 @protocol RegistrationServiceDelegate <NSObject>
 
-- (void) registrateUserWithPhoneNumber:(NSString *)phoneNumber
-                       failedWithError:(NSError *)error;
-
+- (void) didReceiveError:(NSError *)error;
 - (void) didReceiveRequest:(RegistrationRequest *)registrationRequest;
 
 @end

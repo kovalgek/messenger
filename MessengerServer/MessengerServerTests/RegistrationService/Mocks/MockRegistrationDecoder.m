@@ -10,7 +10,8 @@
 
 @implementation MockRegistrationDecoder
 
-- (RegistrationResponse *)decodeRegistrationResponseFromBuffer:(NSString *)buffer error:(NSError *__autoreleasing *)error
+- (RegistrationRequest *)decodeRegistrationRequestFromBuffer:(NSString *)buffer
+                                                       error:(NSError *__autoreleasing *)error
 {
     self.buffer = buffer;
     if (error)

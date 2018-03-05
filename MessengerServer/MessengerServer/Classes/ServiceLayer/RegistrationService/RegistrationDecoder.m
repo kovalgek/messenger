@@ -7,7 +7,7 @@
 //
 
 #import "RegistrationDecoder.h"
-#import "RegistrationResponse.h"
+#import "RegistrationRequest.h"
 
 static NSString *DELIMITER = @" ";
 static NSString *MAGIC = @"registration";
@@ -15,8 +15,8 @@ static NSString *RegistrationDecoderErrorDomain = @"RegistrationDecoderErrorDoma
 
 @implementation RegistrationDecoder
 
-- (RegistrationResponse *)decodeRegistrationResponseFromBuffer:(NSString *)buffer
-                                                         error:(NSError *__autoreleasing *)error
+- (RegistrationRequest *)decodeRegistrationRequestFromBuffer:(NSString *)buffer
+                                                       error:(NSError *__autoreleasing *)error
 {
     NSParameterAssert(buffer != nil);
     
@@ -44,8 +44,8 @@ static NSString *RegistrationDecoderErrorDomain = @"RegistrationDecoderErrorDoma
         return nil;
     }
     
-    NSString *status = tokens[1];
-    if (!status.length)
+    NSString *phoneNumber = tokens[1];
+    if (!phoneNumber.length)
     {
         if (error != NULL)
         {
@@ -56,8 +56,8 @@ static NSString *RegistrationDecoderErrorDomain = @"RegistrationDecoderErrorDoma
         return nil;
     }
     
-    RegistrationResponse *registrationResponse = [[RegistrationResponse alloc] initWithStatus:status];
-    return registrationResponse;
+    RegistrationRequest *registrationRequest = [[RegistrationRequest alloc] initWithPhoneNumber:phoneNumber];
+    return registrationRequest;
 }
 
 @end

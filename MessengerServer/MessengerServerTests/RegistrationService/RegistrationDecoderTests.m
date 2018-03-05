@@ -31,30 +31,30 @@
 
 - (void) testThatNilIsNotAnAcceptableParameter
 {
-    XCTAssertThrows([decoder decodeRegistrationResponseFromBuffer:nil error:NULL], @"Lack of data should have been handled elsewhere");
+    XCTAssertThrows([decoder decodeRegistrationRequestFromBuffer:nil error:NULL], @"Lack of data should have been handled elsewhere");
 }
 
 - (void)testNilReturnedWhenBufferIsNotValid
 {
-    XCTAssertNil([decoder decodeRegistrationResponseFromBuffer: @"" error: NULL], @"This parameter should not be parsable");
+    XCTAssertNil([decoder decodeRegistrationRequestFromBuffer:@"" error: NULL], @"This parameter should not be parsable");
 }
 
 - (void)testPassingNullErrorDoesNotCauseCrash
 {
-    XCTAssertNoThrow([decoder decodeRegistrationResponseFromBuffer: @"" error: NULL], @"Using a NULL error parameter should not be a problem");
+    XCTAssertNoThrow([decoder decodeRegistrationRequestFromBuffer: @"" error: NULL], @"Using a NULL error parameter should not be a problem");
 }
 
 - (void)testInvalidBufferErrorSetWhenBufferIsEmpty
 {
     NSError *error = nil;
-    [decoder decodeRegistrationResponseFromBuffer: @"" error: &error];
+    [decoder decodeRegistrationRequestFromBuffer: @"" error: &error];
     XCTAssert(error.code == RegistrationDecoderInvalidBufferError, @"An error occurred, we should be told");
 }
 
 - (void)testCantParseErrorWhenThereIsNoMagicWord
 {
     NSError *error = nil;
-    [decoder decodeRegistrationResponseFromBuffer: @"nomagic buffer" error: &error];
+    [decoder decodeRegistrationRequestFromBuffer: @"nomagic buffer" error: &error];
     XCTAssert(error.code == RegistrationDecoderCantParseBuffer, @"An error occurred, we should be told");
 }
 

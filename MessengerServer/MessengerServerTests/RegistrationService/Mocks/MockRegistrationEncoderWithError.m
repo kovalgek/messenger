@@ -10,7 +10,8 @@
 
 @implementation MockRegistrationEncoderWithError
 
-- (NSString *) encodePhoneNumber:(NSString *)phoneNumber error:(NSError **)error
+- (NSString *) encodeRegistrationResponse:(RegistrationResponse *)registrationResponse
+                                    error:(NSError **)error
 {
     *error = self.error;
     return @"";

@@ -12,17 +12,16 @@
 #import "FramerType.h"
 
 @interface ServicesManager : NSObject <MessageSenderType>
-
-@property (nonatomic, strong, readonly) NSMutableArray <id<MessageReceiverType>> *services;
+{
+    @protected
+    NSMutableArray <id<MessageReceiverType>> *services;
+}
 
 - (instancetype) init NS_UNAVAILABLE;
 - (instancetype) new NS_UNAVAILABLE;
-
 - (instancetype) initWithFramer:(id<FramerType>)framer NS_DESIGNATED_INITIALIZER;
 
-- (void) setupTCPClientSocketWithHost:(NSString *)host
-                                 port:(NSString *)port;
-
+- (void) setupTCPServerSocketWithService:(NSString *)service;
 - (void) runMessagesLoop;
 
 - (void) addService:(id<MessageReceiverType>)service;
