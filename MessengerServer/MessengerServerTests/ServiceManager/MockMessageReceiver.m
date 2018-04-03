@@ -10,7 +10,7 @@
 
 @implementation MockMessageReceiver
 
-- (void)receivedBuffer:(NSString *)buffer
+- (void)receivedBuffer:(NSString *)buffer forSocket:(NSInteger)socket
 {
     self.buffer = buffer;
 }

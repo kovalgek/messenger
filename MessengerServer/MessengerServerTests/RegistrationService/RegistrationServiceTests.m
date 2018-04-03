@@ -93,7 +93,7 @@
 
 - (void)testRegistrationBufferIsPassedToDecoder
 {
-    [service receivedBuffer: @"fake buffer"];
+    [service receivedBuffer: @"fake buffer" forSocket:0];
     XCTAssertEqualObjects(decoder.buffer, @"fake buffer", @"Downloaded buffer is sent to the decoder");
 }
 
@@ -101,14 +101,14 @@
 {
     decoder.dataToReturn = nil;
     decoder.errorToSet = underlyingError;
-    [service receivedBuffer: @"fake buffer"];
+    [service receivedBuffer: @"fake buffer" forSocket:0];
     XCTAssertNotNil([[[serviceDelegate fetchError] userInfo] objectForKey: NSUnderlyingErrorKey], @"The delegate should have found out about the error");
 }
 
 - (void)testDelegateNotToldAboutErrorWhenBufferReceived
 {
     decoder.dataToReturn = [[RegistrationRequest alloc] initWithPhoneNumber:@"123"];
-    [service receivedBuffer: @"fake buffer"];
+    [service receivedBuffer: @"fake buffer" forSocket:0];
     XCTAssertNil([serviceDelegate fetchError], @"No error should be received on success");
 }
 

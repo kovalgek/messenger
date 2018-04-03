@@ -11,6 +11,8 @@
 
 @interface MockFramer : NSObject <FramerType>
 
+- (instancetype) init;
+
 @property (nonatomic, assign) BOOL wasAskedToGetNextMessage;
 @property (nonatomic, assign) BOOL wasAskedToPutMessage;
 

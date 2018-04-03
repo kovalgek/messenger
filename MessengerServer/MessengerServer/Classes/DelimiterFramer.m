@@ -7,6 +7,7 @@
 //
 
 #import "DelimiterFramer.h"
+#import "ErrorHelper.h"
 
 static const char DELIMITER = '\n';
 
@@ -25,7 +26,8 @@ static const char DELIMITER = '\n';
         {
             if (count > 0)
             {
-                //dieWithUserMessage("GetNextMsg()", "Stream ended prematurely");
+                [ErrorHelper dieWithUserMessage:@"GetNextMsg()"
+                                         detail:@"Stream ended prematurely"];
             }
             else
             {

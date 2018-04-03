@@ -8,6 +8,6 @@
 #import <Foundation/Foundation.h>
 
 @protocol MessageSenderType <NSObject>
-- (void) sendMessage:(NSString *)message;
+- (void) sendMessage:(NSString *)message toSocket:(int)socket;
 - (void) sendMessageToAllUsers:(NSString *)message;
 @end

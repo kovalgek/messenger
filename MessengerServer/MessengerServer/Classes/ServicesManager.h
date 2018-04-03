@@ -10,19 +10,19 @@
 #import "MessageReceiverType.h"
 #import "MessageSenderType.h"
 #import "FramerType.h"
+#import "SocketManagerType.h"
 
 @interface ServicesManager : NSObject <MessageSenderType>
-{
-    @protected
-    NSMutableArray <id<MessageReceiverType>> *services;
-}
 
 - (instancetype) init NS_UNAVAILABLE;
 - (instancetype) new NS_UNAVAILABLE;
-- (instancetype) initWithFramer:(id<FramerType>)framer NS_DESIGNATED_INITIALIZER;
+- (instancetype) initWithFramer:(id<FramerType>)framer
+                  socketManager:(id<SocketManagerType>)socketManager NS_DESIGNATED_INITIALIZER;
 
 - (void) setupTCPServerSocketWithService:(NSString *)service;
+
 - (void) runMessagesLoop;
+- (void) stopMessagesLoop;
 
 - (void) addService:(id<MessageReceiverType>)service;
 - (void) removeService:(id<MessageReceiverType>)service;

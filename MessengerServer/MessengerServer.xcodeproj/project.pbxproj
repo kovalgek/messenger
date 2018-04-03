@@ -7,10 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		65C403CD9428D5FA11062140 /* Pods_MessengerServer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD0CBCBF5237A94A748AFE4B /* Pods_MessengerServer.framework */; };
 		721433FC204DD9A500C6E739 /* ErrorHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 721CDD8A204DD1EB0099903C /* ErrorHelper.m */; };
 		721433FD204DD9B800C6E739 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 721CDD8D204DD7420099903C /* User.m */; };
 		72143400204DDA3A00C6E739 /* UserStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 721433FF204DDA3A00C6E739 /* UserStorage.m */; };
 		72143401204DDA3A00C6E739 /* UserStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 721433FF204DDA3A00C6E739 /* UserStorage.m */; };
+		721434042061ACD900C6E739 /* SocketManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 721434032061ACD900C6E739 /* SocketManager.m */; };
+		721434052061ACD900C6E739 /* SocketManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 721434032061ACD900C6E739 /* SocketManager.m */; };
+		721434092061BB4100C6E739 /* MockSocketManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 721434082061BB4100C6E739 /* MockSocketManager.m */; };
+		7214340A2061BB4100C6E739 /* MockSocketManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 721434082061BB4100C6E739 /* MockSocketManager.m */; };
 		721CDD882029218A0099903C /* AddressUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 72EC2D592023BCFB004756C5 /* AddressUtility.m */; };
 		721CDD8B204DD1EB0099903C /* ErrorHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 721CDD8A204DD1EB0099903C /* ErrorHelper.m */; };
 		721CDD8E204DD7420099903C /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 721CDD8D204DD7420099903C /* User.m */; };
@@ -40,11 +45,11 @@
 		72EC2D4B20226FBE004756C5 /* RegistrationRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 72EC2D2820211F4F004756C5 /* RegistrationRequest.m */; };
 		72EC2D4C20226FC0004756C5 /* RegistrationResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 72EC2D2420211F49004756C5 /* RegistrationResponse.m */; };
 		72EC2D502023ABCF004756C5 /* MockFramer.m in Sources */ = {isa = PBXBuildFile; fileRef = 72EC2D4E2023ABCF004756C5 /* MockFramer.m */; };
-		72EC2D532023AC3E004756C5 /* MockServicesManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 72EC2D522023AC3E004756C5 /* MockServicesManager.m */; };
 		72EC2D562023ACF3004756C5 /* MockMessageReceiver.m in Sources */ = {isa = PBXBuildFile; fileRef = 72EC2D552023ACF3004756C5 /* MockMessageReceiver.m */; };
 		72EC2D572023AD1E004756C5 /* ServicesManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 72D948BD2017ECAB007D89F9 /* ServicesManager.m */; };
 		72EC2D5A2023BCFB004756C5 /* AddressUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 72EC2D592023BCFB004756C5 /* AddressUtility.m */; };
 		72FDFDE52019276700880B81 /* DelimiterFramer.m in Sources */ = {isa = PBXBuildFile; fileRef = 72FDFDE12019276700880B81 /* DelimiterFramer.m */; };
+		FD6DADBF0BCC5E98DEBF6C9D /* Pods_MessengerServerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42323B9899005EEE8895654E /* Pods_MessengerServerTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -60,8 +65,14 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		42323B9899005EEE8895654E /* Pods_MessengerServerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MessengerServerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		721433FE204DDA3A00C6E739 /* UserStorage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserStorage.h; sourceTree = "<group>"; };
 		721433FF204DDA3A00C6E739 /* UserStorage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserStorage.m; sourceTree = "<group>"; };
+		721434022061ACD900C6E739 /* SocketManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SocketManager.h; sourceTree = "<group>"; };
+		721434032061ACD900C6E739 /* SocketManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SocketManager.m; sourceTree = "<group>"; };
+		721434062061AE0A00C6E739 /* SocketManagerType.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SocketManagerType.h; sourceTree = "<group>"; };
+		721434072061BB4100C6E739 /* MockSocketManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MockSocketManager.h; sourceTree = "<group>"; };
+		721434082061BB4100C6E739 /* MockSocketManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MockSocketManager.m; sourceTree = "<group>"; };
 		721CDD89204DD1EB0099903C /* ErrorHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ErrorHelper.h; sourceTree = "<group>"; };
 		721CDD8A204DD1EB0099903C /* ErrorHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ErrorHelper.m; sourceTree = "<group>"; };
 		721CDD8C204DD7420099903C /* User.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
@@ -104,8 +115,6 @@
 		72EC2D42202127B0004756C5 /* MockRegistrationServiceDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MockRegistrationServiceDelegate.m; sourceTree = "<group>"; };
 		72EC2D4E2023ABCF004756C5 /* MockFramer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MockFramer.m; sourceTree = "<group>"; };
 		72EC2D4F2023ABCF004756C5 /* MockFramer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MockFramer.h; sourceTree = "<group>"; };
-		72EC2D512023AC3E004756C5 /* MockServicesManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MockServicesManager.h; sourceTree = "<group>"; };
-		72EC2D522023AC3E004756C5 /* MockServicesManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MockServicesManager.m; sourceTree = "<group>"; };
 		72EC2D542023ACF3004756C5 /* MockMessageReceiver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MockMessageReceiver.h; sourceTree = "<group>"; };
 		72EC2D552023ACF3004756C5 /* MockMessageReceiver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MockMessageReceiver.m; sourceTree = "<group>"; };
 		72EC2D582023BCFB004756C5 /* AddressUtility.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddressUtility.h; sourceTree = "<group>"; };
@@ -115,6 +124,11 @@
 		72FDFDE22019276700880B81 /* MessageReceiverType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageReceiverType.h; sourceTree = "<group>"; };
 		72FDFDE32019276700880B81 /* MessageSenderType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageSenderType.h; sourceTree = "<group>"; };
 		72FDFDE42019276700880B81 /* FramerType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FramerType.h; sourceTree = "<group>"; };
+		8DEC14ADA71408FCEAB14D59 /* Pods-MessengerServer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MessengerServer.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MessengerServer/Pods-MessengerServer.debug.xcconfig"; sourceTree = "<group>"; };
+		9FE94A0896CA385C66EDBC9D /* Pods-MessengerServerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MessengerServerTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MessengerServerTests/Pods-MessengerServerTests.debug.xcconfig"; sourceTree = "<group>"; };
+		B9AD9C0385635E50E026F277 /* Pods-MessengerServerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MessengerServerTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MessengerServerTests/Pods-MessengerServerTests.release.xcconfig"; sourceTree = "<group>"; };
+		F8B98637B348AA0A4E7626C8 /* Pods-MessengerServer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MessengerServer.release.xcconfig"; path = "Pods/Target Support Files/Pods-MessengerServer/Pods-MessengerServer.release.xcconfig"; sourceTree = "<group>"; };
+		FD0CBCBF5237A94A748AFE4B /* Pods_MessengerServer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MessengerServer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +136,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65C403CD9428D5FA11062140 /* Pods_MessengerServer.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -129,18 +144,32 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD6DADBF0BCC5E98DEBF6C9D /* Pods_MessengerServerTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4CCDF8908B7DD12F80FE0A6C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9FE94A0896CA385C66EDBC9D /* Pods-MessengerServerTests.debug.xcconfig */,
+				B9AD9C0385635E50E026F277 /* Pods-MessengerServerTests.release.xcconfig */,
+				8DEC14ADA71408FCEAB14D59 /* Pods-MessengerServer.debug.xcconfig */,
+				F8B98637B348AA0A4E7626C8 /* Pods-MessengerServer.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		72530FB31FF2FC8C009500BD = {
 			isa = PBXGroup;
 			children = (
 				72530FBE1FF2FC8C009500BD /* MessengerServer */,
 				72D948AE2017EC26007D89F9 /* MessengerServerTests */,
 				72530FBD1FF2FC8C009500BD /* Products */,
+				4CCDF8908B7DD12F80FE0A6C /* Pods */,
+				B0E01B759438413E8A953479 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -181,9 +210,12 @@
 				72EC2D592023BCFB004756C5 /* AddressUtility.m */,
 				72D948BC2017ECAB007D89F9 /* ServicesManager.h */,
 				72D948BD2017ECAB007D89F9 /* ServicesManager.m */,
+				721434062061AE0A00C6E739 /* SocketManagerType.h */,
+				721434022061ACD900C6E739 /* SocketManager.h */,
+				721434032061ACD900C6E739 /* SocketManager.m */,
+				72FDFDE42019276700880B81 /* FramerType.h */,
 				72FDFDE02019276700880B81 /* DelimiterFramer.h */,
 				72FDFDE12019276700880B81 /* DelimiterFramer.m */,
-				72FDFDE42019276700880B81 /* FramerType.h */,
 				72FDFDE22019276700880B81 /* MessageReceiverType.h */,
 				72FDFDE32019276700880B81 /* MessageSenderType.h */,
 				721433FE204DDA3A00C6E739 /* UserStorage.h */,
@@ -254,11 +286,11 @@
 			children = (
 				72EC2D542023ACF3004756C5 /* MockMessageReceiver.h */,
 				72EC2D552023ACF3004756C5 /* MockMessageReceiver.m */,
-				72EC2D512023AC3E004756C5 /* MockServicesManager.h */,
-				72EC2D522023AC3E004756C5 /* MockServicesManager.m */,
 				72EC2D4F2023ABCF004756C5 /* MockFramer.h */,
 				72EC2D4E2023ABCF004756C5 /* MockFramer.m */,
 				72D948B52017EC49007D89F9 /* ServicesManagerTests.m */,
+				721434072061BB4100C6E739 /* MockSocketManager.h */,
+				721434082061BB4100C6E739 /* MockSocketManager.m */,
 			);
 			path = ServiceManager;
 			sourceTree = "<group>";
@@ -284,6 +316,15 @@
 			path = ServiceLayer;
 			sourceTree = "<group>";
 		};
+		B0E01B759438413E8A953479 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				42323B9899005EEE8895654E /* Pods_MessengerServerTests.framework */,
+				FD0CBCBF5237A94A748AFE4B /* Pods_MessengerServer.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -291,9 +332,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 72530FC31FF2FC8C009500BD /* Build configuration list for PBXNativeTarget "MessengerServer" */;
 			buildPhases = (
+				29977FC18B5DE25BCDDC0232 /* [CP] Check Pods Manifest.lock */,
 				72530FB81FF2FC8C009500BD /* Sources */,
 				72530FB91FF2FC8C009500BD /* Frameworks */,
 				72530FBA1FF2FC8C009500BD /* CopyFiles */,
+				B31FB3B976389CBD51B9F83C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -308,9 +351,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 72D948B42017EC26007D89F9 /* Build configuration list for PBXNativeTarget "MessengerServerTests" */;
 			buildPhases = (
+				3BAE433FC190DF46FED75DA2 /* [CP] Check Pods Manifest.lock */,
 				72D948A92017EC25007D89F9 /* Sources */,
 				72D948AA2017EC25007D89F9 /* Frameworks */,
 				72D948AB2017EC25007D89F9 /* Resources */,
+				6C3DF895E3501312B4DD2BD6 /* [CP] Embed Pods Frameworks */,
+				6B03F50009F565172F1598ED /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -368,6 +414,93 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		29977FC18B5DE25BCDDC0232 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MessengerServer-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3BAE433FC190DF46FED75DA2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MessengerServerTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6B03F50009F565172F1598ED /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MessengerServerTests/Pods-MessengerServerTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6C3DF895E3501312B4DD2BD6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-MessengerServerTests/Pods-MessengerServerTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/OCMock/OCMock.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OCMock.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MessengerServerTests/Pods-MessengerServerTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B31FB3B976389CBD51B9F83C /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MessengerServer/Pods-MessengerServer-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		72530FB81FF2FC8C009500BD /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -383,8 +516,10 @@
 				72EC2D2920211F4F004756C5 /* RegistrationRequest.m in Sources */,
 				72143400204DDA3A00C6E739 /* UserStorage.m in Sources */,
 				72EC2D222021081A004756C5 /* RegistrationService.m in Sources */,
+				721434092061BB4100C6E739 /* MockSocketManager.m in Sources */,
 				721CDD8B204DD1EB0099903C /* ErrorHelper.m in Sources */,
 				72EC2D202021081A004756C5 /* RegistrationEncoder.m in Sources */,
+				721434042061ACD900C6E739 /* SocketManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -397,14 +532,15 @@
 				72EC2D3120212799004756C5 /* RegistrationServiceTests.m in Sources */,
 				721433FC204DD9A500C6E739 /* ErrorHelper.m in Sources */,
 				72EC2D502023ABCF004756C5 /* MockFramer.m in Sources */,
-				72EC2D532023AC3E004756C5 /* MockServicesManager.m in Sources */,
 				72EC2D3020212799004756C5 /* RegistrationEncoderTests.m in Sources */,
 				72EC2D38202127A8004756C5 /* LoginResponseTests.m in Sources */,
 				72EC2D39202127A8004756C5 /* RegistrationRequestTests.m in Sources */,
 				72EC2D3A202127A8004756C5 /* RegistrationResponseTests.m in Sources */,
 				721CDD90204DD8C80099903C /* UserTests.m in Sources */,
 				72EC2D572023AD1E004756C5 /* ServicesManager.m in Sources */,
+				7214340A2061BB4100C6E739 /* MockSocketManager.m in Sources */,
 				72EC2D4920226FAD004756C5 /* RegistrationEncoder.m in Sources */,
+				721434052061ACD900C6E739 /* SocketManager.m in Sources */,
 				72D948B62017EC49007D89F9 /* ServicesManagerTests.m in Sources */,
 				72EC2D37202127A8004756C5 /* LoginRequestTests.m in Sources */,
 				72EC2D4820226FA4004756C5 /* RegistrationDecoder.m in Sources */,
@@ -529,6 +665,7 @@
 		};
 		72530FC41FF2FC8C009500BD /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8DEC14ADA71408FCEAB14D59 /* Pods-MessengerServer.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -537,6 +674,7 @@
 		};
 		72530FC51FF2FC8C009500BD /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F8B98637B348AA0A4E7626C8 /* Pods-MessengerServer.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -545,6 +683,7 @@
 		};
 		72D948B22017EC26007D89F9 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9FE94A0896CA385C66EDBC9D /* Pods-MessengerServerTests.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -557,6 +696,7 @@
 		};
 		72D948B32017EC26007D89F9 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B9AD9C0385635E50E026F277 /* Pods-MessengerServerTests.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;

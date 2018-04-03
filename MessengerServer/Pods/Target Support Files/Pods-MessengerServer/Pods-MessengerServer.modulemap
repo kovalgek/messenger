@@ -1,0 +1,6 @@
+framework module Pods_MessengerServer {
+  umbrella header "Pods-MessengerServer-umbrella.h"
+
+  export *
+  module * { export * }
+}

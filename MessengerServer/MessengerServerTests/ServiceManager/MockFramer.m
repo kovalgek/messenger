@@ -8,14 +8,24 @@
 
 #import "MockFramer.h"
 
+@interface MockFramer()
+
+@end
+
 @implementation MockFramer
+
 
 - (int)getNextMesageFromSocketStream:(FILE *)socketStream
                               buffer:(UInt8 *)buffer
                           bufferSize:(size_t)bufferSize
 {
+    strcpy(buffer, (UInt8*)"abv");
+    if(self.wasAskedToGetNextMessage)
+    {
+        return 0;
+    }
     self.wasAskedToGetNextMessage = YES;
-    return 0;
+    return 10;
 }
 
 - (int)putMessageToSocketStream:(FILE *)socketStream

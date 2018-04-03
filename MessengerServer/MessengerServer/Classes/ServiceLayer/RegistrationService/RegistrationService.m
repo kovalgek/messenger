@@ -57,7 +57,7 @@ static NSString *RegistrationServiceFailedError = @"RegistrationServiceFailedErr
         return;
     }
     
-    [self.senderDelegate sendMessage:buffer];
+    [self.senderDelegate sendMessage:buffer toSocket:1];
 }
 
 - (void) receivedBuffer:(NSString *)buffer forSocket:(NSInteger)socket
@@ -96,7 +96,6 @@ static NSString *RegistrationServiceFailedError = @"RegistrationServiceFailedErr
         return NO;
     }
     User *user = [[User alloc] initWithPhoneNumber:phoneNumber];
-    user.socket = socket;
     [self.userStorage addUser:user];
     
     NSArray *temp = [self.userStorage allUsers];
