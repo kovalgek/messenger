@@ -8,18 +8,16 @@
 
 #import <XCTest/XCTest.h>
 #import <OCMock/OCMock.h>
-
 #import "ServicesManager.h"
+#import "SocketHelperType.h"
 #import "MessageReceiverType.h"
-#import "SocketManagerType.h"
-#import "MessageReceiverType.h"
+#import "MockMessageReceiver.h"
 #import "FramerType.h"
 #import "MockFramer.h"
-#import "MockMessageReceiver.h"
 
 @interface ServicesManagerTests : XCTestCase
 @property (nonatomic, strong) ServicesManager *servicesManager;
-@property (nonatomic, strong) id<SocketManagerType> socketManager;
+@property (nonatomic, strong) id<SocketHelperType> socketHelper;
 @property (nonatomic, strong) id<MessageReceiverType> messageReceiver;
 @property (nonatomic, strong) id<FramerType> framer;
 @end
@@ -30,14 +28,14 @@
 {
     [super setUp];
     self.framer = OCMProtocolMock(@protocol(FramerType));
-    self.socketManager = OCMProtocolMock(@protocol(SocketManagerType));
-    self.servicesManager = [[ServicesManager alloc] initWithFramer:self.framer socketManager:self.socketManager];
+    self.socketHelper = OCMProtocolMock(@protocol(SocketHelperType));
+    self.servicesManager = [[ServicesManager alloc] initWithFramer:self.framer socketHelper:self.socketHelper];
 }
 
 - (void)tearDown
 {
     self.framer = nil;
-    self.socketManager = nil;
+    self.socketHelper = nil;
     self.servicesManager = nil;
     [super tearDown];
 }
@@ -47,48 +45,49 @@
     XCTAssertNotNil(self.servicesManager, @"Should be able to create ServicesManager instance");
 }
 
-- (void) testThatSetupCallsSocket
+- (void) testThatSetupAsksForServerSocket
 {
     NSString *service = @"testService";
     [self.servicesManager setupTCPServerSocketWithService:service];
-    OCMVerify([self.socketManager serverSocketForService:service]);
+    OCMVerify([self.socketHelper serverSocketForService:service]);
 }
 
 - (void) testThatRunLoopCallsClientSocket
 {
-     OCMStub([self.socketManager serverSocketForService:@"127.0.0.1"]).andReturn(10);
+     OCMStub([self.socketHelper serverSocketForService:@"127.0.0.1"]).andReturn(10);
      [self.servicesManager setupTCPServerSocketWithService:@"127.0.0.1"];
+     [self.servicesManager stopMessagesLoop];
      [self.servicesManager runMessagesLoop];
-     OCMVerify([self.socketManager clientSocketForServerSocket:10]);
+     OCMVerify([self.socketHelper clientSocketForServerSocket:10]);
 }
 
-- (void) testThatRunLoopCallsGetNextMesageFromSocketStream
+- (void) testThatRunLoopHandlesClientsAndParsesSocketBuffer
 {
     MockFramer *mockFramer = [[MockFramer alloc] init];
-    self.servicesManager = [[ServicesManager alloc] initWithFramer:mockFramer socketManager:self.socketManager];
+    self.servicesManager = [[ServicesManager alloc] initWithFramer:mockFramer socketHelper:self.socketHelper];
     
-    OCMStub([self.socketManager serverSocketForService:@"127.0.0.1"]).andReturn(10);
-    OCMStub([self.socketManager clientSocketForServerSocket:10]).andReturn(20);
+    OCMStub([self.socketHelper serverSocketForService:@"127.0.0.1"]).andReturn(10);
+    OCMStub([self.socketHelper clientSocketForServerSocket:10]).andReturn(20);
     [self.servicesManager setupTCPServerSocketWithService:@"127.0.0.1"];
-    [self.servicesManager runMessagesLoop];
     [self.servicesManager stopMessagesLoop];
+    [self.servicesManager runMessagesLoop];
     
     XCTAssertTrue([self waitFor: ^{ return mockFramer.wasAskedToGetNextMessage; }], @"dispatch_async never ran its code");
 }
 
-- (void) testThatRunLoopCallsServiceReceiver
+- (void) testThatRunLoopCallsHandlesClientAndSendsReceivedBufferToServiceReseiver
 {
     MockMessageReceiver *mockMessageReceiver = [[MockMessageReceiver alloc] init];
     MockFramer *mockFramer = [[MockFramer alloc] init];
-    self.servicesManager = [[ServicesManager alloc] initWithFramer:mockFramer socketManager:self.socketManager];
+    self.servicesManager = [[ServicesManager alloc] initWithFramer:mockFramer socketHelper:self.socketHelper];
     [self.servicesManager addService:mockMessageReceiver];
     
-    OCMStub([self.socketManager serverSocketForService:@"127.0.0.1"]).andReturn(10);
-    OCMStub([self.socketManager clientSocketForServerSocket:10]).andReturn(20);
+    OCMStub([self.socketHelper serverSocketForService:@"127.0.0.1"]).andReturn(10);
+    OCMStub([self.socketHelper clientSocketForServerSocket:10]).andReturn(20);
     
     [self.servicesManager setupTCPServerSocketWithService:@"127.0.0.1"];
-    [self.servicesManager runMessagesLoop];
     [self.servicesManager stopMessagesLoop];
+    [self.servicesManager runMessagesLoop];
     
     XCTAssertTrue([self waitFor: ^{ return (BOOL)(mockMessageReceiver.buffer.length > 0); }], @"dispatch_async never ran its code");
 }

@@ -7,8 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "SocketManagerType.h"
+#import "SocketHelperType.h"
 
-@interface SocketManager : NSObject <SocketManagerType>
+@interface SocketHelper : NSObject <SocketHelperType>
 
 @end

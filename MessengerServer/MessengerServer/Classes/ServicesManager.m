@@ -19,18 +19,18 @@ static const size_t MAX_WIRE_SIZE = 4096;
 @property (nonatomic, strong) NSMutableArray <id<MessageReceiverType>> *services;
 @property (nonatomic, assign) int serverSocket;
 @property (nonatomic, strong) id<FramerType> framer;
-@property (nonatomic, strong) id<SocketManagerType> socketManager;
+@property (nonatomic, strong) id<SocketHelperType> socketHelper;
 @property (nonatomic, assign) BOOL stopMessageLoop;
 @end
 
 @implementation ServicesManager
 
-- (instancetype) initWithFramer:(id<FramerType>)framer socketManager:(id<SocketManagerType>)socketManager
+- (instancetype) initWithFramer:(id<FramerType>)framer socketHelper:(id<SocketHelperType>)socketHelper
 {
     self = [super init];
     
     _framer = framer;
-    _socketManager = socketManager;
+    _socketHelper = socketHelper;
     _services = [[NSMutableArray alloc] init];
     
     return self;
@@ -38,7 +38,8 @@ static const size_t MAX_WIRE_SIZE = 4096;
 
 - (void) setupTCPServerSocketWithService:(NSString *)service
 {
-    self.serverSocket = [self.socketManager serverSocketForService:service];
+    self.serverSocket = [self.socketHelper serverSocketForService:service];
+    self.stopMessageLoop = NO;
 }
 
 - (void) runMessagesLoop
@@ -48,12 +49,10 @@ static const size_t MAX_WIRE_SIZE = 4096;
         return;
     }
     
-    self.stopMessageLoop = NO;
-    
     do
     {
         // Wait for a client to connect
-        int clientSocket = [self.socketManager clientSocketForServerSocket:self.serverSocket];
+        int clientSocket = [self.socketHelper clientSocketForServerSocket:self.serverSocket];
         if (clientSocket > 0)
         {
             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
@@ -61,7 +60,7 @@ static const size_t MAX_WIRE_SIZE = 4096;
             });
         }
         
-    } while(self.stopMessageLoop);
+    } while(!self.stopMessageLoop);
 }
 
 - (void)stopMessagesLoop
@@ -72,7 +71,7 @@ static const size_t MAX_WIRE_SIZE = 4096;
 - (void) handleTCPClient:(int)clientSocket
 {
     // Create an input stream from the socket
-    FILE *channel = [self.socketManager streamForSocket:clientSocket];
+    FILE *channel = [self.socketHelper streamForSocket:clientSocket];
     
     // Receive messages until connection closes
     size_t mSize;
@@ -102,7 +101,7 @@ static const size_t MAX_WIRE_SIZE = 4096;
 - (void)sendMessage:(NSString *)message toSocket:(int)socket
 {
     const char *buffer = [message UTF8String];
-    FILE *channel = [self.socketManager streamForSocket:socket];
+    FILE *channel = [self.socketHelper streamForSocket:socket];
     [self.framer putMessageToSocketStream:channel buffer:(UInt8 *)buffer bufferSize:MAX_WIRE_SIZE];
 }
 

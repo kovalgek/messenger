@@ -6,14 +6,14 @@
 //  Copyright © 2018 Anton Kovalchuk. All rights reserved.
 //
 
-#import "SocketManager.h"
+#import "SocketHelper.h"
 #include <netdb.h>
 #import "ErrorHelper.h"
 #import "AddressUtility.h"
 
 static const int MAXPENDING = 5; // Maximum outstanding connection requests
 
-@implementation SocketManager
+@implementation SocketHelper
 
 - (int) serverSocketForService:(NSString *)service
 {

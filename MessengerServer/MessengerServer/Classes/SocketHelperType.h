@@ -1,5 +1,5 @@
 //
-//  SocketManagerType.h
+//  SocketHelperType.h
 //  MessengerServer
 //
 //  Created by Anton Kovalchuk on 20.03.18.
@@ -7,7 +7,7 @@
 //
 #import <Foundation/Foundation.h>
 
-@protocol  SocketManagerType <NSObject>
+@protocol SocketHelperType <NSObject>
 
 - (int) serverSocketForService:(NSString *)service;
 - (int) clientSocketForServerSocket:(int)serverSocket;

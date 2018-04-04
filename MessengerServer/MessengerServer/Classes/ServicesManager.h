@@ -10,14 +10,14 @@
 #import "MessageReceiverType.h"
 #import "MessageSenderType.h"
 #import "FramerType.h"
-#import "SocketManagerType.h"
+#import "SocketHelperType.h"
 
 @interface ServicesManager : NSObject <MessageSenderType>
 
 - (instancetype) init NS_UNAVAILABLE;
 - (instancetype) new NS_UNAVAILABLE;
 - (instancetype) initWithFramer:(id<FramerType>)framer
-                  socketManager:(id<SocketManagerType>)socketManager NS_DESIGNATED_INITIALIZER;
+                   socketHelper:(id<SocketHelperType>)socketHelper NS_DESIGNATED_INITIALIZER;
 
 - (void) setupTCPServerSocketWithService:(NSString *)service;
 

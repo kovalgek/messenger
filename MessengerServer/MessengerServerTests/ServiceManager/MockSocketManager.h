@@ -7,8 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "SocketManagerType.h"
+#import "SocketHelperType.h"
 
-@interface MockSocketManager : NSObject <SocketManagerType>
+@interface MockSocketManager : NSObject <SocketHelperType>
 
 @end

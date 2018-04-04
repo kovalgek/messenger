@@ -12,8 +12,8 @@
 		721433FD204DD9B800C6E739 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 721CDD8D204DD7420099903C /* User.m */; };
 		72143400204DDA3A00C6E739 /* UserStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 721433FF204DDA3A00C6E739 /* UserStorage.m */; };
 		72143401204DDA3A00C6E739 /* UserStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 721433FF204DDA3A00C6E739 /* UserStorage.m */; };
-		721434042061ACD900C6E739 /* SocketManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 721434032061ACD900C6E739 /* SocketManager.m */; };
-		721434052061ACD900C6E739 /* SocketManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 721434032061ACD900C6E739 /* SocketManager.m */; };
+		721434042061ACD900C6E739 /* SocketHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 721434032061ACD900C6E739 /* SocketHelper.m */; };
+		721434052061ACD900C6E739 /* SocketHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 721434032061ACD900C6E739 /* SocketHelper.m */; };
 		721434092061BB4100C6E739 /* MockSocketManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 721434082061BB4100C6E739 /* MockSocketManager.m */; };
 		7214340A2061BB4100C6E739 /* MockSocketManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 721434082061BB4100C6E739 /* MockSocketManager.m */; };
 		721CDD882029218A0099903C /* AddressUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 72EC2D592023BCFB004756C5 /* AddressUtility.m */; };
@@ -68,9 +68,8 @@
 		42323B9899005EEE8895654E /* Pods_MessengerServerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MessengerServerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		721433FE204DDA3A00C6E739 /* UserStorage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserStorage.h; sourceTree = "<group>"; };
 		721433FF204DDA3A00C6E739 /* UserStorage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserStorage.m; sourceTree = "<group>"; };
-		721434022061ACD900C6E739 /* SocketManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SocketManager.h; sourceTree = "<group>"; };
-		721434032061ACD900C6E739 /* SocketManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SocketManager.m; sourceTree = "<group>"; };
-		721434062061AE0A00C6E739 /* SocketManagerType.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SocketManagerType.h; sourceTree = "<group>"; };
+		721434032061ACD900C6E739 /* SocketHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SocketHelper.m; sourceTree = "<group>"; };
+		721434062061AE0A00C6E739 /* SocketHelperType.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SocketHelperType.h; sourceTree = "<group>"; };
 		721434072061BB4100C6E739 /* MockSocketManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MockSocketManager.h; sourceTree = "<group>"; };
 		721434082061BB4100C6E739 /* MockSocketManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MockSocketManager.m; sourceTree = "<group>"; };
 		721CDD89204DD1EB0099903C /* ErrorHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ErrorHelper.h; sourceTree = "<group>"; };
@@ -80,6 +79,7 @@
 		721CDD8F204DD8C80099903C /* UserTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserTests.m; sourceTree = "<group>"; };
 		72530FBC1FF2FC8C009500BD /* MessengerServer */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = MessengerServer; sourceTree = BUILT_PRODUCTS_DIR; };
 		72530FBF1FF2FC8C009500BD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		72785B88207561FD005B4A55 /* SocketHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocketHelper.h; sourceTree = "<group>"; };
 		72D948AD2017EC25007D89F9 /* MessengerServerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MessengerServerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		72D948B12017EC26007D89F9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		72D948B52017EC49007D89F9 /* ServicesManagerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ServicesManagerTests.m; sourceTree = "<group>"; };
@@ -210,9 +210,9 @@
 				72EC2D592023BCFB004756C5 /* AddressUtility.m */,
 				72D948BC2017ECAB007D89F9 /* ServicesManager.h */,
 				72D948BD2017ECAB007D89F9 /* ServicesManager.m */,
-				721434062061AE0A00C6E739 /* SocketManagerType.h */,
-				721434022061ACD900C6E739 /* SocketManager.h */,
-				721434032061ACD900C6E739 /* SocketManager.m */,
+				721434062061AE0A00C6E739 /* SocketHelperType.h */,
+				72785B88207561FD005B4A55 /* SocketHelper.h */,
+				721434032061ACD900C6E739 /* SocketHelper.m */,
 				72FDFDE42019276700880B81 /* FramerType.h */,
 				72FDFDE02019276700880B81 /* DelimiterFramer.h */,
 				72FDFDE12019276700880B81 /* DelimiterFramer.m */,
@@ -519,7 +519,7 @@
 				721434092061BB4100C6E739 /* MockSocketManager.m in Sources */,
 				721CDD8B204DD1EB0099903C /* ErrorHelper.m in Sources */,
 				72EC2D202021081A004756C5 /* RegistrationEncoder.m in Sources */,
-				721434042061ACD900C6E739 /* SocketManager.m in Sources */,
+				721434042061ACD900C6E739 /* SocketHelper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -540,7 +540,7 @@
 				72EC2D572023AD1E004756C5 /* ServicesManager.m in Sources */,
 				7214340A2061BB4100C6E739 /* MockSocketManager.m in Sources */,
 				72EC2D4920226FAD004756C5 /* RegistrationEncoder.m in Sources */,
-				721434052061ACD900C6E739 /* SocketManager.m in Sources */,
+				721434052061ACD900C6E739 /* SocketHelper.m in Sources */,
 				72D948B62017EC49007D89F9 /* ServicesManagerTests.m in Sources */,
 				72EC2D37202127A8004756C5 /* LoginRequestTests.m in Sources */,
 				72EC2D4820226FA4004756C5 /* RegistrationDecoder.m in Sources */,

@@ -12,7 +12,7 @@
 #import "RegistrationService.h"
 #import "RegistrationDecoder.h"
 #import "RegistrationEncoder.h"
-#import "SocketManager.h"
+#import "SocketHelper.h"
 
 int main(int argc, const char * argv[])
 {
@@ -24,8 +24,8 @@ int main(int argc, const char * argv[])
         
         RegistrationService *registrationService = [[RegistrationService alloc] initWithEncoder:encoder decoder:decoder];
         DelimiterFramer *delimiterFramer = [[DelimiterFramer alloc] init];
-        SocketManager *socketManager = [[SocketManager alloc] init];
-        ServicesManager *servicesManager = [[ServicesManager alloc] initWithFramer:delimiterFramer socketManager:socketManager];
+        SocketHelper *socketHelper = [[SocketHelper alloc] init];
+        ServicesManager *servicesManager = [[ServicesManager alloc] initWithFramer:delimiterFramer socketHelper:socketHelper];
         [servicesManager setupTCPServerSocketWithService:@"5000"];
         [servicesManager addService:registrationService];
         registrationService.senderDelegate = servicesManager;
