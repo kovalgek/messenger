@@ -10,17 +10,16 @@
 #import "FramerType.h"
 #import "MessageReceiverType.h"
 #import "MessageSenderType.h"
+#import "SocketHelperType.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface ServicesManager : NSObject <MessageSenderType>
 
-@property (nonatomic, strong, readonly) NSMutableArray <id<MessageReceiverType>> *services;
-
 - (instancetype) init NS_UNAVAILABLE;
 - (instancetype) new NS_UNAVAILABLE;
-
-- (instancetype) initWithFramer:(id<FramerType>)framer NS_DESIGNATED_INITIALIZER;
+- (instancetype) initWithFramer:(id<FramerType>)framer
+                   socketHelper:(id<SocketHelperType>)socketHelper NS_DESIGNATED_INITIALIZER;
 
 - (void) setupTCPClientSocketWithHost:(NSString *)host
                                  port:(NSString *)port;

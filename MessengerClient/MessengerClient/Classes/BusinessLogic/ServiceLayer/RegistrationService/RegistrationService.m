@@ -10,6 +10,11 @@
 
 static NSString *RegistrationServiceFailedError = @"RegistrationServiceFailedError";
 
+@interface RegistrationService()
+@property (nonatomic, strong) id <RegistrationEncoderType> encoder;
+@property (nonatomic, strong) id <RegistrationDecoderType> decoder;
+@end
+
 @implementation RegistrationService
 
 - (instancetype) initWithEncoder:(id <RegistrationEncoderType>)encoder

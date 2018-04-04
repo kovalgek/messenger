@@ -21,9 +21,6 @@ typedef NS_ENUM(NSUInteger, RegistrationServiceError) {
 
 @interface RegistrationService : NSObject <MessageReceiverType>
 
-@property (nonatomic, strong) id <RegistrationEncoderType> encoder;
-@property (nonatomic, strong) id <RegistrationDecoderType> decoder;
-
 @property (nonatomic, weak) id <RegistrationServiceDelegate> delegate;
 @property (nonatomic, weak) id <MessageSenderType> senderDelegate;
 

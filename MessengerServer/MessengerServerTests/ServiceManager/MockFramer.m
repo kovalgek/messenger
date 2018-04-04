@@ -19,7 +19,7 @@
                               buffer:(UInt8 *)buffer
                           bufferSize:(size_t)bufferSize
 {
-    strcpy(buffer, (UInt8*)"abv");
+    strcpy(buffer, (UInt8*)"abc");
     if(self.wasAskedToGetNextMessage)
     {
         return 0;

@@ -14,6 +14,7 @@
 #import "RegistrationDecoder.h"
 #import "RegistrationEncoder.h"
 #import "RegistrationRequest.h"
+#import "SocketHelper.h"
 
 @interface ViewController ()
 
@@ -29,17 +30,18 @@
     RegistrationEncoder *encoder = [[RegistrationEncoder alloc] init];
     RegistrationService *registrationService = [[RegistrationService alloc] initWithEncoder:encoder decoder:decoder];
     DelimiterFramer *delimiterFramer = [[DelimiterFramer alloc] init];
-    ServicesManager *servicesManager = [[ServicesManager alloc] initWithFramer:delimiterFramer];
+    SocketHelper *socketHelper = [[SocketHelper alloc] init];
+    ServicesManager *servicesManager = [[ServicesManager alloc] initWithFramer:delimiterFramer socketHelper:socketHelper];;
     [servicesManager setupTCPClientSocketWithHost:@"127.0.0.1" port:@"5000"];
     [servicesManager addService:registrationService];
     registrationService.senderDelegate = servicesManager;
     
     
     RegistrationRequest *registrationRequest = [[RegistrationRequest alloc] initWithPhoneNumber:@"123"];
-    [registrationService registrateUserWithRegistrationRequest:registrationRequest];
+    //[registrationService registrateUserWithRegistrationRequest:registrationRequest];
     NSLog(@"run");
     
-    [servicesManager runMessagesLoop];
+    //[servicesManager runMessagesLoop];
 }
 
 

@@ -5,9 +5,11 @@
 //  Created by Anton Kovalchuk on 04.04.18.
 //  Copyright © 2018 Anton Kovalchuk. All rights reserved.
 //
+#import <Foundation/Foundation.h>
 
-#ifndef SocketHelperType_h
-#define SocketHelperType_h
+@protocol SocketHelperType <NSObject>
 
+- (int) clientSocketForHost:(NSString *)host port:(NSString *)port;
+- (FILE *)streamForSocket:(int)socket;
 
-#endif /* SocketHelperType_h */
+@end

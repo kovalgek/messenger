@@ -7,18 +7,17 @@
 //
 
 #import <XCTest/XCTest.h>
-#import "MockServicesManager.h"
+#import <OCMock/OCMock.h>
 #import "MockFramer.h"
 #import "MessageReceiverType.h"
 #import "MockMessageReceiver.h"
+#import "ServicesManager.h"
 
 @interface ServicesManagerTests : XCTestCase
-{
-    MockFramer *framer;
-    ServicesManager *servicesManager;
-    MockServicesManager *mockServicesManager;
-    MockMessageReceiver *mockMessageReceiver;
-}
+@property (nonatomic, strong) ServicesManager *servicesManager;
+@property (nonatomic, strong) id<SocketHelperType> socketHelper;
+@property (nonatomic, strong) id<MessageReceiverType> messageReceiver;
+@property (nonatomic, strong) id<FramerType> framer;
 @end
 
 @implementation ServicesManagerTests
@@ -26,51 +25,63 @@
 - (void)setUp
 {
     [super setUp];
-    framer = [[MockFramer alloc] init];
-    mockServicesManager = [[MockServicesManager alloc] initWithFramer:framer];
-    servicesManager = [[ServicesManager alloc] initWithFramer:framer];
-    mockMessageReceiver = [[MockMessageReceiver alloc] init];
+    self.framer = OCMProtocolMock(@protocol(FramerType));
+    self.socketHelper = OCMProtocolMock(@protocol(SocketHelperType));
+    self.servicesManager = [[ServicesManager alloc] initWithFramer:self.framer socketHelper:self.socketHelper];
 }
 
 - (void)tearDown
 {
-    servicesManager = nil;
-    mockServicesManager = nil;
-    framer = nil;
-    mockMessageReceiver = nil;
+    self.framer = nil;
+    self.socketHelper = nil;
+    self.servicesManager = nil;
     [super tearDown];
 }
 
 - (void) testThatServicesManagerExists
 {
-    XCTAssertNotNil(servicesManager, @"Should be able to create ServicesManager instance");
+    XCTAssertNotNil(self.servicesManager, @"Should be able to create ServicesManager instance");
 }
 
-- (void) testThatServiceCanBeAdded
+- (void) testThatSetupAsksForClientSocket
 {
-    [mockServicesManager addService:mockMessageReceiver];
-    NSArray<id<MessageReceiverType>> *messageReceiveres = [mockServicesManager getServices];
-    XCTAssertEqualObjects(messageReceiveres.firstObject, mockMessageReceiver, @"Objects should be equal");
+    [self.servicesManager setupTCPClientSocketWithHost:@"127.0.0.1" port:@"5000"];
+    OCMVerify([self.socketHelper clientSocketForHost:@"127.0.0.1" port:@"5000"]);
 }
 
-- (void) testThatServiceCanBeDeleted
+- (void) testThatRunLoopParsesSocketBuffer
 {
-    [mockServicesManager addService:mockMessageReceiver];
-    [mockServicesManager removeService:mockMessageReceiver];
-    NSArray<id<MessageReceiverType>> *messageReceiveres = [mockServicesManager getServices];
-    XCTAssertEqual(messageReceiveres.count, 0, @"The array should be empty");
+    MockFramer *mockFramer = [[MockFramer alloc] init];
+    self.servicesManager = [[ServicesManager alloc] initWithFramer:mockFramer socketHelper:self.socketHelper];
+    [self.servicesManager runMessagesLoop];
+    XCTAssertTrue([self waitFor: ^{ return mockFramer.wasAskedToGetNextMessage; }], @"Framer should be asked");
 }
 
-- (void) testThatServiceCallsFramersGetNextMessage
+- (void) testThatRunLoopSendsReceivedBufferToServiceReseiver
 {
-    [servicesManager runMessagesLoop];
-    XCTAssert(framer.wasAskedToGetNextMessage, @"Get next message was called");
+    MockMessageReceiver *mockMessageReceiver = [[MockMessageReceiver alloc] init];
+    MockFramer *mockFramer = [[MockFramer alloc] init];
+    self.servicesManager = [[ServicesManager alloc] initWithFramer:mockFramer socketHelper:self.socketHelper];
+    [self.servicesManager addService:mockMessageReceiver];
+    [self.servicesManager runMessagesLoop];
+    
+    XCTAssertTrue([self waitFor: ^{ return (BOOL)(mockMessageReceiver.buffer.length > 0); }], @"Buffer should be passed to service");
 }
 
-- (void) testThatServiceCallsFramersPutMessage
+- (void) testThatSendMessageCallsPutMesage
 {
-    [servicesManager sendMessage:@"something"];
-    XCTAssert(framer.wasAskedToPutMessage, @"Put message was called");
+    [self.servicesManager sendMessage:@"IDDQD"];
+    OCMVerify([self.framer putMessageToSocketStream:[OCMArg anyPointer] buffer:[OCMArg anyPointer] bufferSize:4096]);
+}
+
+#pragma mark - helpers
+
+- (BOOL) waitFor:(BOOL (^)(void))block
+{
+    NSTimeInterval start = [[NSProcessInfo processInfo] systemUptime];
+    while(!block() && [[NSProcessInfo processInfo] systemUptime] - start <= 10)
+        ; // do nothing
+    return block();
 }
 
 @end

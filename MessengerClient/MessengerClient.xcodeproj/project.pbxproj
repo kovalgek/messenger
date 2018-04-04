@@ -30,12 +30,15 @@
 		7255C4111FF3C74C00EFF48F /* MockRegistrationEncoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 7255C4101FF3C74C00EFF48F /* MockRegistrationEncoder.m */; };
 		7255C4141FF3C75800EFF48F /* MockRegistrationDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 7255C4131FF3C75800EFF48F /* MockRegistrationDecoder.m */; };
 		7255C4201FF810AB00EFF48F /* MockRegistrationEncoderWithError.m in Sources */ = {isa = PBXBuildFile; fileRef = 7255C41F1FF810AB00EFF48F /* MockRegistrationEncoderWithError.m */; };
+		72785B8420755F61005B4A55 /* SocketHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 72785B8320755F61005B4A55 /* SocketHelper.m */; };
+		72785B8720755FEE005B4A55 /* ErrorHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 72785B8620755FEE005B4A55 /* ErrorHelper.m */; };
 		727D34621FFC2B3000C1E5B0 /* MockRegistrationServiceDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 727D34611FFC2B3000C1E5B0 /* MockRegistrationServiceDelegate.m */; };
 		72D94899200A122F007D89F9 /* DelimiterFramer.m in Sources */ = {isa = PBXBuildFile; fileRef = 72D94898200A122F007D89F9 /* DelimiterFramer.m */; };
 		72D9489C20167084007D89F9 /* ServicesManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 72D9489B20167084007D89F9 /* ServicesManagerTests.m */; };
 		72D948A02016710C007D89F9 /* MockFramer.m in Sources */ = {isa = PBXBuildFile; fileRef = 72D9489F2016710C007D89F9 /* MockFramer.m */; };
-		72D948A52016723B007D89F9 /* MockServicesManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 72D948A42016723B007D89F9 /* MockServicesManager.m */; };
 		72D948A820167345007D89F9 /* MockMessageReceiver.m in Sources */ = {isa = PBXBuildFile; fileRef = 72D948A720167345007D89F9 /* MockMessageReceiver.m */; };
+		AE687C012B764B0E4137801E /* Pods_MessengerClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 398372A55475B82D1284E819 /* Pods_MessengerClient.framework */; };
+		D59C8224D4CF9B0222D31949 /* Pods_MessengerClientTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5ECCDA76DD193EFBD096907E /* Pods_MessengerClientTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +59,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		398372A55475B82D1284E819 /* Pods_MessengerClient.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MessengerClient.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4E684813FDC7537F0D3D4C1A /* Pods-MessengerClient.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MessengerClient.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MessengerClient/Pods-MessengerClient.debug.xcconfig"; sourceTree = "<group>"; };
+		5ECCDA76DD193EFBD096907E /* Pods_MessengerClientTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MessengerClientTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		721AB2931FFC37E6004F8B24 /* ServicesManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ServicesManager.h; sourceTree = "<group>"; };
 		721AB2941FFC37E6004F8B24 /* ServicesManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ServicesManager.m; sourceTree = "<group>"; };
 		721AB29720042E22004F8B24 /* FramerType.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FramerType.h; sourceTree = "<group>"; };
@@ -100,6 +106,11 @@
 		7255C41E1FF810AB00EFF48F /* MockRegistrationEncoderWithError.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MockRegistrationEncoderWithError.h; sourceTree = "<group>"; };
 		7255C41F1FF810AB00EFF48F /* MockRegistrationEncoderWithError.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MockRegistrationEncoderWithError.m; sourceTree = "<group>"; };
 		725DD85D200A076700F5004D /* MessageReceiverType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageReceiverType.h; sourceTree = "<group>"; };
+		72785B8120755E69005B4A55 /* SocketHelperType.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SocketHelperType.h; sourceTree = "<group>"; };
+		72785B8220755F61005B4A55 /* SocketHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SocketHelper.h; sourceTree = "<group>"; };
+		72785B8320755F61005B4A55 /* SocketHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SocketHelper.m; sourceTree = "<group>"; };
+		72785B8520755FEE005B4A55 /* ErrorHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ErrorHelper.h; sourceTree = "<group>"; };
+		72785B8620755FEE005B4A55 /* ErrorHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ErrorHelper.m; sourceTree = "<group>"; };
 		727D345F1FFC2A2100C1E5B0 /* RegistrationServiceDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RegistrationServiceDelegate.h; sourceTree = "<group>"; };
 		727D34601FFC2B3000C1E5B0 /* MockRegistrationServiceDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MockRegistrationServiceDelegate.h; sourceTree = "<group>"; };
 		727D34611FFC2B3000C1E5B0 /* MockRegistrationServiceDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MockRegistrationServiceDelegate.m; sourceTree = "<group>"; };
@@ -109,10 +120,11 @@
 		72D9489B20167084007D89F9 /* ServicesManagerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ServicesManagerTests.m; sourceTree = "<group>"; };
 		72D9489E2016710C007D89F9 /* MockFramer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MockFramer.h; sourceTree = "<group>"; };
 		72D9489F2016710C007D89F9 /* MockFramer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MockFramer.m; sourceTree = "<group>"; };
-		72D948A32016723B007D89F9 /* MockServicesManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MockServicesManager.h; sourceTree = "<group>"; };
-		72D948A42016723B007D89F9 /* MockServicesManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MockServicesManager.m; sourceTree = "<group>"; };
 		72D948A620167345007D89F9 /* MockMessageReceiver.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MockMessageReceiver.h; sourceTree = "<group>"; };
 		72D948A720167345007D89F9 /* MockMessageReceiver.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MockMessageReceiver.m; sourceTree = "<group>"; };
+		C053657C4195752FD140AF96 /* Pods-MessengerClient.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MessengerClient.release.xcconfig"; path = "Pods/Target Support Files/Pods-MessengerClient/Pods-MessengerClient.release.xcconfig"; sourceTree = "<group>"; };
+		CFCAC23701976E9000E88CF7 /* Pods-MessengerClientTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MessengerClientTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MessengerClientTests/Pods-MessengerClientTests.debug.xcconfig"; sourceTree = "<group>"; };
+		D8D74A255BBC69F55BEDBF62 /* Pods-MessengerClientTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MessengerClientTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MessengerClientTests/Pods-MessengerClientTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +132,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE687C012B764B0E4137801E /* Pods_MessengerClient.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -127,6 +140,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D59C8224D4CF9B0222D31949 /* Pods_MessengerClientTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -147,6 +161,8 @@
 				72530F991FF2FC74009500BD /* MessengerClientTests */,
 				72530FA41FF2FC74009500BD /* MessengerClientUITests */,
 				72530F7F1FF2FC74009500BD /* Products */,
+				B3A1E257E1B06F4408C6BED7 /* Pods */,
+				9A5B651A108BCFE815BAE888 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -228,6 +244,8 @@
 		72530FD41FF2FEE9009500BD /* ServiceLayer */ = {
 			isa = PBXGroup;
 			children = (
+				72785B8520755FEE005B4A55 /* ErrorHelper.h */,
+				72785B8620755FEE005B4A55 /* ErrorHelper.m */,
 				72D9489A200AB03B007D89F9 /* MessageSenderType.h */,
 				725DD85D200A076700F5004D /* MessageReceiverType.h */,
 				721AB29720042E22004F8B24 /* FramerType.h */,
@@ -235,6 +253,9 @@
 				72D94898200A122F007D89F9 /* DelimiterFramer.m */,
 				721AB2931FFC37E6004F8B24 /* ServicesManager.h */,
 				721AB2941FFC37E6004F8B24 /* ServicesManager.m */,
+				72785B8120755E69005B4A55 /* SocketHelperType.h */,
+				72785B8220755F61005B4A55 /* SocketHelper.h */,
+				72785B8320755F61005B4A55 /* SocketHelper.m */,
 				72530FE01FF3AF5A009500BD /* MessageService */,
 				72530FDF1FF3AF55009500BD /* LoginService */,
 				72530FDE1FF3AF43009500BD /* RegistrationService */,
@@ -315,12 +336,30 @@
 			children = (
 				72D9489E2016710C007D89F9 /* MockFramer.h */,
 				72D9489F2016710C007D89F9 /* MockFramer.m */,
-				72D948A32016723B007D89F9 /* MockServicesManager.h */,
-				72D948A42016723B007D89F9 /* MockServicesManager.m */,
 				72D948A620167345007D89F9 /* MockMessageReceiver.h */,
 				72D948A720167345007D89F9 /* MockMessageReceiver.m */,
 			);
 			path = Mocks;
+			sourceTree = "<group>";
+		};
+		9A5B651A108BCFE815BAE888 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				398372A55475B82D1284E819 /* Pods_MessengerClient.framework */,
+				5ECCDA76DD193EFBD096907E /* Pods_MessengerClientTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B3A1E257E1B06F4408C6BED7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4E684813FDC7537F0D3D4C1A /* Pods-MessengerClient.debug.xcconfig */,
+				C053657C4195752FD140AF96 /* Pods-MessengerClient.release.xcconfig */,
+				CFCAC23701976E9000E88CF7 /* Pods-MessengerClientTests.debug.xcconfig */,
+				D8D74A255BBC69F55BEDBF62 /* Pods-MessengerClientTests.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -330,9 +369,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 72530FAA1FF2FC74009500BD /* Build configuration list for PBXNativeTarget "MessengerClient" */;
 			buildPhases = (
+				4982D5D7D11DAD082A6207EF /* [CP] Check Pods Manifest.lock */,
 				72530F7A1FF2FC74009500BD /* Sources */,
 				72530F7B1FF2FC74009500BD /* Frameworks */,
 				72530F7C1FF2FC74009500BD /* Resources */,
+				42B0E867E6398FA8296EF7F0 /* [CP] Embed Pods Frameworks */,
+				6992AE882DB7528EB0631D0C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -347,9 +389,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 72530FAD1FF2FC74009500BD /* Build configuration list for PBXNativeTarget "MessengerClientTests" */;
 			buildPhases = (
+				81BAEE0020946536F29C91E4 /* [CP] Check Pods Manifest.lock */,
 				72530F921FF2FC74009500BD /* Sources */,
 				72530F931FF2FC74009500BD /* Frameworks */,
 				72530F941FF2FC74009500BD /* Resources */,
+				B5B1EECFF5A84CC71538EDB1 /* [CP] Embed Pods Frameworks */,
+				65EC6E8856D65FC643519C91 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -451,12 +496,116 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		42B0E867E6398FA8296EF7F0 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MessengerClient/Pods-MessengerClient-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4982D5D7D11DAD082A6207EF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MessengerClient-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		65EC6E8856D65FC643519C91 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MessengerClientTests/Pods-MessengerClientTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6992AE882DB7528EB0631D0C /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MessengerClient/Pods-MessengerClient-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		81BAEE0020946536F29C91E4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MessengerClientTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B5B1EECFF5A84CC71538EDB1 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-MessengerClientTests/Pods-MessengerClientTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/OCMock/OCMock.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OCMock.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MessengerClientTests/Pods-MessengerClientTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		72530F7A1FF2FC74009500BD /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				7255C4041FF3C4C600EFF48F /* RegistrationEncoder.m in Sources */,
+				72785B8420755F61005B4A55 /* SocketHelper.m in Sources */,
+				72785B8720755FEE005B4A55 /* ErrorHelper.m in Sources */,
 				72D94899200A122F007D89F9 /* DelimiterFramer.m in Sources */,
 				721AB2951FFC37E6004F8B24 /* ServicesManager.m in Sources */,
 				7255C4091FF3C4EE00EFF48F /* RegistrationDecoder.m in Sources */,
@@ -483,7 +632,6 @@
 				721AB29B200557E1004F8B24 /* RegistrationDecoderTests.m in Sources */,
 				72530FCE1FF2FDD8009500BD /* LoginResponseTests.m in Sources */,
 				7255C4201FF810AB00EFF48F /* MockRegistrationEncoderWithError.m in Sources */,
-				72D948A52016723B007D89F9 /* MockServicesManager.m in Sources */,
 				721AB299200557D4004F8B24 /* RegistrationEncoderTests.m in Sources */,
 				72530FCC1FF2FDCB009500BD /* LoginRequestTests.m in Sources */,
 				72D948A02016710C007D89F9 /* MockFramer.m in Sources */,
@@ -640,6 +788,7 @@
 		};
 		72530FAB1FF2FC74009500BD /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4E684813FDC7537F0D3D4C1A /* Pods-MessengerClient.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -653,6 +802,7 @@
 		};
 		72530FAC1FF2FC74009500BD /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C053657C4195752FD140AF96 /* Pods-MessengerClient.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -666,6 +816,7 @@
 		};
 		72530FAE1FF2FC74009500BD /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CFCAC23701976E9000E88CF7 /* Pods-MessengerClientTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -680,6 +831,7 @@
 		};
 		72530FAF1FF2FC74009500BD /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D8D74A255BBC69F55BEDBF62 /* Pods-MessengerClientTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;

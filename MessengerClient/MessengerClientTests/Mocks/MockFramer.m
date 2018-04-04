@@ -14,8 +14,13 @@
                               buffer:(UInt8 *)buffer
                           bufferSize:(size_t)bufferSize
 {
+    strcpy(buffer, (UInt8*)"abc");
+    if(self.wasAskedToGetNextMessage)
+    {
+        return 0;
+    }
     self.wasAskedToGetNextMessage = YES;
-    return 0;
+    return 10;
 }
 
 - (int)putMessageToSocketStream:(FILE *)socketStream
