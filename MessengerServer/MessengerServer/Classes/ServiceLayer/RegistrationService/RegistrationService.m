@@ -8,7 +8,7 @@
 
 #import "RegistrationService.h"
 #import "RegistrationResponse.h"
-#import "UserStorage.h"
+#import "UserStorageType.h"
 #import "RegistrationRequest.h"
 #import "User.h"
 
@@ -17,20 +17,20 @@ static NSString *RegistrationServiceFailedError = @"RegistrationServiceFailedErr
 @interface RegistrationService()
 @property (nonatomic, strong) id <RegistrationEncoderType> encoder;
 @property (nonatomic, strong) id <RegistrationDecoderType> decoder;
-@property (nonatomic, strong) UserStorage *userStorage;
+@property (nonatomic, strong) id <UserStorageType> userStorage;
 @end
 
 @implementation RegistrationService
 
 - (instancetype) initWithEncoder:(id <RegistrationEncoderType>)encoder
                          decoder:(id <RegistrationDecoderType>)decoder
+                     userStorage:(id <UserStorageType>)userStorage
 {
     self = [super init];
     
     _encoder = encoder;
     _decoder = decoder;
-    
-    _userStorage = [[UserStorage alloc] init];
+    _userStorage = userStorage;
     
     return self;
 }
@@ -46,22 +46,24 @@ static NSString *RegistrationServiceFailedError = @"RegistrationServiceFailedErr
     _serviceDelegate = serviceDelegate;
 }
 
-- (void) sendRegistrationResponseBackToUser:(RegistrationResponse *)registrationResponse
+- (void) sendRegistrationResponseBackToUser:(RegistrationResponse *)registrationResponse forSocket:(NSInteger)socket
 {
+    NSLog(@"sendRegistrationResponseBackToUser socket=%lu", socket);
     NSError *error = nil;
     NSString *buffer = [self.encoder encodeRegistrationResponse:registrationResponse error:&error];
-    
+    NSLog(@"sendRegistrationResponseBackToUser buffer=%@",buffer);
     if (error)
     {
         [self tellDelegateAboutRegistratipnError:error];
         return;
     }
     
-    [self.senderDelegate sendMessage:buffer toSocket:1];
+    [self.senderDelegate sendMessage:buffer toSocket:(int)socket];
 }
 
 - (void) receivedBuffer:(NSString *)buffer forSocket:(NSInteger)socket
 {
+    NSLog(@"service receivedBuffer=%@", buffer);
     NSError *error = nil;
     RegistrationRequest *registrationRequest = [self.decoder decodeRegistrationRequestFromBuffer:buffer error:&error];
     if (error)
@@ -85,7 +87,7 @@ static NSString *RegistrationServiceFailedError = @"RegistrationServiceFailedErr
         status = @"400";
     }
     RegistrationResponse *registrationResponse = [[RegistrationResponse alloc] initWithStatus:status];
-    [self sendRegistrationResponseBackToUser:registrationResponse];
+    [self sendRegistrationResponseBackToUser:registrationResponse forSocket:socket];
     [self.serviceDelegate didReceiveRequest:registrationRequest];
 }
 
@@ -98,8 +100,8 @@ static NSString *RegistrationServiceFailedError = @"RegistrationServiceFailedErr
     User *user = [[User alloc] initWithPhoneNumber:phoneNumber];
     [self.userStorage addUser:user];
     
-    NSArray *temp = [self.userStorage allUsers];
-    NSLog(@"temp=%@",[temp description]);
+    NSArray *allUsers = [self.userStorage allUsers];
+    NSLog(@"allUsers=%@", [allUsers description]);
     return YES;
 }
 

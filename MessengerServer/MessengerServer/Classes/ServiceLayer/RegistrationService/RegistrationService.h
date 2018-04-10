@@ -12,6 +12,7 @@
 #import "RegistrationDecoderType.h"
 #import "MessageReceiverType.h"
 #import "MessageSenderType.h"
+#import "UserStorageType.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -27,9 +28,10 @@ typedef NS_ENUM(NSUInteger, RegistrationServiceError) {
 - (instancetype) init NS_UNAVAILABLE;
 - (instancetype) new NS_UNAVAILABLE;
 - (instancetype) initWithEncoder:(id <RegistrationEncoderType>)encoder
-                         decoder:(id <RegistrationDecoderType>)decoder NS_DESIGNATED_INITIALIZER;
+                         decoder:(id <RegistrationDecoderType>)decoder
+                     userStorage:(id <UserStorageType>)userStorage NS_DESIGNATED_INITIALIZER;
 
-- (void) sendRegistrationResponseBackToUser:(RegistrationResponse *)registrationResponse;
+- (void) sendRegistrationResponseBackToUser:(RegistrationResponse *)registrationResponse forSocket:(NSInteger)socket;
 - (void) sendRegistrationResponseBackToUserFailedWithError:(NSError *)error;
 
 @end

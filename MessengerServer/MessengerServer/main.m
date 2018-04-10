@@ -13,6 +13,7 @@
 #import "RegistrationDecoder.h"
 #import "RegistrationEncoder.h"
 #import "SocketHelper.h"
+#import "UserStorage.h"
 
 int main(int argc, const char * argv[])
 {
@@ -21,8 +22,10 @@ int main(int argc, const char * argv[])
         
         RegistrationDecoder *decoder = [[RegistrationDecoder alloc] init];
         RegistrationEncoder *encoder = [[RegistrationEncoder alloc] init];
-        
-        RegistrationService *registrationService = [[RegistrationService alloc] initWithEncoder:encoder decoder:decoder];
+        UserStorage *userStorage = [[UserStorage alloc] init];
+        RegistrationService *registrationService = [[RegistrationService alloc] initWithEncoder:encoder
+                                                                                        decoder:decoder
+                                                                                    userStorage:userStorage];
         DelimiterFramer *delimiterFramer = [[DelimiterFramer alloc] init];
         SocketHelper *socketHelper = [[SocketHelper alloc] init];
         ServicesManager *servicesManager = [[ServicesManager alloc] initWithFramer:delimiterFramer socketHelper:socketHelper];

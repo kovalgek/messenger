@@ -79,8 +79,8 @@ static const size_t MAX_WIRE_SIZE = 4096;
     
     while ((mSize = [self.framer getNextMesageFromSocketStream:channel buffer:inbuf bufferSize:MAX_WIRE_SIZE]) > 0)
     {
-        NSString *receivedBuffer = [NSString stringWithCString:(char *)inbuf encoding:NSUTF8StringEncoding];
-        
+        NSString *receivedBuffer = [[NSString alloc] initWithBytes:inbuf length:mSize encoding:NSUTF8StringEncoding];
+        NSLog(@"receivedBuffer=%@",receivedBuffer);
         for(id<MessageReceiverType> service in self.services)
         {
             [service receivedBuffer:receivedBuffer forSocket:clientSocket];
@@ -100,9 +100,10 @@ static const size_t MAX_WIRE_SIZE = 4096;
 
 - (void)sendMessage:(NSString *)message toSocket:(int)socket
 {
-    const char *buffer = [message UTF8String];
     FILE *channel = [self.socketHelper streamForSocket:socket];
-    [self.framer putMessageToSocketStream:channel buffer:(UInt8 *)buffer bufferSize:MAX_WIRE_SIZE];
+    const char *buffer = [message UTF8String];
+    size_t bufferSize = strlen(buffer) * sizeof(char);
+    [self.framer putMessageToSocketStream:channel buffer:(UInt8 *)buffer bufferSize:bufferSize];
 }
 
 - (void)sendMessageToAllUsers:(NSString *)message

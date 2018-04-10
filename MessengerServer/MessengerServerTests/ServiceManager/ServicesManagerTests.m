@@ -95,7 +95,7 @@
 - (void) testThatSendMessageCallsPutMesage
 {
     [self.servicesManager sendMessage:@"test" toSocket:1];
-    OCMVerify([self.framer putMessageToSocketStream:[OCMArg anyPointer] buffer:[OCMArg anyPointer] bufferSize:4096]);
+    OCMVerify([self.framer putMessageToSocketStream:[OCMArg anyPointer] buffer:[OCMArg anyPointer] bufferSize:4]);
 }
 
 #pragma mark - helpers

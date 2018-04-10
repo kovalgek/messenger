@@ -36,6 +36,7 @@ static const size_t MAX_WIRE_SIZE = 4096;
                                  port:(NSString *)port
 {
     self.socket = [self.socketHelper clientSocketForHost:host port:port];
+    NSLog(@"self.socket=%d",self.socket);
 }
 
 - (void) addService:(id<MessageReceiverType>)service
@@ -50,15 +51,16 @@ static const size_t MAX_WIRE_SIZE = 4096;
 
 - (void) runMessagesLoop
 {
+    FILE *channel = [self.socketHelper streamForSocket:self.socket];
+    
     size_t mSize;
     UInt8 inbuf[MAX_WIRE_SIZE];
-    FILE *channel = [self.socketHelper streamForSocket:self.socket];
     
     // Receive and print response
     while ((mSize = [self.framer getNextMesageFromSocketStream:channel buffer:inbuf bufferSize:MAX_WIRE_SIZE]) > 0)
     {
-        NSString *receivedBuffer = [NSString stringWithCString:(char *)inbuf encoding:NSUTF8StringEncoding];
-        
+        NSString *receivedBuffer = [[NSString alloc] initWithBytes:inbuf length:mSize encoding:NSUTF8StringEncoding];
+        NSLog(@"receivedBuffer=%@",receivedBuffer);
         for(id<MessageReceiverType> service in self.services)
         {
             [service receivedBuffer:receivedBuffer];
@@ -70,7 +72,8 @@ static const size_t MAX_WIRE_SIZE = 4096;
 {
     FILE *channel = [self.socketHelper streamForSocket:self.socket];
     const char *buffer = [message UTF8String];
-    [self.framer putMessageToSocketStream:channel buffer:(UInt8 *)buffer bufferSize:MAX_WIRE_SIZE];
+    size_t bufferSize = strlen(buffer) * sizeof(char);
+    [self.framer putMessageToSocketStream:channel buffer:(UInt8 *)buffer bufferSize:bufferSize];
 }
 
 

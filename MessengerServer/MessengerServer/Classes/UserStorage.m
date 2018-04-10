@@ -7,35 +7,36 @@
 //
 
 #import "UserStorage.h"
+#import "User.h"
 
 @interface UserStorage()
+@property (nonatomic, strong) NSMutableArray<User*> *users;
 @end
 
 @implementation UserStorage
 
-+ (NSMutableArray<User*> *)users
+- (instancetype) init
 {
-    static NSMutableArray<User*> *users = nil;
-    if (users == nil)
-    {
-        users = [[NSMutableArray alloc] init];
-    }
-    return users;
+    self = [super init];
+    
+    _users = [[NSMutableArray alloc] init];
+    
+    return self;
 }
 
 - (void) addUser:(User *)user
 {
-    [[[self class] users] addObject:user];
+    [self.users addObject:user];
 }
 
 - (void) removeUser:(User *)user
 {
-    [[[self class] users] removeObject:user];
+    [self.users removeObject:user];
 }
 
 - (User *) findUserWithPhoneNumber:(NSString *)phoneNumber
 {
-    for (User *user in [[self class] users])
+    for (User *user in self.users)
     {
         if([user.phoneNumber isEqualToString:phoneNumber])
         {
@@ -47,7 +48,7 @@
 
 - (NSMutableArray<User *> *)allUsers
 {
-    return [[[self class] users] copy];
+    return [self.users copy];
 }
 
 @end

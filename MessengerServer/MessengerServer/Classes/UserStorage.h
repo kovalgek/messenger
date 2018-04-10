@@ -7,13 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "User.h"
+#import "UserStorageType.h"
 
-@interface UserStorage : NSObject
-
-- (void) addUser:(User *)user;
-- (void) removeUser:(User *)user;
-- (User *) findUserWithPhoneNumber:(NSString *)phoneNumber;
-- (NSMutableArray<User*>*)allUsers;
+@interface UserStorage : NSObject <UserStorageType>
 
 @end

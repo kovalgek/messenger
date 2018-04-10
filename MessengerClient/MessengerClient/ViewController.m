@@ -7,7 +7,6 @@
 //
 
 #import "ViewController.h"
-
 #import "ServicesManager.h"
 #import "DelimiterFramer.h"
 #import "RegistrationService.h"
@@ -17,7 +16,8 @@
 #import "SocketHelper.h"
 
 @interface ViewController ()
-
+@property (nonatomic, strong) ServicesManager *servicesManager;
+@property (nonatomic, strong) RegistrationService *registrationService;
 @end
 
 @implementation ViewController
@@ -28,28 +28,23 @@
     
     RegistrationDecoder *decoder = [[RegistrationDecoder alloc] init];
     RegistrationEncoder *encoder = [[RegistrationEncoder alloc] init];
-    RegistrationService *registrationService = [[RegistrationService alloc] initWithEncoder:encoder decoder:decoder];
+    self.registrationService = [[RegistrationService alloc] initWithEncoder:encoder decoder:decoder];
     DelimiterFramer *delimiterFramer = [[DelimiterFramer alloc] init];
     SocketHelper *socketHelper = [[SocketHelper alloc] init];
-    ServicesManager *servicesManager = [[ServicesManager alloc] initWithFramer:delimiterFramer socketHelper:socketHelper];;
-    [servicesManager setupTCPClientSocketWithHost:@"127.0.0.1" port:@"5000"];
-    [servicesManager addService:registrationService];
-    registrationService.senderDelegate = servicesManager;
+    self.servicesManager = [[ServicesManager alloc] initWithFramer:delimiterFramer socketHelper:socketHelper];;
+    [self.servicesManager setupTCPClientSocketWithHost:@"127.0.0.1" port:@"5000"];
+    [self.servicesManager addService:self.registrationService];
+    self.registrationService.senderDelegate = self.servicesManager;
     
-    
-    RegistrationRequest *registrationRequest = [[RegistrationRequest alloc] initWithPhoneNumber:@"123"];
-    //[registrationService registrateUserWithRegistrationRequest:registrationRequest];
-    NSLog(@"run");
-    
-    //[servicesManager runMessagesLoop];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
+        [self.servicesManager runMessagesLoop];
+    });
 }
 
-
-- (void)didReceiveMemoryWarning
+- (IBAction)registrateButtonPressed:(id)sender
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    RegistrationRequest *registrationRequest = [[RegistrationRequest alloc] initWithPhoneNumber:@"123"];
+    [self.registrationService registrateUserWithRegistrationRequest:registrationRequest];
 }
-
 
 @end
