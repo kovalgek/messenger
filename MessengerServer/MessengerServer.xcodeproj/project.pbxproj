@@ -22,6 +22,16 @@
 		721CDD90204DD8C80099903C /* UserTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 721CDD8F204DD8C80099903C /* UserTests.m */; };
 		72530FC01FF2FC8C009500BD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 72530FBF1FF2FC8C009500BD /* main.m */; };
 		727198162076A4240077C8C4 /* UserStorageTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 727198152076A4240077C8C4 /* UserStorageTests.m */; };
+		7271981E207D50570077C8C4 /* MessageDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 7271981D207D50570077C8C4 /* MessageDecoder.m */; };
+		72719822207D50750077C8C4 /* MessageEncoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 72719821207D50750077C8C4 /* MessageEncoder.m */; };
+		72719826207D50A60077C8C4 /* MessageService.m in Sources */ = {isa = PBXBuildFile; fileRef = 72719825207D50A60077C8C4 /* MessageService.m */; };
+		7271982C207D53830077C8C4 /* MessageRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7271982B207D53830077C8C4 /* MessageRequest.m */; };
+		7271982F207D538F0077C8C4 /* MessageResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 7271982E207D538F0077C8C4 /* MessageResponse.m */; };
+		72719831207D53CE0077C8C4 /* MessageRequestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 72719830207D53CE0077C8C4 /* MessageRequestTests.m */; };
+		72719833207D53DB0077C8C4 /* MessageResponseTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 72719832207D53DB0077C8C4 /* MessageResponseTests.m */; };
+		72719835207D53FF0077C8C4 /* MessageEncoderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 72719834207D53FF0077C8C4 /* MessageEncoderTests.m */; };
+		72719837207D541A0077C8C4 /* MessageDecoderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 72719836207D541A0077C8C4 /* MessageDecoderTests.m */; };
+		72719839207D542E0077C8C4 /* MessageServiceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 72719838207D542E0077C8C4 /* MessageServiceTests.m */; };
 		72D948B62017EC49007D89F9 /* ServicesManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 72D948B52017EC49007D89F9 /* ServicesManagerTests.m */; };
 		72D948BE2017ECAB007D89F9 /* ServicesManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 72D948BD2017ECAB007D89F9 /* ServicesManager.m */; };
 		72EC2D202021081A004756C5 /* RegistrationEncoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 72EC2D1A20210819004756C5 /* RegistrationEncoder.m */; };
@@ -31,8 +41,6 @@
 		72EC2D3020212799004756C5 /* RegistrationEncoderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 72EC2D2D20212799004756C5 /* RegistrationEncoderTests.m */; };
 		72EC2D3120212799004756C5 /* RegistrationServiceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 72EC2D2E20212799004756C5 /* RegistrationServiceTests.m */; };
 		72EC2D3220212799004756C5 /* RegistrationDecoderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 72EC2D2F20212799004756C5 /* RegistrationDecoderTests.m */; };
-		72EC2D37202127A8004756C5 /* LoginRequestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 72EC2D33202127A8004756C5 /* LoginRequestTests.m */; };
-		72EC2D38202127A8004756C5 /* LoginResponseTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 72EC2D34202127A8004756C5 /* LoginResponseTests.m */; };
 		72EC2D39202127A8004756C5 /* RegistrationRequestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 72EC2D35202127A8004756C5 /* RegistrationRequestTests.m */; };
 		72EC2D3A202127A8004756C5 /* RegistrationResponseTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 72EC2D36202127A8004756C5 /* RegistrationResponseTests.m */; };
 		72EC2D43202127B0004756C5 /* MockRegistrationDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 72EC2D3C202127AF004756C5 /* MockRegistrationDecoder.m */; };
@@ -82,6 +90,24 @@
 		72530FBC1FF2FC8C009500BD /* MessengerServer */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = MessengerServer; sourceTree = BUILT_PRODUCTS_DIR; };
 		72530FBF1FF2FC8C009500BD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		727198152076A4240077C8C4 /* UserStorageTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserStorageTests.m; sourceTree = "<group>"; };
+		7271981B207D504C0077C8C4 /* MessageDecoderType.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageDecoderType.h; sourceTree = "<group>"; };
+		7271981C207D50570077C8C4 /* MessageDecoder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageDecoder.h; sourceTree = "<group>"; };
+		7271981D207D50570077C8C4 /* MessageDecoder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessageDecoder.m; sourceTree = "<group>"; };
+		7271981F207D50670077C8C4 /* MessageEncoderType.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageEncoderType.h; sourceTree = "<group>"; };
+		72719820207D50750077C8C4 /* MessageEncoder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageEncoder.h; sourceTree = "<group>"; };
+		72719821207D50750077C8C4 /* MessageEncoder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessageEncoder.m; sourceTree = "<group>"; };
+		72719823207D50980077C8C4 /* MessageServiceDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageServiceDelegate.h; sourceTree = "<group>"; };
+		72719824207D50A60077C8C4 /* MessageService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageService.h; sourceTree = "<group>"; };
+		72719825207D50A60077C8C4 /* MessageService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessageService.m; sourceTree = "<group>"; };
+		7271982A207D53830077C8C4 /* MessageRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageRequest.h; sourceTree = "<group>"; };
+		7271982B207D53830077C8C4 /* MessageRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessageRequest.m; sourceTree = "<group>"; };
+		7271982D207D538F0077C8C4 /* MessageResponse.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageResponse.h; sourceTree = "<group>"; };
+		7271982E207D538F0077C8C4 /* MessageResponse.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessageResponse.m; sourceTree = "<group>"; };
+		72719830207D53CE0077C8C4 /* MessageRequestTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessageRequestTests.m; sourceTree = "<group>"; };
+		72719832207D53DB0077C8C4 /* MessageResponseTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessageResponseTests.m; sourceTree = "<group>"; };
+		72719834207D53FF0077C8C4 /* MessageEncoderTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessageEncoderTests.m; sourceTree = "<group>"; };
+		72719836207D541A0077C8C4 /* MessageDecoderTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessageDecoderTests.m; sourceTree = "<group>"; };
+		72719838207D542E0077C8C4 /* MessageServiceTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessageServiceTests.m; sourceTree = "<group>"; };
 		72785B88207561FD005B4A55 /* SocketHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SocketHelper.h; sourceTree = "<group>"; };
 		72D948AD2017EC25007D89F9 /* MessengerServerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MessengerServerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		72D948B12017EC26007D89F9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -104,8 +130,6 @@
 		72EC2D2D20212799004756C5 /* RegistrationEncoderTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegistrationEncoderTests.m; sourceTree = "<group>"; };
 		72EC2D2E20212799004756C5 /* RegistrationServiceTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegistrationServiceTests.m; sourceTree = "<group>"; };
 		72EC2D2F20212799004756C5 /* RegistrationDecoderTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegistrationDecoderTests.m; sourceTree = "<group>"; };
-		72EC2D33202127A8004756C5 /* LoginRequestTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginRequestTests.m; sourceTree = "<group>"; };
-		72EC2D34202127A8004756C5 /* LoginResponseTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginResponseTests.m; sourceTree = "<group>"; };
 		72EC2D35202127A8004756C5 /* RegistrationRequestTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegistrationRequestTests.m; sourceTree = "<group>"; };
 		72EC2D36202127A8004756C5 /* RegistrationResponseTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegistrationResponseTests.m; sourceTree = "<group>"; };
 		72EC2D3B202127AF004756C5 /* MockRegistrationServiceDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MockRegistrationServiceDelegate.h; sourceTree = "<group>"; };
@@ -194,9 +218,54 @@
 			path = MessengerServer;
 			sourceTree = "<group>";
 		};
+		7271981A207D4FB10077C8C4 /* MessageService */ = {
+			isa = PBXGroup;
+			children = (
+				7271981B207D504C0077C8C4 /* MessageDecoderType.h */,
+				7271981C207D50570077C8C4 /* MessageDecoder.h */,
+				7271981D207D50570077C8C4 /* MessageDecoder.m */,
+				7271981F207D50670077C8C4 /* MessageEncoderType.h */,
+				72719820207D50750077C8C4 /* MessageEncoder.h */,
+				72719821207D50750077C8C4 /* MessageEncoder.m */,
+				72719823207D50980077C8C4 /* MessageServiceDelegate.h */,
+				72719824207D50A60077C8C4 /* MessageService.h */,
+				72719825207D50A60077C8C4 /* MessageService.m */,
+			);
+			path = MessageService;
+			sourceTree = "<group>";
+		};
+		72719827207D50F60077C8C4 /* MessageService */ = {
+			isa = PBXGroup;
+			children = (
+				72719834207D53FF0077C8C4 /* MessageEncoderTests.m */,
+				72719836207D541A0077C8C4 /* MessageDecoderTests.m */,
+				72719838207D542E0077C8C4 /* MessageServiceTests.m */,
+				72719828207D51020077C8C4 /* Model */,
+				72719829207D51070077C8C4 /* Mocks */,
+			);
+			path = MessageService;
+			sourceTree = "<group>";
+		};
+		72719828207D51020077C8C4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				72719830207D53CE0077C8C4 /* MessageRequestTests.m */,
+				72719832207D53DB0077C8C4 /* MessageResponseTests.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		72719829207D51070077C8C4 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
 		72D948AE2017EC26007D89F9 /* MessengerServerTests */ = {
 			isa = PBXGroup;
 			children = (
+				72719827207D50F60077C8C4 /* MessageService */,
 				72EC2D4D2023ABA6004756C5 /* ServiceManager */,
 				72EC2D2A20212610004756C5 /* RegistrationService */,
 				72D948B12017EC26007D89F9 /* Info.plist */,
@@ -276,8 +345,6 @@
 		72EC2D2C20212757004756C5 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				72EC2D33202127A8004756C5 /* LoginRequestTests.m */,
-				72EC2D34202127A8004756C5 /* LoginResponseTests.m */,
 				72EC2D35202127A8004756C5 /* RegistrationRequestTests.m */,
 				72EC2D36202127A8004756C5 /* RegistrationResponseTests.m */,
 				721CDD8F204DD8C80099903C /* UserTests.m */,
@@ -307,6 +374,10 @@
 				72EC2D2820211F4F004756C5 /* RegistrationRequest.m */,
 				72EC2D2720211F4F004756C5 /* RegistrationResponse.h */,
 				72EC2D2420211F49004756C5 /* RegistrationResponse.m */,
+				7271982A207D53830077C8C4 /* MessageRequest.h */,
+				7271982B207D53830077C8C4 /* MessageRequest.m */,
+				7271982D207D538F0077C8C4 /* MessageResponse.h */,
+				7271982E207D538F0077C8C4 /* MessageResponse.m */,
 				721CDD8C204DD7420099903C /* User.h */,
 				721CDD8D204DD7420099903C /* User.m */,
 			);
@@ -316,6 +387,7 @@
 		72FDFDDF201926F300880B81 /* ServiceLayer */ = {
 			isa = PBXGroup;
 			children = (
+				7271981A207D4FB10077C8C4 /* MessageService */,
 				72EC2D16202107E0004756C5 /* RegistrationService */,
 			);
 			path = ServiceLayer;
@@ -511,20 +583,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				72719822207D50750077C8C4 /* MessageEncoder.m in Sources */,
 				72EC2D5A2023BCFB004756C5 /* AddressUtility.m in Sources */,
 				72FDFDE52019276700880B81 /* DelimiterFramer.m in Sources */,
 				72EC2D4720226EAF004756C5 /* RegistrationDecoder.m in Sources */,
+				72719826207D50A60077C8C4 /* MessageService.m in Sources */,
 				72EC2D2520211F49004756C5 /* RegistrationResponse.m in Sources */,
 				72530FC01FF2FC8C009500BD /* main.m in Sources */,
 				72D948BE2017ECAB007D89F9 /* ServicesManager.m in Sources */,
 				721CDD8E204DD7420099903C /* User.m in Sources */,
+				7271982C207D53830077C8C4 /* MessageRequest.m in Sources */,
 				72EC2D2920211F4F004756C5 /* RegistrationRequest.m in Sources */,
+				7271981E207D50570077C8C4 /* MessageDecoder.m in Sources */,
 				72143400204DDA3A00C6E739 /* UserStorage.m in Sources */,
 				72EC2D222021081A004756C5 /* RegistrationService.m in Sources */,
 				721434092061BB4100C6E739 /* MockSocketManager.m in Sources */,
 				721CDD8B204DD1EB0099903C /* ErrorHelper.m in Sources */,
 				72EC2D202021081A004756C5 /* RegistrationEncoder.m in Sources */,
 				721434042061ACD900C6E739 /* SocketHelper.m in Sources */,
+				7271982F207D538F0077C8C4 /* MessageResponse.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -532,15 +609,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				72719837207D541A0077C8C4 /* MessageDecoderTests.m in Sources */,
 				721433FD204DD9B800C6E739 /* User.m in Sources */,
 				72EC2D3220212799004756C5 /* RegistrationDecoderTests.m in Sources */,
 				72EC2D3120212799004756C5 /* RegistrationServiceTests.m in Sources */,
 				721433FC204DD9A500C6E739 /* ErrorHelper.m in Sources */,
 				72EC2D502023ABCF004756C5 /* MockFramer.m in Sources */,
+				72719839207D542E0077C8C4 /* MessageServiceTests.m in Sources */,
 				72EC2D3020212799004756C5 /* RegistrationEncoderTests.m in Sources */,
-				72EC2D38202127A8004756C5 /* LoginResponseTests.m in Sources */,
 				72EC2D39202127A8004756C5 /* RegistrationRequestTests.m in Sources */,
 				727198162076A4240077C8C4 /* UserStorageTests.m in Sources */,
+				72719833207D53DB0077C8C4 /* MessageResponseTests.m in Sources */,
 				72EC2D3A202127A8004756C5 /* RegistrationResponseTests.m in Sources */,
 				721CDD90204DD8C80099903C /* UserTests.m in Sources */,
 				72EC2D572023AD1E004756C5 /* ServicesManager.m in Sources */,
@@ -548,15 +627,16 @@
 				72EC2D4920226FAD004756C5 /* RegistrationEncoder.m in Sources */,
 				721434052061ACD900C6E739 /* SocketHelper.m in Sources */,
 				72D948B62017EC49007D89F9 /* ServicesManagerTests.m in Sources */,
-				72EC2D37202127A8004756C5 /* LoginRequestTests.m in Sources */,
 				72EC2D4820226FA4004756C5 /* RegistrationDecoder.m in Sources */,
 				72EC2D562023ACF3004756C5 /* MockMessageReceiver.m in Sources */,
+				72719831207D53CE0077C8C4 /* MessageRequestTests.m in Sources */,
 				72EC2D4C20226FC0004756C5 /* RegistrationResponse.m in Sources */,
 				72EC2D45202127B0004756C5 /* MockRegistrationEncoder.m in Sources */,
 				72EC2D4A20226FB0004756C5 /* RegistrationService.m in Sources */,
 				721CDD882029218A0099903C /* AddressUtility.m in Sources */,
 				72EC2D4B20226FBE004756C5 /* RegistrationRequest.m in Sources */,
 				72143401204DDA3A00C6E739 /* UserStorage.m in Sources */,
+				72719835207D53FF0077C8C4 /* MessageEncoderTests.m in Sources */,
 				72EC2D46202127B0004756C5 /* MockRegistrationServiceDelegate.m in Sources */,
 				72EC2D44202127B0004756C5 /* MockRegistrationEncoderWithError.m in Sources */,
 				72EC2D43202127B0004756C5 /* MockRegistrationDecoder.m in Sources */,
