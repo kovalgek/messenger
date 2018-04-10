@@ -71,7 +71,7 @@
 - (void) testThatSendMessageCallsPutMesage
 {
     [self.servicesManager sendMessage:@"IDDQD"];
-    OCMVerify([self.framer putMessageToSocketStream:[OCMArg anyPointer] buffer:[OCMArg anyPointer] bufferSize:4096]);
+    OCMVerify([self.framer putMessageToSocketStream:[OCMArg anyPointer] buffer:[OCMArg anyPointer] bufferSize:5]);
 }
 
 #pragma mark - helpers

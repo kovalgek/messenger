@@ -16,7 +16,6 @@
 		72530F8B1FF2FC74009500BD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 72530F8A1FF2FC74009500BD /* Assets.xcassets */; };
 		72530F8E1FF2FC74009500BD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 72530F8C1FF2FC74009500BD /* LaunchScreen.storyboard */; };
 		72530F911FF2FC74009500BD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 72530F901FF2FC74009500BD /* main.m */; };
-		72530FA61FF2FC74009500BD /* MessengerClientUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 72530FA51FF2FC74009500BD /* MessengerClientUITests.m */; };
 		72530FC71FF2FCDA009500BD /* RegistrationRequestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 72530FC61FF2FCDA009500BD /* RegistrationRequestTests.m */; };
 		72530FC91FF2FCEB009500BD /* RegistrationResponseTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 72530FC81FF2FCEB009500BD /* RegistrationResponseTests.m */; };
 		72530FCC1FF2FDCB009500BD /* LoginRequestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 72530FCB1FF2FDCB009500BD /* LoginRequestTests.m */; };
@@ -30,6 +29,7 @@
 		7255C4111FF3C74C00EFF48F /* MockRegistrationEncoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 7255C4101FF3C74C00EFF48F /* MockRegistrationEncoder.m */; };
 		7255C4141FF3C75800EFF48F /* MockRegistrationDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 7255C4131FF3C75800EFF48F /* MockRegistrationDecoder.m */; };
 		7255C4201FF810AB00EFF48F /* MockRegistrationEncoderWithError.m in Sources */ = {isa = PBXBuildFile; fileRef = 7255C41F1FF810AB00EFF48F /* MockRegistrationEncoderWithError.m */; };
+		72719819207D44070077C8C4 /* TestAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 72719818207D44070077C8C4 /* TestAppDelegate.m */; };
 		72785B8420755F61005B4A55 /* SocketHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 72785B8320755F61005B4A55 /* SocketHelper.m */; };
 		72785B8720755FEE005B4A55 /* ErrorHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 72785B8620755FEE005B4A55 /* ErrorHelper.m */; };
 		727D34621FFC2B3000C1E5B0 /* MockRegistrationServiceDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 727D34611FFC2B3000C1E5B0 /* MockRegistrationServiceDelegate.m */; };
@@ -43,13 +43,6 @@
 
 /* Begin PBXContainerItemProxy section */
 		72530F971FF2FC74009500BD /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 72530F761FF2FC73009500BD /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 72530F7D1FF2FC74009500BD;
-			remoteInfo = MessengerClient;
-		};
-		72530FA21FF2FC74009500BD /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 72530F761FF2FC73009500BD /* Project object */;
 			proxyType = 1;
@@ -79,8 +72,6 @@
 		72530F901FF2FC74009500BD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		72530F961FF2FC74009500BD /* MessengerClientTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MessengerClientTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		72530F9C1FF2FC74009500BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		72530FA11FF2FC74009500BD /* MessengerClientUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MessengerClientUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		72530FA51FF2FC74009500BD /* MessengerClientUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessengerClientUITests.m; sourceTree = "<group>"; };
 		72530FA71FF2FC74009500BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		72530FC61FF2FCDA009500BD /* RegistrationRequestTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RegistrationRequestTests.m; sourceTree = "<group>"; };
 		72530FC81FF2FCEB009500BD /* RegistrationResponseTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RegistrationResponseTests.m; sourceTree = "<group>"; };
@@ -106,6 +97,8 @@
 		7255C41E1FF810AB00EFF48F /* MockRegistrationEncoderWithError.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MockRegistrationEncoderWithError.h; sourceTree = "<group>"; };
 		7255C41F1FF810AB00EFF48F /* MockRegistrationEncoderWithError.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MockRegistrationEncoderWithError.m; sourceTree = "<group>"; };
 		725DD85D200A076700F5004D /* MessageReceiverType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageReceiverType.h; sourceTree = "<group>"; };
+		72719817207D44070077C8C4 /* TestAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestAppDelegate.h; sourceTree = "<group>"; };
+		72719818207D44070077C8C4 /* TestAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestAppDelegate.m; sourceTree = "<group>"; };
 		72785B8120755E69005B4A55 /* SocketHelperType.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SocketHelperType.h; sourceTree = "<group>"; };
 		72785B8220755F61005B4A55 /* SocketHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SocketHelper.h; sourceTree = "<group>"; };
 		72785B8320755F61005B4A55 /* SocketHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SocketHelper.m; sourceTree = "<group>"; };
@@ -144,13 +137,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		72530F9E1FF2FC74009500BD /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -171,7 +157,6 @@
 			children = (
 				72530F7E1FF2FC74009500BD /* MessengerClient.app */,
 				72530F961FF2FC74009500BD /* MessengerClientTests.xctest */,
-				72530FA11FF2FC74009500BD /* MessengerClientUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -196,6 +181,8 @@
 		72530F991FF2FC74009500BD /* MessengerClientTests */ = {
 			isa = PBXGroup;
 			children = (
+				72719817207D44070077C8C4 /* TestAppDelegate.h */,
+				72719818207D44070077C8C4 /* TestAppDelegate.m */,
 				72D9489B20167084007D89F9 /* ServicesManagerTests.m */,
 				72D9489D201670FB007D89F9 /* Mocks */,
 				7255C40D1FF3C70600EFF48F /* RegistrationService */,
@@ -207,7 +194,6 @@
 		72530FA41FF2FC74009500BD /* MessengerClientUITests */ = {
 			isa = PBXGroup;
 			children = (
-				72530FA51FF2FC74009500BD /* MessengerClientUITests.m */,
 				72530FA71FF2FC74009500BD /* Info.plist */,
 			);
 			path = MessengerClientUITests;
@@ -406,24 +392,6 @@
 			productReference = 72530F961FF2FC74009500BD /* MessengerClientTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		72530FA01FF2FC74009500BD /* MessengerClientUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 72530FB01FF2FC74009500BD /* Build configuration list for PBXNativeTarget "MessengerClientUITests" */;
-			buildPhases = (
-				72530F9D1FF2FC74009500BD /* Sources */,
-				72530F9E1FF2FC74009500BD /* Frameworks */,
-				72530F9F1FF2FC74009500BD /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				72530FA31FF2FC74009500BD /* PBXTargetDependency */,
-			);
-			name = MessengerClientUITests;
-			productName = MessengerClientUITests;
-			productReference = 72530FA11FF2FC74009500BD /* MessengerClientUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -438,11 +406,6 @@
 						ProvisioningStyle = Automatic;
 					};
 					72530F951FF2FC74009500BD = {
-						CreatedOnToolsVersion = 9.0;
-						ProvisioningStyle = Automatic;
-						TestTargetID = 72530F7D1FF2FC74009500BD;
-					};
-					72530FA01FF2FC74009500BD = {
 						CreatedOnToolsVersion = 9.0;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 72530F7D1FF2FC74009500BD;
@@ -464,7 +427,6 @@
 			targets = (
 				72530F7D1FF2FC74009500BD /* MessengerClient */,
 				72530F951FF2FC74009500BD /* MessengerClientTests */,
-				72530FA01FF2FC74009500BD /* MessengerClientUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -481,13 +443,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		72530F941FF2FC74009500BD /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		72530F9F1FF2FC74009500BD /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -625,6 +580,7 @@
 				72530FC71FF2FCDA009500BD /* RegistrationRequestTests.m in Sources */,
 				72530FDD1FF3AF1A009500BD /* RegistrationServiceTests.m in Sources */,
 				72D948A820167345007D89F9 /* MockMessageReceiver.m in Sources */,
+				72719819207D44070077C8C4 /* TestAppDelegate.m in Sources */,
 				72530FC91FF2FCEB009500BD /* RegistrationResponseTests.m in Sources */,
 				72D9489C20167084007D89F9 /* ServicesManagerTests.m in Sources */,
 				7255C4141FF3C75800EFF48F /* MockRegistrationDecoder.m in Sources */,
@@ -639,14 +595,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		72530F9D1FF2FC74009500BD /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				72530FA61FF2FC74009500BD /* MessengerClientUITests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -654,11 +602,6 @@
 			isa = PBXTargetDependency;
 			target = 72530F7D1FF2FC74009500BD /* MessengerClient */;
 			targetProxy = 72530F971FF2FC74009500BD /* PBXContainerItemProxy */;
-		};
-		72530FA31FF2FC74009500BD /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 72530F7D1FF2FC74009500BD /* MessengerClient */;
-			targetProxy = 72530FA21FF2FC74009500BD /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -844,32 +787,6 @@
 			};
 			name = Release;
 		};
-		72530FB11FF2FC74009500BD /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = MessengerClientUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.kovalgek.MessengerClientUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = MessengerClient;
-			};
-			name = Debug;
-		};
-		72530FB21FF2FC74009500BD /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = MessengerClientUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.kovalgek.MessengerClientUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = MessengerClient;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -896,15 +813,6 @@
 			buildConfigurations = (
 				72530FAE1FF2FC74009500BD /* Debug */,
 				72530FAF1FF2FC74009500BD /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		72530FB01FF2FC74009500BD /* Build configuration list for PBXNativeTarget "MessengerClientUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				72530FB11FF2FC74009500BD /* Debug */,
-				72530FB21FF2FC74009500BD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

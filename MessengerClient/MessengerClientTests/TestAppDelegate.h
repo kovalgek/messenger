@@ -6,8 +6,8 @@
 //  Copyright © 2018 Anton Kovalchuk. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
-@interface TestAppDelegate : NSObject
+@interface TestAppDelegate : NSObject <UIApplicationDelegate>
 
 @end
