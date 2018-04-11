@@ -7,33 +7,34 @@
 //
 
 #import <XCTest/XCTest.h>
+#import "MessageRequest.h"
 
 @interface MessageRequestTests : XCTestCase
-
+@property (nonatomic, strong) MessageRequest *messageRequest;
 @end
 
 @implementation MessageRequestTests
 
-- (void)setUp {
+- (void)setUp
+{
     [super setUp];
-    // Put setup code here. This method is called before the invocation of each test method in the class.
+    self.messageRequest = [[MessageRequest alloc] initWithMessage:@"Hi all"];
 }
 
-- (void)tearDown {
-    // Put teardown code here. This method is called after the invocation of each test method in the class.
+- (void)tearDown
+{
+    self.messageRequest = nil;
     [super tearDown];
 }
 
-- (void)testExample {
-    // This is an example of a functional test case.
-    // Use XCTAssert and related functions to verify your tests produce the correct results.
+- (void)testThatMessageRequestExists
+{
+    XCTAssertNotNil(self.messageRequest, @"Should be able to create MessageRequest instance");
 }
 
-- (void)testPerformanceExample {
-    // This is an example of a performance test case.
-    [self measureBlock:^{
-        // Put the code you want to measure the time of here.
-    }];
+- (void)testThatMessageRequestHasMessage
+{
+    XCTAssertEqualObjects(self.messageRequest.message, @"Hi all", @"MessageRequest should has a message attribute");
 }
 
 @end

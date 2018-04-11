@@ -10,4 +10,13 @@
 
 @implementation MessageResponse
 
+- (instancetype) initWithMessage:(NSString *)message
+{
+    self = [super  init];
+    
+    _message = message;
+    
+    return self;
+}
+
 @end
