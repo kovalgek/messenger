@@ -1,18 +1,18 @@
 //
-//  LoginRequestTests.m
-//  MessengerClientTests
+//  MessageResponseTests.m
+//  MessengerServerTests
 //
-//  Created by Anton Kovalchuk on 26.12.17.
-//  Copyright © 2017 Anton Kovalchuk. All rights reserved.
+//  Created by Anton Kovalchuk on 10.04.18.
+//  Copyright © 2018 Anton Kovalchuk. All rights reserved.
 //
 
 #import <XCTest/XCTest.h>
 
-@interface LoginRequestTests : XCTestCase
+@interface MessageResponseTests : XCTestCase
 
 @end
 
-@implementation LoginRequestTests
+@implementation MessageResponseTests
 
 - (void)setUp {
     [super setUp];

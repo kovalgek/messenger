@@ -76,5 +76,4 @@ static const size_t MAX_WIRE_SIZE = 4096;
     [self.framer putMessageToSocketStream:channel buffer:(UInt8 *)buffer bufferSize:bufferSize];
 }
 
-
 @end
