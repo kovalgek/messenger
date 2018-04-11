@@ -7,7 +7,18 @@
 //
 
 #import "MessageEncoder.h"
+#import "MessageResponse.h"
+
+static const NSString *DELIMITER = @" ";
+static const NSString *MAGIC = @"message";
 
 @implementation MessageEncoder
+
+- (NSString *) encodeMessgeResponse:(MessageResponse *)messageResponse
+                              error:(NSError **)error
+{
+    NSParameterAssert(messageResponse != nil);
+    return [NSString stringWithFormat:@"%@%@%@",MAGIC, DELIMITER, messageResponse.message];
+}
 
 @end

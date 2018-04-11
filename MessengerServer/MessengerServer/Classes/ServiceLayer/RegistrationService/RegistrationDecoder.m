@@ -18,7 +18,6 @@ static NSString *RegistrationDecoderErrorDomain = @"RegistrationDecoderErrorDoma
 - (RegistrationRequest *)decodeRegistrationRequestFromBuffer:(NSString *)buffer
                                                        error:(NSError *__autoreleasing *)error
 {
-    NSLog(@"decodeRegistrationRequestFromBuffer buffer=%@",buffer);
     NSParameterAssert(buffer != nil);
     
     NSArray *tokens = [buffer componentsSeparatedByString:DELIMITER];
@@ -34,7 +33,6 @@ static NSString *RegistrationDecoderErrorDomain = @"RegistrationDecoderErrorDoma
     }
     
     NSString *magic = tokens[0];
-    NSLog(@"decodeRegistrationRequestFromBuffer magic=%@",magic);
     if (![magic isEqualToString:MAGIC])
     {
         if (error != NULL)
@@ -47,7 +45,6 @@ static NSString *RegistrationDecoderErrorDomain = @"RegistrationDecoderErrorDoma
     }
     
     NSString *phoneNumber = tokens[1];
-    NSLog(@"decodeRegistrationRequestFromBuffer phoneNumber=%@",phoneNumber);
     if (!phoneNumber.length)
     {
         if (error != NULL)
@@ -58,9 +55,8 @@ static NSString *RegistrationDecoderErrorDomain = @"RegistrationDecoderErrorDoma
         }
         return nil;
     }
-    NSLog(@"decodeRegistrationRequestFromBuffer last");
-    RegistrationRequest *registrationRequest = [[RegistrationRequest alloc] initWithPhoneNumber:phoneNumber];
-    return registrationRequest;
+    
+    return [[RegistrationRequest alloc] initWithPhoneNumber:phoneNumber];;
 }
 
 @end
