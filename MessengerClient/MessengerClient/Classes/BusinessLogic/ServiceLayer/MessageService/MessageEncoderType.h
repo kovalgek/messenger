@@ -5,9 +5,13 @@
 //  Created by Anton Kovalchuk on 10.04.18.
 //  Copyright © 2018 Anton Kovalchuk. All rights reserved.
 //
+#import <Foundation/Foundation.h>
 
-#ifndef MessageEncoderType_h
-#define MessageEncoderType_h
+@class MessageRequest;
 
+@protocol MessageEncoderType
 
-#endif /* MessageEncoderType_h */
+- (NSString *) encodeMessageRequest:(MessageRequest *)messageRequest
+                              error:(NSError **)error;
+
+@end

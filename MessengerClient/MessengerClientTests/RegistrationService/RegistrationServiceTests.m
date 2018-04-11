@@ -44,7 +44,6 @@
     service = [[RegistrationService alloc] initWithEncoder:encoder
                                                    decoder:decoder];
     service.delegate = delegate;
-    
 }
 
 - (void)tearDown

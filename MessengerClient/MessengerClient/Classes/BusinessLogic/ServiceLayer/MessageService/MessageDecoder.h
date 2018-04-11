@@ -7,7 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "MessageDecoderType.h"
 
-@interface MessageDecoder : NSObject
+enum {
+    MessageDecoderInvalidBufferError,
+    MessageDecoderCantParseBuffer,
+    MessageDecoderMessageIsEmpty,
+};
+
+@interface MessageDecoder : NSObject <MessageDecoderType>
 
 @end

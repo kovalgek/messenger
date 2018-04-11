@@ -7,7 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "MessageEncoderType.h"
 
-@interface MessageEncoder : NSObject
+@interface MessageEncoder : NSObject <MessageEncoderType>
 
 @end

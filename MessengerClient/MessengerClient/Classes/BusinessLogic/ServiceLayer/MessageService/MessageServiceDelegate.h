@@ -5,9 +5,15 @@
 //  Created by Anton Kovalchuk on 10.04.18.
 //  Copyright © 2018 Anton Kovalchuk. All rights reserved.
 //
+#import <Foundation/Foundation.h>
 
-#ifndef MessageServiceDelegate_h
-#define MessageServiceDelegate_h
+@class MessageResponse;
 
+@protocol MessageServiceDelegate <NSObject>
 
-#endif /* MessageServiceDelegate_h */
+- (void) sendMessage:(NSString *)message
+     failedWithError:(NSError *)error;
+
+- (void) didReceiveMessage:(MessageResponse *)messageResponse;
+
+@end

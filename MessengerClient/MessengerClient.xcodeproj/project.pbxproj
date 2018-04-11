@@ -205,11 +205,11 @@
 		72530F991FF2FC74009500BD /* MessengerClientTests */ = {
 			isa = PBXGroup;
 			children = (
-				72C0D36A207E94F10086C054 /* MessageService */,
+				72D9489D201670FB007D89F9 /* Mocks */,
 				72719817207D44070077C8C4 /* TestAppDelegate.h */,
 				72719818207D44070077C8C4 /* TestAppDelegate.m */,
 				72D9489B20167084007D89F9 /* ServicesManagerTests.m */,
-				72D9489D201670FB007D89F9 /* Mocks */,
+				72C0D36A207E94F10086C054 /* MessageService */,
 				7255C40D1FF3C70600EFF48F /* RegistrationService */,
 				72530F9C1FF2FC74009500BD /* Info.plist */,
 			);
@@ -305,15 +305,15 @@
 		72530FE01FF3AF5A009500BD /* MessageService */ = {
 			isa = PBXGroup;
 			children = (
-				72719859207D568F0077C8C4 /* MessageDecoder.h */,
-				72719856207D568E0077C8C4 /* MessageDecoder.m */,
-				7271985C207D56900077C8C4 /* MessageDecoderType.h */,
-				7271985E207D56900077C8C4 /* MessageEncoder.h */,
-				7271985D207D56900077C8C4 /* MessageEncoder.m */,
-				7271985A207D568F0077C8C4 /* MessageEncoderType.h */,
+				72719858207D568F0077C8C4 /* MessageServiceDelegate.h */,
 				72719857207D568F0077C8C4 /* MessageService.h */,
 				7271985B207D568F0077C8C4 /* MessageService.m */,
-				72719858207D568F0077C8C4 /* MessageServiceDelegate.h */,
+				7271985A207D568F0077C8C4 /* MessageEncoderType.h */,
+				7271985E207D56900077C8C4 /* MessageEncoder.h */,
+				7271985D207D56900077C8C4 /* MessageEncoder.m */,
+				7271985C207D56900077C8C4 /* MessageDecoderType.h */,
+				72719859207D568F0077C8C4 /* MessageDecoder.h */,
+				72719856207D568E0077C8C4 /* MessageDecoder.m */,
 			);
 			path = MessageService;
 			sourceTree = "<group>";
@@ -324,8 +324,8 @@
 				72530FDC1FF3AF1A009500BD /* RegistrationServiceTests.m */,
 				721AB298200557D4004F8B24 /* RegistrationEncoderTests.m */,
 				721AB29A200557E1004F8B24 /* RegistrationDecoderTests.m */,
-				7255C40E1FF3C72300EFF48F /* Mocks */,
 				72530FCA1FF2FCF6009500BD /* Model */,
+				7255C40E1FF3C72300EFF48F /* Mocks */,
 			);
 			path = RegistrationService;
 			sourceTree = "<group>";
