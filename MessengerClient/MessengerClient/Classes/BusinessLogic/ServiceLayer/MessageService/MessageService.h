@@ -12,6 +12,7 @@
 #import "MessageServiceDelegate.h"
 #import "MessageEncoderType.h"
 #import "MessageDecoderType.h"
+#import "MessageServiceType.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -19,7 +20,7 @@ typedef NS_ENUM(NSUInteger, MessageServiceError) {
     MessageCode,
 };
 
-@interface MessageService : NSObject <MessageReceiverType>
+@interface MessageService : NSObject <MessageReceiverType, MessageServiceType>
 
 @property (nonatomic, weak) id <MessageServiceDelegate> delegate;
 @property (nonatomic, weak) id <MessageSenderType> senderDelegate;
@@ -28,9 +29,6 @@ typedef NS_ENUM(NSUInteger, MessageServiceError) {
 - (instancetype) new NS_UNAVAILABLE;
 - (instancetype) initWithEncoder:(id <MessageEncoderType>)encoder
                          decoder:(id <MessageDecoderType>)decoder NS_DESIGNATED_INITIALIZER;
-
-- (void) sendMessageWithMessageRequest:(MessageRequest *)messageRequest;
-- (void) sendMessageWithMessageRequestFailedWithError:(NSError *)error;
 
 @end
 

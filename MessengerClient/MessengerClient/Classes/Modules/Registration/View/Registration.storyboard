@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Registration View Controller-->
+        <scene sceneID="J1E-p0-pXV">
+            <objects>
+                <viewController restorationIdentifier="Registration" storyboardIdentifier="Registration" id="nas-nE-MmB" customClass="RegistrationViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ROf-Tc-kwa">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1DJ-rI-DyM">
+                                <rect key="frame" x="126" y="318.5" width="123" height="50"/>
+                                <color key="backgroundColor" red="1" green="0.35250118889999998" blue="0.3183485949" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="qO1-Cl-jba"/>
+                                </constraints>
+                                <state key="normal" title="  Registrate User  ">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="registrationButtonPressed:" destination="nas-nE-MmB" eventType="touchUpInside" id="eol-iY-gHF"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iSO-iG-OOL">
+                                <rect key="frame" x="87.5" y="206" width="200" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="R3y-BN-rsD"/>
+                                    <constraint firstAttribute="width" constant="200" id="RFf-4y-OyQ"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="1DJ-rI-DyM" firstAttribute="centerY" secondItem="hCY-fN-r25" secondAttribute="centerY" id="auR-4L-Fas"/>
+                            <constraint firstItem="iSO-iG-OOL" firstAttribute="centerX" secondItem="hCY-fN-r25" secondAttribute="centerX" id="npX-jg-UxX"/>
+                            <constraint firstItem="1DJ-rI-DyM" firstAttribute="centerX" secondItem="hCY-fN-r25" secondAttribute="centerX" id="yoq-5V-kZN"/>
+                            <constraint firstItem="1DJ-rI-DyM" firstAttribute="top" secondItem="iSO-iG-OOL" secondAttribute="bottom" constant="68.5" id="zKn-oh-GbA"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="hCY-fN-r25"/>
+                    </view>
+                    <connections>
+                        <outlet property="phoneNumberTextField" destination="iSO-iG-OOL" id="fRo-0w-Bd1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XHp-x4-WpO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-156" y="-81.409295352323838"/>
+        </scene>
+    </scenes>
+</document>

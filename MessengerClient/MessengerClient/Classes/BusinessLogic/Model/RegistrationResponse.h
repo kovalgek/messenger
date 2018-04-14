@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface RegistrationResponse : NSObject
 
-@property (nonatomic, copy) NSString *status;
+@property (nonatomic, copy, readonly) NSString *status;
 
 - (instancetype) init NS_UNAVAILABLE;
 - (instancetype) new NS_UNAVAILABLE;

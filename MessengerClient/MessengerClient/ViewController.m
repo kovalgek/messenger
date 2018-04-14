@@ -14,6 +14,7 @@
 #import "RegistrationEncoder.h"
 #import "RegistrationRequest.h"
 #import "SocketHelper.h"
+#import "RegistrationServiceType.h"
 
 @interface ViewController ()
 @property (nonatomic, strong) ServicesManager *servicesManager;

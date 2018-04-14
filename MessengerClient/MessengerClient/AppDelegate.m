@@ -7,16 +7,20 @@
 //
 
 #import "AppDelegate.h"
+#import "RoutersFactory.h"
 
 @interface AppDelegate ()
-
+@property (nonatomic, strong) RoutersFactory *routersFactory;
 @end
 
 @implementation AppDelegate
 
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+{
+    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    self.routersFactory = [[RoutersFactory alloc] init];
+    [self.routersFactory installRootViewController: self.window];
     return YES;
 }
 

@@ -41,10 +41,22 @@
 		72C0D370207E95060086C054 /* MessageEncoderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 72C0D36D207E95060086C054 /* MessageEncoderTests.m */; };
 		72C0D374207E951D0086C054 /* MessageRequestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 72C0D372207E951D0086C054 /* MessageRequestTests.m */; };
 		72C0D375207E951D0086C054 /* MessageResponseTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 72C0D373207E951D0086C054 /* MessageResponseTests.m */; };
+		72C0D384207FFBE70086C054 /* RegistrationRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = 72C0D383207FFBE70086C054 /* RegistrationRouter.m */; };
+		72C0D388207FFC120086C054 /* RegistrationInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = 72C0D387207FFC120086C054 /* RegistrationInteractor.m */; };
+		72C0D38C207FFC3E0086C054 /* RegistrationPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 72C0D38B207FFC3E0086C054 /* RegistrationPresenter.m */; };
+		72C0D38F207FFC4D0086C054 /* RegistrationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72C0D38E207FFC4D0086C054 /* RegistrationViewController.m */; };
+		72C0D391207FFC5C0086C054 /* Registration.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 72C0D390207FFC5C0086C054 /* Registration.storyboard */; };
+		72C0D393207FFE130086C054 /* Messages.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 72C0D392207FFE130086C054 /* Messages.storyboard */; };
+		72C0D396207FFE1E0086C054 /* MessagesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72C0D395207FFE1E0086C054 /* MessagesViewController.m */; };
+		72C0D39A207FFE430086C054 /* MessagesPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 72C0D399207FFE430086C054 /* MessagesPresenter.m */; };
+		72C0D39E207FFE6A0086C054 /* MessagesInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = 72C0D39D207FFE6A0086C054 /* MessagesInteractor.m */; };
+		72C0D3A2207FFE8A0086C054 /* MessagesRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = 72C0D3A1207FFE8A0086C054 /* MessagesRouter.m */; };
 		72D94899200A122F007D89F9 /* DelimiterFramer.m in Sources */ = {isa = PBXBuildFile; fileRef = 72D94898200A122F007D89F9 /* DelimiterFramer.m */; };
 		72D9489C20167084007D89F9 /* ServicesManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 72D9489B20167084007D89F9 /* ServicesManagerTests.m */; };
 		72D948A02016710C007D89F9 /* MockFramer.m in Sources */ = {isa = PBXBuildFile; fileRef = 72D9489F2016710C007D89F9 /* MockFramer.m */; };
 		72D948A820167345007D89F9 /* MockMessageReceiver.m in Sources */ = {isa = PBXBuildFile; fileRef = 72D948A720167345007D89F9 /* MockMessageReceiver.m */; };
+		72EEBC782081FF81008C8515 /* RegistrationResponsePlainObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 72EEBC772081FF81008C8515 /* RegistrationResponsePlainObject.m */; };
+		72EEBC7B20820AA1008C8515 /* RoutersFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 72EEBC7A20820AA1008C8515 /* RoutersFactory.m */; };
 		AE687C012B764B0E4137801E /* Pods_MessengerClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 398372A55475B82D1284E819 /* Pods_MessengerClient.framework */; };
 		D59C8224D4CF9B0222D31949 /* Pods_MessengerClientTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5ECCDA76DD193EFBD096907E /* Pods_MessengerClientTests.framework */; };
 /* End PBXBuildFile section */
@@ -131,6 +143,32 @@
 		72C0D36D207E95060086C054 /* MessageEncoderTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MessageEncoderTests.m; path = MessengerClientTests/MessageService/MessageEncoderTests.m; sourceTree = SOURCE_ROOT; };
 		72C0D372207E951D0086C054 /* MessageRequestTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MessageRequestTests.m; path = MessengerClientTests/MessageService/Model/MessageRequestTests.m; sourceTree = SOURCE_ROOT; };
 		72C0D373207E951D0086C054 /* MessageResponseTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MessageResponseTests.m; path = MessengerClientTests/MessageService/Model/MessageResponseTests.m; sourceTree = SOURCE_ROOT; };
+		72C0D381207FFBD90086C054 /* RegistrationRouterInput.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RegistrationRouterInput.h; sourceTree = "<group>"; };
+		72C0D382207FFBE70086C054 /* RegistrationRouter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RegistrationRouter.h; sourceTree = "<group>"; };
+		72C0D383207FFBE70086C054 /* RegistrationRouter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RegistrationRouter.m; sourceTree = "<group>"; };
+		72C0D385207FFC070086C054 /* RegistrationInteractorInput.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RegistrationInteractorInput.h; sourceTree = "<group>"; };
+		72C0D386207FFC120086C054 /* RegistrationInteractor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RegistrationInteractor.h; sourceTree = "<group>"; };
+		72C0D387207FFC120086C054 /* RegistrationInteractor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RegistrationInteractor.m; sourceTree = "<group>"; };
+		72C0D389207FFC2D0086C054 /* RegistrationPresenterInput.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RegistrationPresenterInput.h; sourceTree = "<group>"; };
+		72C0D38A207FFC3E0086C054 /* RegistrationPresenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RegistrationPresenter.h; sourceTree = "<group>"; };
+		72C0D38B207FFC3E0086C054 /* RegistrationPresenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RegistrationPresenter.m; sourceTree = "<group>"; };
+		72C0D38D207FFC4D0086C054 /* RegistrationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RegistrationViewController.h; sourceTree = "<group>"; };
+		72C0D38E207FFC4D0086C054 /* RegistrationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RegistrationViewController.m; sourceTree = "<group>"; };
+		72C0D390207FFC5C0086C054 /* Registration.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Registration.storyboard; sourceTree = "<group>"; };
+		72C0D392207FFE130086C054 /* Messages.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Messages.storyboard; sourceTree = "<group>"; };
+		72C0D394207FFE1E0086C054 /* MessagesViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessagesViewController.h; sourceTree = "<group>"; };
+		72C0D395207FFE1E0086C054 /* MessagesViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessagesViewController.m; sourceTree = "<group>"; };
+		72C0D397207FFE340086C054 /* MessagesPresenterInput.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessagesPresenterInput.h; sourceTree = "<group>"; };
+		72C0D398207FFE430086C054 /* MessagesPresenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessagesPresenter.h; sourceTree = "<group>"; };
+		72C0D399207FFE430086C054 /* MessagesPresenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessagesPresenter.m; sourceTree = "<group>"; };
+		72C0D39B207FFE5C0086C054 /* MessagesInteractorInput.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessagesInteractorInput.h; sourceTree = "<group>"; };
+		72C0D39C207FFE6A0086C054 /* MessagesInteractor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessagesInteractor.h; sourceTree = "<group>"; };
+		72C0D39D207FFE6A0086C054 /* MessagesInteractor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessagesInteractor.m; sourceTree = "<group>"; };
+		72C0D39F207FFE7E0086C054 /* MessagesRouterInput.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessagesRouterInput.h; sourceTree = "<group>"; };
+		72C0D3A0207FFE8A0086C054 /* MessagesRouter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessagesRouter.h; sourceTree = "<group>"; };
+		72C0D3A1207FFE8A0086C054 /* MessagesRouter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessagesRouter.m; sourceTree = "<group>"; };
+		72C0D3A3208000EF0086C054 /* MessageServiceType.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageServiceType.h; sourceTree = "<group>"; };
+		72C0D3A42080019A0086C054 /* RegistrationServiceType.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RegistrationServiceType.h; sourceTree = "<group>"; };
 		72D94897200A122F007D89F9 /* DelimiterFramer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DelimiterFramer.h; sourceTree = "<group>"; };
 		72D94898200A122F007D89F9 /* DelimiterFramer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DelimiterFramer.m; sourceTree = "<group>"; };
 		72D9489A200AB03B007D89F9 /* MessageSenderType.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageSenderType.h; sourceTree = "<group>"; };
@@ -139,6 +177,12 @@
 		72D9489F2016710C007D89F9 /* MockFramer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MockFramer.m; sourceTree = "<group>"; };
 		72D948A620167345007D89F9 /* MockMessageReceiver.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MockMessageReceiver.h; sourceTree = "<group>"; };
 		72D948A720167345007D89F9 /* MockMessageReceiver.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MockMessageReceiver.m; sourceTree = "<group>"; };
+		72EEBC7420800598008C8515 /* RegistrationPresenterOutput.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RegistrationPresenterOutput.h; sourceTree = "<group>"; };
+		72EEBC752081FEF7008C8515 /* RegistrationViewControllerOutput.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RegistrationViewControllerOutput.h; sourceTree = "<group>"; };
+		72EEBC762081FF81008C8515 /* RegistrationResponsePlainObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RegistrationResponsePlainObject.h; sourceTree = "<group>"; };
+		72EEBC772081FF81008C8515 /* RegistrationResponsePlainObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RegistrationResponsePlainObject.m; sourceTree = "<group>"; };
+		72EEBC7920820AA1008C8515 /* RoutersFactory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RoutersFactory.h; sourceTree = "<group>"; };
+		72EEBC7A20820AA1008C8515 /* RoutersFactory.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RoutersFactory.m; sourceTree = "<group>"; };
 		C053657C4195752FD140AF96 /* Pods-MessengerClient.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MessengerClient.release.xcconfig"; path = "Pods/Target Support Files/Pods-MessengerClient/Pods-MessengerClient.release.xcconfig"; sourceTree = "<group>"; };
 		CFCAC23701976E9000E88CF7 /* Pods-MessengerClientTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MessengerClientTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MessengerClientTests/Pods-MessengerClientTests.debug.xcconfig"; sourceTree = "<group>"; };
 		D8D74A255BBC69F55BEDBF62 /* Pods-MessengerClientTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MessengerClientTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MessengerClientTests/Pods-MessengerClientTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -236,6 +280,7 @@
 		72530FD21FF2FED4009500BD /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				72C0D376207FFAB40086C054 /* Modules */,
 				72530FD31FF2FEDE009500BD /* BusinessLogic */,
 			);
 			path = Classes;
@@ -282,6 +327,8 @@
 				72530FD71FF2FF0C009500BD /* RegistrationRequest.m */,
 				72530FD91FF3039D009500BD /* RegistrationResponse.h */,
 				72530FDA1FF3039D009500BD /* RegistrationResponse.m */,
+				72EEBC762081FF81008C8515 /* RegistrationResponsePlainObject.h */,
+				72EEBC772081FF81008C8515 /* RegistrationResponsePlainObject.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -290,6 +337,7 @@
 			isa = PBXGroup;
 			children = (
 				727D345F1FFC2A2100C1E5B0 /* RegistrationServiceDelegate.h */,
+				72C0D3A42080019A0086C054 /* RegistrationServiceType.h */,
 				72530FE21FF3C03A009500BD /* RegistrationService.h */,
 				72530FE31FF3C03A009500BD /* RegistrationService.m */,
 				72530FE51FF3C0EA009500BD /* RegistrationEncoderType.h */,
@@ -306,6 +354,7 @@
 			isa = PBXGroup;
 			children = (
 				72719858207D568F0077C8C4 /* MessageServiceDelegate.h */,
+				72C0D3A3208000EF0086C054 /* MessageServiceType.h */,
 				72719857207D568F0077C8C4 /* MessageService.h */,
 				7271985B207D568F0077C8C4 /* MessageService.m */,
 				7271985A207D568F0077C8C4 /* MessageEncoderType.h */,
@@ -364,6 +413,121 @@
 				72C0D373207E951D0086C054 /* MessageResponseTests.m */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		72C0D376207FFAB40086C054 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				72C0D37C207FFB030086C054 /* Messages */,
+				72C0D37B207FFAFB0086C054 /* Registration */,
+				72EEBC7920820AA1008C8515 /* RoutersFactory.h */,
+				72EEBC7A20820AA1008C8515 /* RoutersFactory.m */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		72C0D377207FFAD80086C054 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				72C0D381207FFBD90086C054 /* RegistrationRouterInput.h */,
+				72C0D382207FFBE70086C054 /* RegistrationRouter.h */,
+				72C0D383207FFBE70086C054 /* RegistrationRouter.m */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		72C0D378207FFAE10086C054 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				72C0D385207FFC070086C054 /* RegistrationInteractorInput.h */,
+				72C0D386207FFC120086C054 /* RegistrationInteractor.h */,
+				72C0D387207FFC120086C054 /* RegistrationInteractor.m */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		72C0D379207FFAE70086C054 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				72C0D389207FFC2D0086C054 /* RegistrationPresenterInput.h */,
+				72EEBC7420800598008C8515 /* RegistrationPresenterOutput.h */,
+				72C0D38A207FFC3E0086C054 /* RegistrationPresenter.h */,
+				72C0D38B207FFC3E0086C054 /* RegistrationPresenter.m */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		72C0D37A207FFAEE0086C054 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				72EEBC752081FEF7008C8515 /* RegistrationViewControllerOutput.h */,
+				72C0D38D207FFC4D0086C054 /* RegistrationViewController.h */,
+				72C0D38E207FFC4D0086C054 /* RegistrationViewController.m */,
+				72C0D390207FFC5C0086C054 /* Registration.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		72C0D37B207FFAFB0086C054 /* Registration */ = {
+			isa = PBXGroup;
+			children = (
+				72C0D377207FFAD80086C054 /* Router */,
+				72C0D378207FFAE10086C054 /* Interactor */,
+				72C0D379207FFAE70086C054 /* Presenter */,
+				72C0D37A207FFAEE0086C054 /* View */,
+			);
+			path = Registration;
+			sourceTree = "<group>";
+		};
+		72C0D37C207FFB030086C054 /* Messages */ = {
+			isa = PBXGroup;
+			children = (
+				72C0D380207FFB1F0086C054 /* Router */,
+				72C0D37F207FFB190086C054 /* Interactor */,
+				72C0D37E207FFB150086C054 /* Presenter */,
+				72C0D37D207FFB100086C054 /* View */,
+			);
+			path = Messages;
+			sourceTree = "<group>";
+		};
+		72C0D37D207FFB100086C054 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				72C0D392207FFE130086C054 /* Messages.storyboard */,
+				72C0D394207FFE1E0086C054 /* MessagesViewController.h */,
+				72C0D395207FFE1E0086C054 /* MessagesViewController.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		72C0D37E207FFB150086C054 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				72C0D397207FFE340086C054 /* MessagesPresenterInput.h */,
+				72C0D398207FFE430086C054 /* MessagesPresenter.h */,
+				72C0D399207FFE430086C054 /* MessagesPresenter.m */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		72C0D37F207FFB190086C054 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				72C0D39B207FFE5C0086C054 /* MessagesInteractorInput.h */,
+				72C0D39C207FFE6A0086C054 /* MessagesInteractor.h */,
+				72C0D39D207FFE6A0086C054 /* MessagesInteractor.m */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		72C0D380207FFB1F0086C054 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				72C0D39F207FFE7E0086C054 /* MessagesRouterInput.h */,
+				72C0D3A0207FFE8A0086C054 /* MessagesRouter.h */,
+				72C0D3A1207FFE8A0086C054 /* MessagesRouter.m */,
+			);
+			path = Router;
 			sourceTree = "<group>";
 		};
 		72D9489D201670FB007D89F9 /* Mocks */ = {
@@ -486,7 +650,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				72530F8E1FF2FC74009500BD /* LaunchScreen.storyboard in Resources */,
+				72C0D391207FFC5C0086C054 /* Registration.storyboard in Resources */,
 				72530F8B1FF2FC74009500BD /* Assets.xcassets in Resources */,
+				72C0D393207FFE130086C054 /* Messages.storyboard in Resources */,
 				72530F891FF2FC74009500BD /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -608,22 +774,32 @@
 			buildActionMask = 2147483647;
 			files = (
 				72719861207D56900077C8C4 /* MessageEncoder.m in Sources */,
+				72C0D38C207FFC3E0086C054 /* RegistrationPresenter.m in Sources */,
 				7255C4041FF3C4C600EFF48F /* RegistrationEncoder.m in Sources */,
 				72785B8420755F61005B4A55 /* SocketHelper.m in Sources */,
 				72785B8720755FEE005B4A55 /* ErrorHelper.m in Sources */,
 				72D94899200A122F007D89F9 /* DelimiterFramer.m in Sources */,
+				72C0D396207FFE1E0086C054 /* MessagesViewController.m in Sources */,
 				721AB2951FFC37E6004F8B24 /* ServicesManager.m in Sources */,
 				72719860207D56900077C8C4 /* MessageService.m in Sources */,
 				7255C4091FF3C4EE00EFF48F /* RegistrationDecoder.m in Sources */,
+				72C0D39E207FFE6A0086C054 /* MessagesInteractor.m in Sources */,
 				72530FD81FF2FF0C009500BD /* RegistrationRequest.m in Sources */,
 				72C0D367207E93D50086C054 /* MessageRequest.m in Sources */,
 				72530F861FF2FC74009500BD /* ViewController.m in Sources */,
+				72C0D3A2207FFE8A0086C054 /* MessagesRouter.m in Sources */,
+				72EEBC7B20820AA1008C8515 /* RoutersFactory.m in Sources */,
 				72C0D368207E93D50086C054 /* MessageResponse.m in Sources */,
+				72C0D38F207FFC4D0086C054 /* RegistrationViewController.m in Sources */,
+				72EEBC782081FF81008C8515 /* RegistrationResponsePlainObject.m in Sources */,
+				72C0D388207FFC120086C054 /* RegistrationInteractor.m in Sources */,
 				72530FDB1FF3039D009500BD /* RegistrationResponse.m in Sources */,
+				72C0D384207FFBE70086C054 /* RegistrationRouter.m in Sources */,
 				72530F911FF2FC74009500BD /* main.m in Sources */,
 				72530FE41FF3C03A009500BD /* RegistrationService.m in Sources */,
 				72530F831FF2FC74009500BD /* AppDelegate.m in Sources */,
 				7271985F207D56900077C8C4 /* MessageDecoder.m in Sources */,
+				72C0D39A207FFE430086C054 /* MessagesPresenter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
