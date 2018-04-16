@@ -15,23 +15,40 @@
 #import "SocketHelper.h"
 #import "UserStorage.h"
 
+#import "MessageService.h"
+#import "MessageDecoder.h"
+#import "MessageEncoder.h"
+
 int main(int argc, const char * argv[])
 {
     @autoreleasepool {
-        NSLog(@"Hello, World!");
+        NSLog(@"Start server....");
+        
+        UserStorage *userStorage = [[UserStorage alloc] init];
         
         RegistrationDecoder *decoder = [[RegistrationDecoder alloc] init];
         RegistrationEncoder *encoder = [[RegistrationEncoder alloc] init];
-        UserStorage *userStorage = [[UserStorage alloc] init];
         RegistrationService *registrationService = [[RegistrationService alloc] initWithEncoder:encoder
                                                                                         decoder:decoder
                                                                                     userStorage:userStorage];
         DelimiterFramer *delimiterFramer = [[DelimiterFramer alloc] init];
         SocketHelper *socketHelper = [[SocketHelper alloc] init];
-        ServicesManager *servicesManager = [[ServicesManager alloc] initWithFramer:delimiterFramer socketHelper:socketHelper];
-        [servicesManager setupTCPServerSocketWithService:@"5000"];
+        ServicesManager *servicesManager = [[ServicesManager alloc] initWithFramer:delimiterFramer
+                                                                      socketHelper:socketHelper
+                                                                       userStorage:userStorage];
+        
         [servicesManager addService:registrationService];
         registrationService.senderDelegate = servicesManager;
+        
+        MessageEncoder *messageEncoder = [[MessageEncoder alloc] init];
+        MessageDecoder *messageDecoder = [[MessageDecoder alloc] init];
+        MessageService *messageService = [[MessageService alloc] initWithEncoder:messageEncoder
+                                                                         decoder:messageDecoder
+                                                                     userStorage:userStorage];
+        [servicesManager addService:messageService];
+        messageService.senderDelegate = servicesManager;
+        
+        [servicesManager setupTCPServerSocketWithService:@"5000"];
         [servicesManager runMessagesLoop];
     }
     return 0;

@@ -98,6 +98,7 @@ static NSString *RegistrationServiceFailedError = @"RegistrationServiceFailedErr
         return NO;
     }
     User *user = [[User alloc] initWithPhoneNumber:phoneNumber];
+    user.socket = socket;
     [self.userStorage addUser:user];
     
     NSArray *allUsers = [self.userStorage allUsers];

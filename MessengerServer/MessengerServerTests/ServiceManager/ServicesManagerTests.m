@@ -19,6 +19,7 @@
 @property (nonatomic, strong) ServicesManager *servicesManager;
 @property (nonatomic, strong) id<SocketHelperType> socketHelper;
 @property (nonatomic, strong) id<MessageReceiverType> messageReceiver;
+@property (nonatomic, strong) id <UserStorageType> userStorage;
 @property (nonatomic, strong) id<FramerType> framer;
 @end
 
@@ -29,7 +30,10 @@
     [super setUp];
     self.framer = OCMProtocolMock(@protocol(FramerType));
     self.socketHelper = OCMProtocolMock(@protocol(SocketHelperType));
-    self.servicesManager = [[ServicesManager alloc] initWithFramer:self.framer socketHelper:self.socketHelper];
+    self.userStorage = OCMProtocolMock(@protocol(UserStorageType));
+    self.servicesManager = [[ServicesManager alloc] initWithFramer:self.framer
+                                                      socketHelper:self.socketHelper
+                                                       userStorage:self.userStorage];
 }
 
 - (void)tearDown
@@ -37,6 +41,7 @@
     self.framer = nil;
     self.socketHelper = nil;
     self.servicesManager = nil;
+    self.userStorage = nil;
     [super tearDown];
 }
 
@@ -64,7 +69,9 @@
 - (void) testThatRunLoopHandlesClientsAndParsesSocketBuffer
 {
     MockFramer *mockFramer = [[MockFramer alloc] init];
-    self.servicesManager = [[ServicesManager alloc] initWithFramer:mockFramer socketHelper:self.socketHelper];
+    self.servicesManager = [[ServicesManager alloc] initWithFramer:mockFramer
+                                                      socketHelper:self.socketHelper
+                                                       userStorage:self.userStorage];
     
     OCMStub([self.socketHelper serverSocketForService:@"127.0.0.1"]).andReturn(10);
     OCMStub([self.socketHelper clientSocketForServerSocket:10]).andReturn(20);
@@ -79,7 +86,9 @@
 {
     MockMessageReceiver *mockMessageReceiver = [[MockMessageReceiver alloc] init];
     MockFramer *mockFramer = [[MockFramer alloc] init];
-    self.servicesManager = [[ServicesManager alloc] initWithFramer:mockFramer socketHelper:self.socketHelper];
+    self.servicesManager = [[ServicesManager alloc] initWithFramer:mockFramer
+                                                      socketHelper:self.socketHelper
+                                                       userStorage:self.userStorage];
     [self.servicesManager addService:mockMessageReceiver];
     
     OCMStub([self.socketHelper serverSocketForService:@"127.0.0.1"]).andReturn(10);

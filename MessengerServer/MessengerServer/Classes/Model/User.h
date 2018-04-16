@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface User : NSObject
 
-@property (nonatomic, assign) NSInteger socket;
+@property (nonatomic, assign) int socket;
 
 @property (nonatomic, copy, readonly) NSString *phoneNumber;
 

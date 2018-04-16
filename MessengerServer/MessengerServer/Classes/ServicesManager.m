@@ -10,6 +10,7 @@
 
 #import "AddressUtility.h"
 #import "ErrorHelper.h"
+#import "User.h"
 
 static const size_t MAX_WIRE_SIZE = 4096;
 
@@ -20,17 +21,21 @@ static const size_t MAX_WIRE_SIZE = 4096;
 @property (nonatomic, assign) int serverSocket;
 @property (nonatomic, strong) id<FramerType> framer;
 @property (nonatomic, strong) id<SocketHelperType> socketHelper;
+@property (nonatomic, strong) id <UserStorageType> userStorage;
 @property (nonatomic, assign) BOOL stopMessageLoop;
 @end
 
 @implementation ServicesManager
 
-- (instancetype) initWithFramer:(id<FramerType>)framer socketHelper:(id<SocketHelperType>)socketHelper
+- (instancetype) initWithFramer:(id<FramerType>)framer
+                   socketHelper:(id<SocketHelperType>)socketHelper
+                    userStorage:(id<UserStorageType>)userStorage
 {
     self = [super init];
     
     _framer = framer;
     _socketHelper = socketHelper;
+    _userStorage = userStorage;
     _services = [[NSMutableArray alloc] init];
     
     return self;
@@ -108,7 +113,13 @@ static const size_t MAX_WIRE_SIZE = 4096;
 
 - (void)sendMessageToAllUsers:(NSString *)message
 {
-    
+    for(User *user in self.userStorage.allUsers)
+    {
+        FILE *channel = [self.socketHelper streamForSocket:user.socket];
+        const char *buffer = [message UTF8String];
+        size_t bufferSize = strlen(buffer) * sizeof(char);
+        [self.framer putMessageToSocketStream:channel buffer:(UInt8 *)buffer bufferSize:bufferSize];
+    }
 }
 
 @end

@@ -14,7 +14,7 @@ static const NSString *MAGIC = @"message";
 
 @implementation MessageEncoder
 
-- (NSString *) encodeMessgeResponse:(MessageResponse *)messageResponse
+- (NSString *) encodeMessageResponse:(MessageResponse *)messageResponse
                               error:(NSError **)error
 {
     NSParameterAssert(messageResponse != nil);
