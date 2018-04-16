@@ -31,13 +31,17 @@
 
 - (void)didReceiveRegistration:(RegistrationResponse *)registrationResponse
 {
-    RegistrationResponsePlainObject *registrationResponsePlainObject = [[RegistrationResponsePlainObject alloc] initWithRegistrationResponse:registrationResponse];
-    [self.presenter presentRegistrationResponse:registrationResponsePlainObject];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        RegistrationResponsePlainObject *registrationResponsePlainObject = [[RegistrationResponsePlainObject alloc] initWithRegistrationResponse:registrationResponse];
+        [self.presenter presentRegistrationResponse:registrationResponsePlainObject];
+    });
 }
 
 - (void)registrateUserWithPhoneNumber:(NSString *)phoneNumber failedWithError:(NSError *)error
 {
-    [self.presenter presentError:error.localizedDescription];
+//    dispatch_async(dispatch_get_main_queue(), ^{
+//        [self.presenter presentError:error.localizedDescription];
+//    });
 }
 
 @end

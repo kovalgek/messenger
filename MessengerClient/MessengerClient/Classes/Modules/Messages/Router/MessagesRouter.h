@@ -7,7 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "MessagesRouterInput.h"
+#import "MessageServiceType.h"
 
-@interface MessagesRouter : NSObject
+@interface MessagesRouter : NSObject <MessagesRouterInput>
+
+- (instancetype)initWithService:(id<MessageServiceType>)service;
 
 @end

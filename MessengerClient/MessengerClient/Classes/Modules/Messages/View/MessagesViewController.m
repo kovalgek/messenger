@@ -7,31 +7,49 @@
 //
 
 #import "MessagesViewController.h"
+#import "MessageCell.h"
 
-@interface MessagesViewController ()
-
+@interface MessagesViewController () <UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate>
+@property (weak, nonatomic) IBOutlet UITableView *messagesTableView;
+@property (weak, nonatomic) IBOutlet UITextField *messageTextField;
 @end
 
 @implementation MessagesViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    [self.presenter viewCreated];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return self.presenter.messagesCount;
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *MessageCellIdentifier = @"MessageCell";
+    MessageCell *cell = [tableView dequeueReusableCellWithIdentifier:MessageCellIdentifier];
+    [self.presenter configureMessageCell:cell atIndex:indexPath.row];
+    return cell;
 }
-*/
+
+- (void)updateData
+{
+    [self.messagesTableView reloadData];
+}
+
+- (void)showError:(NSString *)message
+{
+    NSLog(@"error:%@",message);
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    [self.presenter sendMessage:textField.text];
+    return NO;
+}
 
 @end

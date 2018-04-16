@@ -18,9 +18,15 @@
 #import "DelimiterFramer.h"
 #import "SocketHelper.h"
 
+#import "MessagesRouter.h"
+#import "MessageService.h"
+#import "MessageEncoder.h"
+#import "MessageDecoder.h"
+
 @interface RoutersFactory()
 @property (nonatomic, strong) ServicesManager *servicesManager;
 @property (nonatomic, strong) RegistrationRouter *registrationRouter;
+@property (nonatomic, strong) MessagesRouter *messagesRouter;
 @end
 
 @implementation RoutersFactory
@@ -46,6 +52,16 @@
     registrationService.senderDelegate = self.servicesManager;
     
     self.registrationRouter = [[RegistrationRouter alloc] initWithService:registrationService];
+    
+    MessageDecoder *messageDecoder = [[MessageDecoder alloc] init];
+    MessageEncoder *messageEncoder = [[MessageEncoder alloc] init];
+    MessageService *messageService = [[MessageService alloc] initWithEncoder:messageEncoder decoder:messageDecoder];
+    [self.servicesManager addService:messageService];
+    messageService.senderDelegate = self.servicesManager;
+    
+    self.messagesRouter = [[MessagesRouter alloc] initWithService:messageService];
+    
+    self.registrationRouter.messagesRouter = self.messagesRouter;
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
         [self.servicesManager runMessagesLoop];

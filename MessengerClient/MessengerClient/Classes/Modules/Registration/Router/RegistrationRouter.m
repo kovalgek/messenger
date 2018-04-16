@@ -45,6 +45,7 @@ NSString *registrationStroryboardId = @"Registration";
     presenter.viewController = viewController;
     interactor.presenter = presenter;
     viewController.presenter = presenter;
+    self.service.delegate = interactor;
 
     return viewController;
 }
@@ -59,7 +60,7 @@ NSString *registrationStroryboardId = @"Registration";
 
 - (void) goToMessagesScreen
 {
-    [self.messagesRouter presentMessagesScreen];
+    [self.messagesRouter presentMessagesScreenWithController:self.registrationVC];
 }
 
 @end

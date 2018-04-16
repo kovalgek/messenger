@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MessagesViewControllerOutput.h"
+#import "MessagesPresenterInput.h"
+#import "MessagesPresenterOutput.h"
 
-@interface MessagesViewController : UIViewController
-
+@interface MessagesViewController : UIViewController <MessagesViewControllerOutput>
+@property (nonatomic, strong) id<MessagesPresenterInput, MessagesPresenterOutput> presenter;
 @end

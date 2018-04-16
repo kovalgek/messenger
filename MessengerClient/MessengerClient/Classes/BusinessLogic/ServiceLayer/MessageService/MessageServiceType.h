@@ -8,10 +8,15 @@
 #import <Foundation/Foundation.h>
 
 @class MessageRequest;
+@protocol MessageServiceDelegate;
+@protocol MessageSenderType;
 
 @protocol MessageServiceType <NSObject>
 
 - (void) sendMessageWithMessageRequest:(MessageRequest *)messageRequest;
 - (void) sendMessageWithMessageRequestFailedWithError:(NSError *)error;
+
+@property (nonatomic, weak) id <MessageServiceDelegate> delegate;
+@property (nonatomic, weak) id <MessageSenderType> senderDelegate;
 
 @end
