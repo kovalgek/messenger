@@ -26,20 +26,23 @@ int main(int argc, const char * argv[])
         
         UserStorage *userStorage = [[UserStorage alloc] init];
         
-        RegistrationDecoder *decoder = [[RegistrationDecoder alloc] init];
-        RegistrationEncoder *encoder = [[RegistrationEncoder alloc] init];
-        RegistrationService *registrationService = [[RegistrationService alloc] initWithEncoder:encoder
-                                                                                        decoder:decoder
-                                                                                    userStorage:userStorage];
+        // Create service manager
         DelimiterFramer *delimiterFramer = [[DelimiterFramer alloc] init];
         SocketHelper *socketHelper = [[SocketHelper alloc] init];
         ServicesManager *servicesManager = [[ServicesManager alloc] initWithFramer:delimiterFramer
                                                                       socketHelper:socketHelper
                                                                        userStorage:userStorage];
         
+        // Registration
+        RegistrationDecoder *decoder = [[RegistrationDecoder alloc] init];
+        RegistrationEncoder *encoder = [[RegistrationEncoder alloc] init];
+        RegistrationService *registrationService = [[RegistrationService alloc] initWithEncoder:encoder
+                                                                                        decoder:decoder
+                                                                                    userStorage:userStorage];
         [servicesManager addService:registrationService];
         registrationService.senderDelegate = servicesManager;
         
+        // Message
         MessageEncoder *messageEncoder = [[MessageEncoder alloc] init];
         MessageDecoder *messageDecoder = [[MessageDecoder alloc] init];
         MessageService *messageService = [[MessageService alloc] initWithEncoder:messageEncoder
@@ -48,6 +51,7 @@ int main(int argc, const char * argv[])
         [servicesManager addService:messageService];
         messageService.senderDelegate = servicesManager;
         
+        // Setup and run
         [servicesManager setupTCPServerSocketWithService:@"5000"];
         [servicesManager runMessagesLoop];
     }

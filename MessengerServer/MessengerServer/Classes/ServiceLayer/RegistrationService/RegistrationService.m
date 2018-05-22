@@ -54,7 +54,7 @@ static NSString *RegistrationServiceFailedError = @"RegistrationServiceFailedErr
     NSLog(@"sendRegistrationResponseBackToUser buffer=%@",buffer);
     if (error)
     {
-        [self tellDelegateAboutRegistratipnError:error];
+        [self tellDelegateAboutRegistrationError:error];
         return;
     }
     
@@ -68,7 +68,7 @@ static NSString *RegistrationServiceFailedError = @"RegistrationServiceFailedErr
     RegistrationRequest *registrationRequest = [self.decoder decodeRegistrationRequestFromBuffer:buffer error:&error];
     if (error)
     {
-        [self tellDelegateAboutRegistratipnError:error];
+        [self tellDelegateAboutRegistrationError:error];
         return;
     }
     
@@ -98,7 +98,7 @@ static NSString *RegistrationServiceFailedError = @"RegistrationServiceFailedErr
         return NO;
     }
     User *user = [[User alloc] initWithPhoneNumber:phoneNumber];
-    user.socket = socket;
+    user.socket = (int)socket;
     [self.userStorage addUser:user];
     
     NSArray *allUsers = [self.userStorage allUsers];
@@ -108,10 +108,10 @@ static NSString *RegistrationServiceFailedError = @"RegistrationServiceFailedErr
 
 - (void) sendRegistrationResponseBackToUserFailedWithError:(NSError *)error
 {
-    [self tellDelegateAboutRegistratipnError:error];
+    [self tellDelegateAboutRegistrationError:error];
 }
 
-- (void) tellDelegateAboutRegistratipnError:(NSError *)error
+- (void) tellDelegateAboutRegistrationError:(NSError *)error
 {
     NSDictionary *errorInfo = nil;
     if (error)

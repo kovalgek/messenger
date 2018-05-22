@@ -11,6 +11,7 @@
 
 @interface UserStorage()
 @property (nonatomic, strong) NSMutableArray<User*> *users;
+@property (nonatomic, strong) dispatch_queue_t concurrentQueue;
 @end
 
 @implementation UserStorage
@@ -20,30 +21,41 @@
     self = [super init];
     
     _users = [[NSMutableArray alloc] init];
+    _concurrentQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
     
     return self;
 }
 
 - (void) addUser:(User *)user
 {
-    [self.users addObject:user];
+    dispatch_barrier_async(self.concurrentQueue, ^{
+        [self.users addObject:user];
+    });
 }
 
 - (void) removeUser:(User *)user
 {
-    [self.users removeObject:user];
+    dispatch_barrier_async(self.concurrentQueue, ^{
+        [self.users removeObject:user];
+    });
 }
 
 - (User *) findUserWithPhoneNumber:(NSString *)phoneNumber
 {
-    for (User *user in self.users)
-    {
-        if([user.phoneNumber isEqualToString:phoneNumber])
+    __block User *searchingUser;
+    
+    dispatch_sync(self.concurrentQueue, ^{
+        for (User *user in self.users)
         {
-            return user;
+            if([user.phoneNumber isEqualToString:phoneNumber])
+            {
+                searchingUser = user;
+                break;
+            }
         }
-    }
-    return nil;
+    });
+    
+    return searchingUser;
 }
 
 - (NSMutableArray<User *> *)allUsers

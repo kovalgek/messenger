@@ -51,7 +51,7 @@ static NSString *MessageServiceFailedError = @"MessageServiceFailedError";
     
     if (error)
     {
-        [self tellDelegateAboutRegistratipnError:error];
+        [self tellDelegateAboutRegistrationError:error];
         return;
     }
     
@@ -65,7 +65,7 @@ static NSString *MessageServiceFailedError = @"MessageServiceFailedError";
     
     if (error)
     {
-        [self tellDelegateAboutRegistratipnError:error];
+        [self tellDelegateAboutRegistrationError:error];
         return;
     }
     
@@ -77,10 +77,10 @@ static NSString *MessageServiceFailedError = @"MessageServiceFailedError";
 
 - (void)sendMessageResponseBackToUserFailedWithError:(NSError *)error
 {
-    [self tellDelegateAboutRegistratipnError:error];
+    [self tellDelegateAboutRegistrationError:error];
 }
 
-- (void) tellDelegateAboutRegistratipnError:(NSError *)error
+- (void) tellDelegateAboutRegistrationError:(NSError *)error
 {
     NSDictionary *errorInfo = nil;
     if (error)
