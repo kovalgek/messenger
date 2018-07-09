@@ -13,6 +13,7 @@
 - (void) addUser:(User *)user;
 - (void) removeUser:(User *)user;
 - (User *) findUserWithPhoneNumber:(NSString *)phoneNumber;
-- (NSMutableArray<User*>*)allUsers;
+- (User *) userWithSocket:(int)socket;
+- (NSArray<User*>*)allUsers;
 
 @end

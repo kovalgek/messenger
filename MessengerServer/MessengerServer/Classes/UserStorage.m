@@ -58,7 +58,26 @@
     return searchingUser;
 }
 
-- (NSMutableArray<User *> *)allUsers
+- (User *) userWithSocket:(int)socket
+{
+    __block User *searchingUser;
+    
+    dispatch_sync(self.concurrentQueue, ^{
+
+        for (User *user in self.users)
+        {
+            if(user.socket == socket)
+            {
+                searchingUser = user;
+                break;
+            }
+        }
+    });
+    
+    return searchingUser;
+}
+
+- (NSArray<User *> *)allUsers
 {
     return [self.users copy];
 }
