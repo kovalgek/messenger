@@ -14,8 +14,6 @@
 
 static const size_t MAX_WIRE_SIZE = 4096;
 
-//static const int BUFSIZE = 1024;
-
 @interface ServicesManager()
 @property (nonatomic, strong) NSMutableArray <id<MessageReceiverType>> *services;
 @property (nonatomic, assign) int serverSocket;
@@ -37,8 +35,6 @@ static const size_t MAX_WIRE_SIZE = 4096;
     _socketHelper = socketHelper;
     _userStorage = userStorage;
     _services = [[NSMutableArray alloc] init];
-    
-    [self setupSignal];
     
     return self;
 }
@@ -93,13 +89,24 @@ static const size_t MAX_WIRE_SIZE = 4096;
         if (!receivedBuffer)
         {
             User *user = [self.userStorage userWithSocket:clientSocket];
-            [self.userStorage removeUser:user];
+            if(user)
+            {
+                [self.userStorage removeUser:user];
+            }
             break;
         }
         for(id<MessageReceiverType> service in self.services)
         {
             [service receivedBuffer:receivedBuffer forSocket:clientSocket];
         }
+    }
+    
+    NSLog(@"client left");
+    
+    User *user = [self.userStorage userWithSocket:clientSocket];
+    if(user)
+    {
+        [self.userStorage removeUser:user];
     }
 }
 
@@ -129,31 +136,6 @@ static const size_t MAX_WIRE_SIZE = 4096;
         const char *buffer = [message UTF8String];
         size_t bufferSize = strlen(buffer) * sizeof(char);
         [self.framer putMessageToSocketStream:channel buffer:(UInt8 *)buffer bufferSize:bufferSize];
-    }
-}
-
-void InterruptSignalHandler(int signalType) // Interrupt signal handling function
-{
-    NSLog(@"InterruptSignalHandler signalType=%d", signalType);
-}
-
-- (void) setupSignal
-{
-    struct sigaction handler; // Signal handler specification structure
-    
-    // Set InterruptSignalHandler() as handler function
-    handler.sa_handler = InterruptSignalHandler;
-    // Create mask that blocks all signals
-//    if (sigfillset(&handler.sa_mask) < 0)
-//    {
-//        [ErrorHelper dieWithSystemMessage:@"sigfillset() failed"];
-//    }
-    //handler.sa_flags = 0; // No flags
-    
-    // Set signal handling for interrupt signal
-    if (sigaction(SIGPIPE, &handler, 0) < 0)
-    {
-        [ErrorHelper dieWithSystemMessage:@"sigaction() failed for SIGINT"];
     }
 }
 
