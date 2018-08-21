@@ -7,7 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "ServicesControllerType.h"
 
-@interface ServiceController : NSObject
+@interface ServicesController : NSObject <ServicesControllerType>
 
 @end

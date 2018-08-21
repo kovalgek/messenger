@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		721AB2951FFC37E6004F8B24 /* ServicesManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 721AB2941FFC37E6004F8B24 /* ServicesManager.m */; };
+		721AB2951FFC37E6004F8B24 /* SocketController.m in Sources */ = {isa = PBXBuildFile; fileRef = 721AB2941FFC37E6004F8B24 /* SocketController.m */; };
 		721AB299200557D4004F8B24 /* RegistrationEncoderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 721AB298200557D4004F8B24 /* RegistrationEncoderTests.m */; };
 		721AB29B200557E1004F8B24 /* RegistrationDecoderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 721AB29A200557E1004F8B24 /* RegistrationDecoderTests.m */; };
+		723D2637212CBAD200D97967 /* ServicesController.m in Sources */ = {isa = PBXBuildFile; fileRef = 723D2636212CBAD200D97967 /* ServicesController.m */; };
 		72530F831FF2FC74009500BD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 72530F821FF2FC74009500BD /* AppDelegate.m */; };
-		72530F861FF2FC74009500BD /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72530F851FF2FC74009500BD /* ViewController.m */; };
 		72530F891FF2FC74009500BD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 72530F871FF2FC74009500BD /* Main.storyboard */; };
 		72530F8B1FF2FC74009500BD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 72530F8A1FF2FC74009500BD /* Assets.xcassets */; };
 		72530F8E1FF2FC74009500BD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 72530F8C1FF2FC74009500BD /* LaunchScreen.storyboard */; };
@@ -34,7 +34,6 @@
 		72785B8420755F61005B4A55 /* SocketHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 72785B8320755F61005B4A55 /* SocketHelper.m */; };
 		72785B8720755FEE005B4A55 /* ErrorHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 72785B8620755FEE005B4A55 /* ErrorHelper.m */; };
 		727D34621FFC2B3000C1E5B0 /* MockRegistrationServiceDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 727D34611FFC2B3000C1E5B0 /* MockRegistrationServiceDelegate.m */; };
-		72995FA2212CB33600FB98D5 /* ServiceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72995FA1212CB33600FB98D5 /* ServiceController.m */; };
 		72ADEF34212CAA9100A6A8A2 /* AppDependencies.m in Sources */ = {isa = PBXBuildFile; fileRef = 72ADEF33212CAA9000A6A8A2 /* AppDependencies.m */; };
 		72C0D367207E93D50086C054 /* MessageRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 72C0D364207E93D40086C054 /* MessageRequest.m */; };
 		72C0D368207E93D50086C054 /* MessageResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 72C0D365207E93D40086C054 /* MessageResponse.m */; };
@@ -73,16 +72,16 @@
 		398372A55475B82D1284E819 /* Pods_MessengerClient.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MessengerClient.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E684813FDC7537F0D3D4C1A /* Pods-MessengerClient.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MessengerClient.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MessengerClient/Pods-MessengerClient.debug.xcconfig"; sourceTree = "<group>"; };
 		5ECCDA76DD193EFBD096907E /* Pods_MessengerClientTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MessengerClientTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		721AB2931FFC37E6004F8B24 /* ServicesManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ServicesManager.h; sourceTree = "<group>"; };
-		721AB2941FFC37E6004F8B24 /* ServicesManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ServicesManager.m; sourceTree = "<group>"; };
+		721AB2931FFC37E6004F8B24 /* SocketController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SocketController.h; sourceTree = "<group>"; };
+		721AB2941FFC37E6004F8B24 /* SocketController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SocketController.m; sourceTree = "<group>"; };
 		721AB29720042E22004F8B24 /* FramerType.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FramerType.h; sourceTree = "<group>"; };
 		721AB298200557D4004F8B24 /* RegistrationEncoderTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RegistrationEncoderTests.m; sourceTree = "<group>"; };
 		721AB29A200557E1004F8B24 /* RegistrationDecoderTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RegistrationDecoderTests.m; sourceTree = "<group>"; };
+		723D2635212CBAA700D97967 /* ServicesControllerType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServicesControllerType.h; sourceTree = "<group>"; };
+		723D2636212CBAD200D97967 /* ServicesController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServicesController.m; sourceTree = "<group>"; };
 		72530F7E1FF2FC74009500BD /* MessengerClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MessengerClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		72530F811FF2FC74009500BD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		72530F821FF2FC74009500BD /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		72530F841FF2FC74009500BD /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		72530F851FF2FC74009500BD /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		72530F881FF2FC74009500BD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		72530F8A1FF2FC74009500BD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		72530F8D1FF2FC74009500BD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -132,8 +131,7 @@
 		727D345F1FFC2A2100C1E5B0 /* RegistrationServiceDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RegistrationServiceDelegate.h; sourceTree = "<group>"; };
 		727D34601FFC2B3000C1E5B0 /* MockRegistrationServiceDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MockRegistrationServiceDelegate.h; sourceTree = "<group>"; };
 		727D34611FFC2B3000C1E5B0 /* MockRegistrationServiceDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MockRegistrationServiceDelegate.m; sourceTree = "<group>"; };
-		72995FA0212CB33600FB98D5 /* ServiceController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ServiceController.h; sourceTree = "<group>"; };
-		72995FA1212CB33600FB98D5 /* ServiceController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ServiceController.m; sourceTree = "<group>"; };
+		72995FA0212CB33600FB98D5 /* ServicesController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ServicesController.h; sourceTree = "<group>"; };
 		72ADEF33212CAA9000A6A8A2 /* AppDependencies.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDependencies.m; sourceTree = "<group>"; };
 		72C0D363207E93D40086C054 /* MessageResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageResponse.h; sourceTree = "<group>"; };
 		72C0D364207E93D40086C054 /* MessageRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageRequest.m; sourceTree = "<group>"; };
@@ -237,8 +235,6 @@
 				72530FD21FF2FED4009500BD /* Classes */,
 				72530F811FF2FC74009500BD /* AppDelegate.h */,
 				72530F821FF2FC74009500BD /* AppDelegate.m */,
-				72530F841FF2FC74009500BD /* ViewController.h */,
-				72530F851FF2FC74009500BD /* ViewController.m */,
 				72530F871FF2FC74009500BD /* Main.storyboard */,
 				72530F8A1FF2FC74009500BD /* Assets.xcassets */,
 				72530F8C1FF2FC74009500BD /* LaunchScreen.storyboard */,
@@ -299,20 +295,21 @@
 		72530FD41FF2FEE9009500BD /* ServiceLayer */ = {
 			isa = PBXGroup;
 			children = (
-				72785B8520755FEE005B4A55 /* ErrorHelper.h */,
-				72785B8620755FEE005B4A55 /* ErrorHelper.m */,
+				721AB2931FFC37E6004F8B24 /* SocketController.h */,
+				721AB2941FFC37E6004F8B24 /* SocketController.m */,
+				723D2635212CBAA700D97967 /* ServicesControllerType.h */,
+				72995FA0212CB33600FB98D5 /* ServicesController.h */,
+				723D2636212CBAD200D97967 /* ServicesController.m */,
 				72D9489A200AB03B007D89F9 /* MessageSenderType.h */,
 				725DD85D200A076700F5004D /* MessageReceiverType.h */,
 				721AB29720042E22004F8B24 /* FramerType.h */,
 				72D94897200A122F007D89F9 /* DelimiterFramer.h */,
 				72D94898200A122F007D89F9 /* DelimiterFramer.m */,
-				721AB2931FFC37E6004F8B24 /* ServicesManager.h */,
-				721AB2941FFC37E6004F8B24 /* ServicesManager.m */,
-				72995FA0212CB33600FB98D5 /* ServiceController.h */,
-				72995FA1212CB33600FB98D5 /* ServiceController.m */,
 				72785B8120755E69005B4A55 /* SocketHelperType.h */,
 				72785B8220755F61005B4A55 /* SocketHelper.h */,
 				72785B8320755F61005B4A55 /* SocketHelper.m */,
+				72785B8520755FEE005B4A55 /* ErrorHelper.h */,
+				72785B8620755FEE005B4A55 /* ErrorHelper.m */,
 				72530FE01FF3AF5A009500BD /* MessageService */,
 				72530FDE1FF3AF43009500BD /* RegistrationService */,
 			);
@@ -768,18 +765,17 @@
 				72ADEF34212CAA9100A6A8A2 /* AppDependencies.m in Sources */,
 				72785B8420755F61005B4A55 /* SocketHelper.m in Sources */,
 				72785B8720755FEE005B4A55 /* ErrorHelper.m in Sources */,
+				723D2637212CBAD200D97967 /* ServicesController.m in Sources */,
 				72D94899200A122F007D89F9 /* DelimiterFramer.m in Sources */,
 				72C0D396207FFE1E0086C054 /* MessagesViewController.m in Sources */,
-				721AB2951FFC37E6004F8B24 /* ServicesManager.m in Sources */,
+				721AB2951FFC37E6004F8B24 /* SocketController.m in Sources */,
 				72719860207D56900077C8C4 /* MessageService.m in Sources */,
 				7255C4091FF3C4EE00EFF48F /* RegistrationDecoder.m in Sources */,
 				72C0D39E207FFE6A0086C054 /* MessagesInteractor.m in Sources */,
 				72530FD81FF2FF0C009500BD /* RegistrationRequest.m in Sources */,
 				72C0D367207E93D50086C054 /* MessageRequest.m in Sources */,
-				72530F861FF2FC74009500BD /* ViewController.m in Sources */,
 				72EEBC7F20824BD3008C8515 /* MessageResponsePlainObject.m in Sources */,
 				72C0D3A2207FFE8A0086C054 /* MessagesRouter.m in Sources */,
-				72995FA2212CB33600FB98D5 /* ServiceController.m in Sources */,
 				72C0D368207E93D50086C054 /* MessageResponse.m in Sources */,
 				72C0D38F207FFC4D0086C054 /* RegistrationViewController.m in Sources */,
 				72EEBC782081FF81008C8515 /* RegistrationResponsePlainObject.m in Sources */,

@@ -1,33 +1,39 @@
 //
-//  ServicesManager.m
+//  SocketController.m
 //  MessengerClient
 //
 //  Created by Anton Kovalchuk on 02.01.18.
 //  Copyright © 2018 Anton Kovalchuk. All rights reserved.
 //
 
-#import "ServicesManager.h"
+#import "SocketController.h"
 #import "ErrorHelper.h"
+#import "ServicesControllerType.h"
 
 static const size_t MAX_WIRE_SIZE = 4096;
 
-@interface ServicesManager()
+@interface SocketController()
+
 @property (nonatomic, strong) id<FramerType> framer;
 @property (nonatomic, strong) id<SocketHelperType> socketHelper;
+@property (nonatomic, strong) id<ServicesControllerType> serviceController;
+
 @property (nonatomic, assign) int socket;
-@property (nonatomic, strong) NSMutableArray <id<MessageReceiverType>> *services;
+
 @end
 
-@implementation ServicesManager
+@implementation SocketController
 
 
-- (instancetype) initWithFramer:(id<FramerType>)framer socketHelper:(nonnull id<SocketHelperType>)socketHelper
+- (instancetype) initWithFramer:(id<FramerType>)framer
+                   socketHelper:(nonnull id<SocketHelperType>)socketHelper
+              serviceController:(nonnull id<ServicesControllerType>)serviceController
 {
     self = [super init];
     
     _framer = framer;
     _socketHelper = socketHelper;
-    _services = [[NSMutableArray alloc] init];
+    _serviceController = serviceController;
     
     return self;
 }
@@ -36,17 +42,6 @@ static const size_t MAX_WIRE_SIZE = 4096;
                                  port:(NSString *)port
 {
     self.socket = [self.socketHelper clientSocketForHost:host port:port];
-    NSLog(@"self.socket=%d",self.socket);
-}
-
-- (void) addService:(id<MessageReceiverType>)service
-{
-    [self.services addObject:service];
-}
-
-- (void) removeService:(id<MessageReceiverType>)service
-{
-    [self.services removeObject:service];
 }
 
 - (void) runMessagesLoop
@@ -60,17 +55,13 @@ static const size_t MAX_WIRE_SIZE = 4096;
     while ((mSize = [self.framer getNextMesageFromSocketStream:channel buffer:inbuf bufferSize:MAX_WIRE_SIZE]) > 0)
     {
         NSString *receivedBuffer = [[NSString alloc] initWithBytes:inbuf length:mSize encoding:NSUTF8StringEncoding];
-        NSLog(@"receivedBuffer=%@",receivedBuffer);
         
         if(!receivedBuffer)
         {
             break;
         }
         
-        for(id<MessageReceiverType> service in self.services)
-        {
-            [service receivedBuffer:receivedBuffer];
-        }
+        [self.serviceController notifyServicesWithBuffer:receivedBuffer];
     }
 }
 

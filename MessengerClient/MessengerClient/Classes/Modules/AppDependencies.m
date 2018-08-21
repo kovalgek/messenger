@@ -8,9 +8,10 @@
 
 #import "AppDependencies.h"
 
-#import "ServicesManager.h"
+#import "SocketController.h"
 #import "DelimiterFramer.h"
 #import "SocketHelper.h"
+#import "ServicesController.h"
 
 #import "RegistrationRouter.h"
 #import "RegistrationService.h"
@@ -24,7 +25,7 @@
 
 @interface AppDependencies()
 
-@property (nonatomic, strong) ServicesManager *servicesManager;
+@property (nonatomic, strong) SocketController *socketController;
 @property (nonatomic, strong) RegistrationRouter *registrationRouter;
 @property (nonatomic, strong) MessagesRouter *messagesRouter;
 
@@ -46,10 +47,13 @@
     // create service manager
     DelimiterFramer *delimiterFramer = [[DelimiterFramer alloc] init];
     SocketHelper *socketHelper = [[SocketHelper alloc] init];
-    self.servicesManager = [[ServicesManager alloc] initWithFramer:delimiterFramer socketHelper:socketHelper];
+    ServicesController *serviceController = [[ServicesController alloc] init];
+    self.socketController = [[SocketController alloc] initWithFramer:delimiterFramer
+                                                        socketHelper:socketHelper
+                                                   serviceController:serviceController];
     
     // setup service manager
-    [self.servicesManager setupTCPClientSocketWithHost:@"127.0.0.1" port:@"5000"];
+    [self.socketController setupTCPClientSocketWithHost:@"127.0.0.1" port:@"5000"];
     
     // ---------------------------
     // create registration service
@@ -57,9 +61,9 @@
     RegistrationEncoder *encoder = [[RegistrationEncoder alloc] init];
     RegistrationService *registrationService = [[RegistrationService alloc] initWithEncoder:encoder decoder:decoder];
     
-    // add it to service manager
-    [self.servicesManager addService:registrationService];
-    registrationService.senderDelegate = self.servicesManager;
+    // add registration service to service manager
+    [serviceController addService:registrationService];
+    registrationService.senderDelegate = self.socketController;
     
     // crate registration router
     self.registrationRouter = [[RegistrationRouter alloc] initWithService:registrationService];
@@ -70,9 +74,9 @@
     MessageEncoder *messageEncoder = [[MessageEncoder alloc] init];
     MessageService *messageService = [[MessageService alloc] initWithEncoder:messageEncoder decoder:messageDecoder];
     
-    // add it to service manager
-    [self.servicesManager addService:messageService];
-    messageService.senderDelegate = self.servicesManager;
+    // add message service to service manager
+    [serviceController addService:messageService];
+    messageService.senderDelegate = self.socketController;
     
     // crate messages router
     self.messagesRouter = [[MessagesRouter alloc] initWithService:messageService];
@@ -82,7 +86,7 @@
     
     // run service manager
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
-        [self.servicesManager runMessagesLoop];
+        [self.socketController runMessagesLoop];
     });
 }
 

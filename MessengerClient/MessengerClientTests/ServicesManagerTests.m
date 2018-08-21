@@ -1,5 +1,5 @@
 //
-//  ServicesManagerTests.m
+//  SocketControllerTests.m
 //  MessengerClientTests
 //
 //  Created by Anton Kovalchuk on 22.01.18.
@@ -11,66 +11,75 @@
 #import "MockFramer.h"
 #import "MessageReceiverType.h"
 #import "MockMessageReceiver.h"
-#import "ServicesManager.h"
+#import "SocketController.h"
+#import "ServicesControllerType.h"
+#import "ServicesController.h"
 
-@interface ServicesManagerTests : XCTestCase
-@property (nonatomic, strong) ServicesManager *servicesManager;
+@interface SocketControllerTests : XCTestCase
+@property (nonatomic, strong) SocketController *socketController;
 @property (nonatomic, strong) id<SocketHelperType> socketHelper;
 @property (nonatomic, strong) id<MessageReceiverType> messageReceiver;
+@property (nonatomic, strong) id<ServicesControllerType> serviceController;
 @property (nonatomic, strong) id<FramerType> framer;
 @end
 
-@implementation ServicesManagerTests
+@implementation SocketControllerTests
 
 - (void)setUp
 {
     [super setUp];
     self.framer = OCMProtocolMock(@protocol(FramerType));
     self.socketHelper = OCMProtocolMock(@protocol(SocketHelperType));
-    self.servicesManager = [[ServicesManager alloc] initWithFramer:self.framer socketHelper:self.socketHelper];
+    self.serviceController = OCMProtocolMock(@protocol(ServicesControllerType));
+    self.socketController = [[SocketController alloc] initWithFramer:self.framer
+                                                        socketHelper:self.socketHelper
+                                                   serviceController:self.serviceController];
 }
 
 - (void)tearDown
 {
     self.framer = nil;
     self.socketHelper = nil;
-    self.servicesManager = nil;
+    self.socketController = nil;
+    self.serviceController = nil;
     [super tearDown];
 }
 
-- (void) testThatServicesManagerExists
+- (void) testThatSocketControllerExists
 {
-    XCTAssertNotNil(self.servicesManager, @"Should be able to create ServicesManager instance");
+    XCTAssertNotNil(self.socketController, @"Should be able to create SocketController instance");
 }
 
 - (void) testThatSetupAsksForClientSocket
 {
-    [self.servicesManager setupTCPClientSocketWithHost:@"127.0.0.1" port:@"5000"];
+    [self.socketController setupTCPClientSocketWithHost:@"127.0.0.1" port:@"5000"];
     OCMVerify([self.socketHelper clientSocketForHost:@"127.0.0.1" port:@"5000"]);
 }
 
 - (void) testThatRunLoopParsesSocketBuffer
 {
     MockFramer *mockFramer = [[MockFramer alloc] init];
-    self.servicesManager = [[ServicesManager alloc] initWithFramer:mockFramer socketHelper:self.socketHelper];
-    [self.servicesManager runMessagesLoop];
+    self.socketController = [[SocketController alloc] initWithFramer:mockFramer
+                                                        socketHelper:self.socketHelper
+                                                   serviceController:self.serviceController];
+    [self.socketController runMessagesLoop];
     XCTAssertTrue([self waitFor: ^{ return mockFramer.wasAskedToGetNextMessage; }], @"Framer should be asked");
 }
 
-- (void) testThatRunLoopSendsReceivedBufferToServiceReseiver
-{
-    MockMessageReceiver *mockMessageReceiver = [[MockMessageReceiver alloc] init];
-    MockFramer *mockFramer = [[MockFramer alloc] init];
-    self.servicesManager = [[ServicesManager alloc] initWithFramer:mockFramer socketHelper:self.socketHelper];
-    [self.servicesManager addService:mockMessageReceiver];
-    [self.servicesManager runMessagesLoop];
-    
-    XCTAssertTrue([self waitFor: ^{ return (BOOL)(mockMessageReceiver.buffer.length > 0); }], @"Buffer should be passed to service");
-}
+//- (void) testThatRunLoopSendsReceivedBufferToServiceReseiver
+//{
+//    MockMessageReceiver *mockMessageReceiver = [[MockMessageReceiver alloc] init];
+//    MockFramer *mockFramer = [[MockFramer alloc] init];
+//    self.socketController = [[SocketController alloc] initWithFramer:mockFramer socketHelper:self.socketHelper serviceController:self.serviceController];
+//    [self.socketController addService:mockMessageReceiver];
+//    [self.socketController runMessagesLoop];
+//
+//    XCTAssertTrue([self waitFor: ^{ return (BOOL)(mockMessageReceiver.buffer.length > 0); }], @"Buffer should be passed to service");
+//}
 
 - (void) testThatSendMessageCallsPutMesage
 {
-    [self.servicesManager sendMessage:@"IDDQD"];
+    [self.socketController sendMessage:@"IDDQD"];
     OCMVerify([self.framer putMessageToSocketStream:[OCMArg anyPointer] buffer:[OCMArg anyPointer] bufferSize:5]);
 }
 
