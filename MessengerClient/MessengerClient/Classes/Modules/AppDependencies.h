@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RoutersFactory : NSObject
+@interface AppDependencies : NSObject
 
 - (void) installRootViewController:(UIWindow *)window;
 

@@ -34,6 +34,8 @@
 		72785B8420755F61005B4A55 /* SocketHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 72785B8320755F61005B4A55 /* SocketHelper.m */; };
 		72785B8720755FEE005B4A55 /* ErrorHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 72785B8620755FEE005B4A55 /* ErrorHelper.m */; };
 		727D34621FFC2B3000C1E5B0 /* MockRegistrationServiceDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 727D34611FFC2B3000C1E5B0 /* MockRegistrationServiceDelegate.m */; };
+		72995FA2212CB33600FB98D5 /* ServiceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72995FA1212CB33600FB98D5 /* ServiceController.m */; };
+		72ADEF34212CAA9100A6A8A2 /* AppDependencies.m in Sources */ = {isa = PBXBuildFile; fileRef = 72ADEF33212CAA9000A6A8A2 /* AppDependencies.m */; };
 		72C0D367207E93D50086C054 /* MessageRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 72C0D364207E93D40086C054 /* MessageRequest.m */; };
 		72C0D368207E93D50086C054 /* MessageResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 72C0D365207E93D40086C054 /* MessageResponse.m */; };
 		72C0D384207FFBE70086C054 /* RegistrationRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = 72C0D383207FFBE70086C054 /* RegistrationRouter.m */; };
@@ -52,7 +54,6 @@
 		72D948A820167345007D89F9 /* MockMessageReceiver.m in Sources */ = {isa = PBXBuildFile; fileRef = 72D948A720167345007D89F9 /* MockMessageReceiver.m */; };
 		72EA1328208256C200E10B79 /* MessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 72EA1327208256C200E10B79 /* MessageCell.m */; };
 		72EEBC782081FF81008C8515 /* RegistrationResponsePlainObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 72EEBC772081FF81008C8515 /* RegistrationResponsePlainObject.m */; };
-		72EEBC7B20820AA1008C8515 /* RoutersFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 72EEBC7A20820AA1008C8515 /* RoutersFactory.m */; };
 		72EEBC7F20824BD3008C8515 /* MessageResponsePlainObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 72EEBC7E20824BD3008C8515 /* MessageResponsePlainObject.m */; };
 		AE687C012B764B0E4137801E /* Pods_MessengerClient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 398372A55475B82D1284E819 /* Pods_MessengerClient.framework */; };
 		D59C8224D4CF9B0222D31949 /* Pods_MessengerClientTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5ECCDA76DD193EFBD096907E /* Pods_MessengerClientTests.framework */; };
@@ -131,6 +132,9 @@
 		727D345F1FFC2A2100C1E5B0 /* RegistrationServiceDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RegistrationServiceDelegate.h; sourceTree = "<group>"; };
 		727D34601FFC2B3000C1E5B0 /* MockRegistrationServiceDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MockRegistrationServiceDelegate.h; sourceTree = "<group>"; };
 		727D34611FFC2B3000C1E5B0 /* MockRegistrationServiceDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MockRegistrationServiceDelegate.m; sourceTree = "<group>"; };
+		72995FA0212CB33600FB98D5 /* ServiceController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ServiceController.h; sourceTree = "<group>"; };
+		72995FA1212CB33600FB98D5 /* ServiceController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ServiceController.m; sourceTree = "<group>"; };
+		72ADEF33212CAA9000A6A8A2 /* AppDependencies.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDependencies.m; sourceTree = "<group>"; };
 		72C0D363207E93D40086C054 /* MessageResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessageResponse.h; sourceTree = "<group>"; };
 		72C0D364207E93D40086C054 /* MessageRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageRequest.m; sourceTree = "<group>"; };
 		72C0D365207E93D40086C054 /* MessageResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessageResponse.m; sourceTree = "<group>"; };
@@ -176,8 +180,7 @@
 		72EEBC752081FEF7008C8515 /* RegistrationViewControllerOutput.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RegistrationViewControllerOutput.h; sourceTree = "<group>"; };
 		72EEBC762081FF81008C8515 /* RegistrationResponsePlainObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RegistrationResponsePlainObject.h; sourceTree = "<group>"; };
 		72EEBC772081FF81008C8515 /* RegistrationResponsePlainObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RegistrationResponsePlainObject.m; sourceTree = "<group>"; };
-		72EEBC7920820AA1008C8515 /* RoutersFactory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RoutersFactory.h; sourceTree = "<group>"; };
-		72EEBC7A20820AA1008C8515 /* RoutersFactory.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RoutersFactory.m; sourceTree = "<group>"; };
+		72EEBC7920820AA1008C8515 /* AppDependencies.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDependencies.h; sourceTree = "<group>"; };
 		72EEBC7C20824B7D008C8515 /* MessagesPresenterOutput.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessagesPresenterOutput.h; sourceTree = "<group>"; };
 		72EEBC7D20824BD3008C8515 /* MessageResponsePlainObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageResponsePlainObject.h; sourceTree = "<group>"; };
 		72EEBC7E20824BD3008C8515 /* MessageResponsePlainObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessageResponsePlainObject.m; sourceTree = "<group>"; };
@@ -305,6 +308,8 @@
 				72D94898200A122F007D89F9 /* DelimiterFramer.m */,
 				721AB2931FFC37E6004F8B24 /* ServicesManager.h */,
 				721AB2941FFC37E6004F8B24 /* ServicesManager.m */,
+				72995FA0212CB33600FB98D5 /* ServiceController.h */,
+				72995FA1212CB33600FB98D5 /* ServiceController.m */,
 				72785B8120755E69005B4A55 /* SocketHelperType.h */,
 				72785B8220755F61005B4A55 /* SocketHelper.h */,
 				72785B8320755F61005B4A55 /* SocketHelper.m */,
@@ -399,8 +404,8 @@
 			children = (
 				72C0D37C207FFB030086C054 /* Messages */,
 				72C0D37B207FFAFB0086C054 /* Registration */,
-				72EEBC7920820AA1008C8515 /* RoutersFactory.h */,
-				72EEBC7A20820AA1008C8515 /* RoutersFactory.m */,
+				72EEBC7920820AA1008C8515 /* AppDependencies.h */,
+				72ADEF33212CAA9000A6A8A2 /* AppDependencies.m */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -760,6 +765,7 @@
 				72719861207D56900077C8C4 /* MessageEncoder.m in Sources */,
 				72C0D38C207FFC3E0086C054 /* RegistrationPresenter.m in Sources */,
 				7255C4041FF3C4C600EFF48F /* RegistrationEncoder.m in Sources */,
+				72ADEF34212CAA9100A6A8A2 /* AppDependencies.m in Sources */,
 				72785B8420755F61005B4A55 /* SocketHelper.m in Sources */,
 				72785B8720755FEE005B4A55 /* ErrorHelper.m in Sources */,
 				72D94899200A122F007D89F9 /* DelimiterFramer.m in Sources */,
@@ -773,7 +779,7 @@
 				72530F861FF2FC74009500BD /* ViewController.m in Sources */,
 				72EEBC7F20824BD3008C8515 /* MessageResponsePlainObject.m in Sources */,
 				72C0D3A2207FFE8A0086C054 /* MessagesRouter.m in Sources */,
-				72EEBC7B20820AA1008C8515 /* RoutersFactory.m in Sources */,
+				72995FA2212CB33600FB98D5 /* ServiceController.m in Sources */,
 				72C0D368207E93D50086C054 /* MessageResponse.m in Sources */,
 				72C0D38F207FFC4D0086C054 /* RegistrationViewController.m in Sources */,
 				72EEBC782081FF81008C8515 /* RegistrationResponsePlainObject.m in Sources */,

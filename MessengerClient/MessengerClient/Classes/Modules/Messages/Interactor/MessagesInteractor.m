@@ -20,7 +20,9 @@
 - (instancetype)initWithService:(id<MessageServiceType>)service
 {
     self = [super init];
+    
     _service = service;
+    
     return self;
 }
 

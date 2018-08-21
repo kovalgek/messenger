@@ -20,7 +20,7 @@
         return 0;
     }
     self.wasAskedToGetNextMessage = YES;
-    return 10;
+    return 3;
 }
 
 - (int)putMessageToSocketStream:(FILE *)socketStream

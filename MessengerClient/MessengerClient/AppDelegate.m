@@ -7,10 +7,10 @@
 //
 
 #import "AppDelegate.h"
-#import "RoutersFactory.h"
+#import "AppDependencies.h"
 
 @interface AppDelegate ()
-@property (nonatomic, strong) RoutersFactory *routersFactory;
+@property (nonatomic, strong) AppDependencies *appDependencies;
 @end
 
 @implementation AppDelegate
@@ -19,8 +19,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    self.routersFactory = [[RoutersFactory alloc] init];
-    [self.routersFactory installRootViewController: self.window];
+    self.appDependencies = [[AppDependencies alloc] init];
+    [self.appDependencies installRootViewController: self.window];
     return YES;
 }
 

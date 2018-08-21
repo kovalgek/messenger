@@ -19,7 +19,9 @@
 - (instancetype)initWithService:(id<RegistrationServiceType>) service
 {
     self = [super init];
+    
     _service = service;
+    
     return self;
 }
 

@@ -53,7 +53,7 @@ static const size_t MAX_WIRE_SIZE = 4096;
 {
     FILE *channel = [self.socketHelper streamForSocket:self.socket];
     
-    size_t mSize;
+    size_t mSize;   
     UInt8 inbuf[MAX_WIRE_SIZE];
     
     // Receive and print response
@@ -61,6 +61,12 @@ static const size_t MAX_WIRE_SIZE = 4096;
     {
         NSString *receivedBuffer = [[NSString alloc] initWithBytes:inbuf length:mSize encoding:NSUTF8StringEncoding];
         NSLog(@"receivedBuffer=%@",receivedBuffer);
+        
+        if(!receivedBuffer)
+        {
+            break;
+        }
+        
         for(id<MessageReceiverType> service in self.services)
         {
             [service receivedBuffer:receivedBuffer];
